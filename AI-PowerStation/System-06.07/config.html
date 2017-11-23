@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <!--<div class="col-xs-8 nav-rg">-->
+            <!--<div class="exponent-box">-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--</div>-->
+            <!--<div class="date-box">-->
+            <!--<span>2017年4月11日</span>-->
+            <!--<span>星期四</span>-->
+            <!--<span>8:30</span>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="guanli main">
+    <div class="main-lf-btn">
+        <button class="system-btn">添加</button>
+        <button class="system-btn">编辑</button>
+        <div class=""></div>
+    </div>
+    <div class="main-rg-tb">
+        <div id="table1">
+            <div class="table-box1">
+                <table class="table2 table-bordered  table-h">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>房间</th>
+                        <th>情景名称</th>
+                        <th>情景选择</th>
+                    </tr>
+                    </thead>
+                </table>
+                <b class="scroll-add" style=""></b>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered  table-b">
+                    <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <div id="table2">
+            <div class="table-box1">
+                <table class="table2 table-bordered table-h">
+                    <thead>
+                    <tr>
+                        <th>模式ID</th>
+                        <th>应用周期</th>
+                        <th>应用时间</th>
+                        <th>是否启用</th>
+                    </tr>
+                    </thead>
+                </table>
+                <b class="scroll-add" style=""></b>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered table-b">
+                <tbody>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                </tbody>
+            </table>
+
+            </div>
+        </div>
+        <div id="table3">
+            <div class="table-box1">
+                <table class="table2 table-bordered table-h">
+                    <thead>
+                        <tr>
+                            <th>房间ID</th>
+                            <th>设备类型</th>
+                            <th>设备名称</th>
+                            <th>状态(开/关)</th>
+                            <th>延时值</th>
+                        </tr>
+                    </thead>
+                </table>
+                <b class="scroll-add" style=""></b>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered table-b">
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--<script src="js/sdk/SH_SDK_v1.1.2.js"></script>-->
+<!--<script type="text/javascript" src="js/gateway.js"></script>-->
+<!--<script type="text/javascript" src="js/displayInformation.js"></script>-->
+<!--<script type="text/javascript" src="js/config.js"></script>-->
+<!--<script type="text/javascript" src="js/operate.js"></script>-->
+<!--<script type="text/javascript" src="js/scene.js"></script>-->
+<!--<script type="text/javascript" src="js/IFTTT.js"></script>-->
+<script>
+//    table_djust(ID,表体显示行数)
+    var address=$('#table1');
+    table_djust(address,2);
+    address=$('#table2');
+    table_djust(address,4);
+    address=$('#table3');
+    table_djust(address,2);
+function table_djust(address,num){
+    var html;
+    if(address.find('.table-box2 tr').length<2){
+        html='<tr>';
+        for(var i=0;i<address.find('.table-box1 .table-h th').length;i++){
+            html+='<td></td>';
+        }
+        html+='</tr>';
+        address.find('.table-box2 tbody').append(html);
+        address.find('.scroll-add').css('background','transparent');
+    }else{
+        address.find('.scroll-add').css('background','#F1F1F1');
+
+    }
+    if(num.length=0||num<2){
+        num=3;
+    }else if(num>6){
+        num=6
+    }
+    address.find('.table-box2').css('height',num*37+2);
+    var scrollbarWidth = address.find('.table-box2')[0].offsetWidth - $('.table-box2')[0].scrollWidth;
+    console.log(address.find('.table-box1')[0].offsetWidth-scrollbarWidth);
+    address.find('.scroll-add').width(scrollbarWidth);
+    address.find('.table-h').width($('.table-box1')[0].offsetWidth-scrollbarWidth-4);
+    address.find('.table-h').each(function(){
+        var th_num=address.find('.table-h').find('th').length;
+        var tr_num=address.find('.table-b').find('tr').length;
+        var th_width;
+        console.log(tr_num);
+        for(var i=0;i<th_num;i++){
+            th_width=address.find('.table-h').find('th').eq(i).outerWidth();
+            address.find('.table-b').find('tr').eq(1).find('td').eq(i).outerWidth(th_width) ;
+        }
+    });
+}
+</script>
+<script>
+</script>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id":"1",
+  "name":"资产 001 桌椅",
+  "model_id":"",
+  "model":{
+    "type":"0",
+    "obj":"models/desk/desk.obj",
+    "mtl":"models/desk/desk.mtl"
+  },
+  "size": {
+    "width":2,
+    "depth":1,
+    "height":0.8
+  }
+}

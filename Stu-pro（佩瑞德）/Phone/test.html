@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div><input type="text" id="input1" data-type="1"/><b></b></div>
+    <div><input type="text" id="input2" data-type="2" /><b></b></div>
+    <div><input type="text" id="input3" data-type="3"/><b></b></div>
+    <button>按钮</button>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+    <script>
+//        $('#input1').blur(function () {
+//            var input1=$.trim($(this).val());
+//            var num=fun1(input1);
+//            if(num==true){
+//                $(this).next().html('正确');
+//            }else if(num==false){
+//                $(this).next().html('错误');
+//            }
+//        });
+//        function fun1(s) {
+//            var patrn = /^[A-Za-z0-9]+$/;
+//            if (!patrn.exec(s)) return false;
+//            return true
+//        }
+//------------------------------------------
+    $('button').click(function () {
+        $('input').each(function () {
+            var num;
+            console.log($(this).attr('data-type'));
+            switch(parseInt($(this).attr('data-type'))){
+                case 1:
+                    console.log('执行代码块 1');
+                    num=fun1($.trim($(this).val()));
+                    $(this).next().removeClass('succ').removeClass('err');
+                    if(num==true){
+                        $(this).next().addClass('succ').html('正确');
+                    }else if(num==false){
+                        $(this).next().addClass('err').html('请输入数字或英文');
+                    }
+                    break;
+                case 2:
+                    console.log('执行代码块 2');
+                    num=fun2($.trim($(this).val()));
+                    $(this).next().removeClass('succ').removeClass('err');
+                    if(num==true){
+                        $(this).next().addClass('succ').html('正确');
+                    }else if(num==false){
+                        $(this).next().addClass('err').html('请输入3-20位的数字');
+                    }
+                    break;
+                case 3:
+                    console.log('执行代码块 2');
+                    num=fun3($.trim($(this).val()));
+                    $(this).next().removeClass('succ').removeClass('err');
+                    if(num==true){
+                        $(this).next().addClass('succ').html('正确');
+                    }else if(num==false){
+                        $(this).next().addClass('err').html('请输入汉字');
+                    }
+                    break;
+            }
+        })
+        if($('div').find('b').hasClass('err')){
+            console.error('存在错误');
+        }else{
+            var input1=$.trim($('#input2').val());
+            var input2=$.trim($('#input2').val());
+            var input3=$.trim($('#input3').val());
+            console.log(input1,input2,input3);
+        }
+
+
+    });
+    function fun1(txt) {
+        var patrn = /^[A-Za-z0-9]+$/;
+        if (!patrn.exec(txt)) return false;
+        return true
+    }
+    function fun2(txt) {
+        var patrn = /^.{3,20}$/;
+        if (!patrn.exec(txt)) return false;
+        return true
+    }
+    function fun3(txt) {
+        var patrn = /^[\u4e00-\u9fa5]{0,}$/;
+        if (!patrn.exec(txt)) return false;
+        return true
+    }
+    </script>
+</body>
+</html>

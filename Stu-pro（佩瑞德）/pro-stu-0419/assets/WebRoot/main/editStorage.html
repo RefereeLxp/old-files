@@ -1,0 +1,23 @@
+<html>
+<form action="/assets/device/updateStorage" method="post">
+    <div>
+		<label>编号</label>
+		<input type="text" name="storage.number" value="#(storage.number??)" />
+		<input type="hidden" name="storage.id" value="#(storage.id??)" />
+		<input type="hidden" name="userId" value="#(user.get(0).id)" />				
+	</div>
+	    <div>
+		<label>类型</label>
+		<input type="text" name="storage.type" value="#(storage.type??)" />
+	</div>
+	    <div>
+		<label>硬盘序列号</label>
+		<input type="text" name="storage.diskNum" value="#(storage.diskNum??)" />
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input value="提交" type="submit">
+	</div>
+</form>
+	
+</html>

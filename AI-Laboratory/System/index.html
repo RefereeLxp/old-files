@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <div class="col-xs-8 nav-rg">
+                <div class="exponent-box">
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                </div>
+                <div class="date-box">
+                    <span>2017年4月11日</span>
+                    <span>星期四</span>
+                    <span>8:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="warning-bar">
+        <div class="container">
+            <div class="warning-info">
+                <div class="warning-icon">
+                    <b></b>
+                    <span class="warning">设备故障</span>
+                </div>
+                <div class="warning-tit">
+                    <p>1.023设备故障</p>
+                    <p>1.023设备故障</p>
+                    <p>1.023设备故障</p>
+                </div>
+            </div>
+            <div class="user-box">
+                <div class="user-head">
+                    <img src="image/111.jpg" alt=""/>
+                </div>
+                <div class="user-info">
+                    <p class="user-name">王小二</p>
+                    <p class="user-other"><span>4/13</span><span>9:25</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-manager">
+        <div class="container">
+            <div class="manager-box">
+                <div class="manager-lt">
+                    <b></b>
+                    <p>灯光管理</p>
+                </div>
+                <div class="manager-lt">
+                    <b></b>
+                    <p>水泵管理</p>
+                </div>
+                <div class="manager-lt">
+                    <b></b>
+                    <p>空调管理</p>
+                </div>
+                <div class="manager-lt">
+                    <b></b>
+                    <p>风机管理</p>
+                </div>
+                <div class="manager-lt">
+                    <b></b>
+                    <p>门禁管理</p>
+                </div>
+                <div class="manager-lt" data-toggle="modal" data-target="#video-box">
+                    <b></b>
+                    <p>监控管理</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contextual-model">
+        <div class="container">
+            <div class="modal-box">
+                <div class="modal-tit">
+                    <h3>情景模式</h3>
+                </div>
+                <div class="modal-line"></div>
+                <div class="modal-info">
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>火警</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>漏水</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>呼叫</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>入侵</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>警戒</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>撤防</p>
+                    </div>
+                    <div class="modal-info-box">
+                        <b></b>
+                        <p>自定义</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="video-box" tabindex="-1" role="dialog" aria-labelledby="video-box" aria-hidden="true">
+    <div class="modal-dialog" style="width:850px;margin-top: 8%;">
+        <div class="modal-content">
+            <!--<div class="modal-header">-->
+
+            <!--</div>-->
+            <div class="video-head">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×
+                </button>
+                <div class="video-btn"><b></b>实&nbsp;播</div>
+                <div class="video-btn"><b></b>回&nbsp;放</div>
+                <div class="video-btn"><b></b>管&nbsp;理</div>
+            </div>
+            <div class="modal-body" style="height:550px">
+                <div class="video1">
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="800" height="480">
+                        <param name='mrl' value='rtsp://admin:nuaa1234@192.168.1.148/h264/ch1/main/av_stream' />
+                        <param name='volume' value='50' />
+                        <param name='autoplay' value='true' />
+                        <param name='loop' value='false' />
+                        <param name='fullscreen' value='false' />
+                        <param name='controls' value='false' />
+                    </object>
+                    <!--<img class="btn-control" src="../../../image/play.png">-->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

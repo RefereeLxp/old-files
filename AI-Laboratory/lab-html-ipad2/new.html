@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/lab.css" rel="stylesheet">
+</head>
+<body>
+<!--导航条-->
+<div class="nav-bar">
+    <div class="container">
+        <div class="navbox row">
+            <div class="col-xs-3 col-lg-2 navbar-left">
+                <img src="image/logo.png" alt="" width="190px"/>
+            </div>
+            <div class="col-xs-5 nav-tit">
+                <img class="img1" src="image/nanhang.png"/>
+                <p></p>
+                <div class="nav-rg-box">
+                    <img class="img2" src="image/nanhangpinyin.png" alt=""/>
+                </div>
+            </div>
+            <div class="col-xs-4 col-lg-5 navbar-right">
+                <div class="exponent-box">
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                </div>
+                <div class="date-box">
+                    <span>2017年4月11日</span>
+                    <span>星期四</span>
+                    <span>8:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主体-->
+<div class="main">
+    <div class="container">
+        <div class="manager-box">
+            <div class="manager-lt">
+                <b></b>
+                <p>上课</p>
+            </div>
+            <div class="manager-lt">
+                <b></b>
+                <p>下课</p>
+            </div>
+            <div class="manager-lt">
+                <b></b>
+                <p>灯光</p>
+            </div>
+            <div class="manager-lt">
+                <b></b>
+                <p>投影</p>
+            </div>
+            <div class="manager-lt">
+                <b></b>
+                <p>空调</p>
+            </div>
+            <div class="manager-lt">
+                <b></b>
+                <p>黑板灯</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="footer-tit">
+            Nanjing University of Aeronautics and Astronautics
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $('.manager-box').height($('.manager-lt').outerHeight()*2);
+</script>
+</body>
+</html>

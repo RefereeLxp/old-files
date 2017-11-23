@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .bg-box{
+            display: flex;
+            width: 800px;
+            border: 1px solid red;
+            flex-wrap:nowrap;
+            justify-content:space-around;
+            /*align-items:*/
+        }
+        .box{
+            width: 300px;
+            border: 1px solid #5e5e5e;
+        }
+        .box:nth-child(1){
+            height: 300px;
+            order:3;
+            /*flex-grow:1;*/
+            flex-shrink:2;
+        }
+        .box:nth-child(2){
+            height: 200px;
+            order:2;
+            /*flex-grow:2;*/
+            flex-shrink:1;
+        }
+        .box:nth-child(3){
+            height: 400px;
+            order:4;
+            flex-shrink:1;
+            /*flex-grow:1;*/
+        }
+        .box:nth-child(4){
+            height: 500px;
+            order:1;
+            flex-shrink:1;
+            /*flex-grow:4;*/
+        }
+    </style>
+</head>
+<body>
+<div class="bg-box">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+</div>
+</body>
+</html>

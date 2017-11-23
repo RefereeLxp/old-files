@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="js/angular.js"></script>
+<body ng-app="myAlarm">
+
+<table ng-init="stuList=[
+    {name:'Michael',score:80,sex:'man'},
+    {name:'HanMeiMei',score:70,sex:'man'},
+    {name:'Lucy',score:90,sex:'man'},
+    {name:'LiLy',score:100,sex:'woman'}
+    ]">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>成绩</th>
+        <th>性别</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="line in stuList" ng-if="line.score<80">
+        <!--<td ng-repeat="(key,value) in tmp">-->
+            <!--{{value}}-->
+        <!--</td>-->
+         <td>{{line.name}}</td>
+         <td>{{line.score}}</td>
+         <td>{{line.sex}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h1 ng-bind="stuList[1].name"></h1>
+<span ng-init="huiyuan=true"></span>
+<h1 ng-if="huiyuan">34535734</h1>
+<div ng-controller="myalarm">
+    <table>
+        <tbody>
+        <tr ng-repeat="line in data">
+            <td>{{line.arisestime}}</td>
+            <td>{{line.ctrl_name}}</td>
+            <td>{{line.host_name}}</td>
+            <td>{{line.log_desc}}</td>
+            <td>{{line.rownum}}</td>
+            <td>{{line.st_name}}</td>
+            <td>{{line.state}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <span ng-bind="num"></span>
+    <button ng-click="add()">点击增加</button>
+</div>
+<script>
+//    monitor/mon/alert/findAllAlert
+    var alarm=angular.module('myAlarm',['ng']);
+    alarm.controller('myalarm', function ($scope,$http) {
+        console.error('进入控制器');
+        $http.get('http://202.119.65.27:9999/monitor/mon/alert/findAllAlert').then(function (result) {
+            console.error('传输成功');
+            console.error(result);
+            $scope.data=result.data.alert;
+        });
+        $scope.num=0;
+        $scope.add= function () {
+            $scope.num++;
+            console.log($scope.num);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<div class="loading loadingin">
+    <img src="image/loading.gif" alt=""/>
+</div>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <!--<div class="col-xs-8 nav-rg">-->
+                <!--<div class="exponent-box">-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                <!--</div>-->
+                <!--<div class="date-box">-->
+                    <!--<span>2017年4月11日</span>-->
+                    <!--<span>星期四</span>-->
+                    <!--<span>8:30</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="main container">
+    <div class="main-lf-btn">
+        <button class="system-btn" id="btn">保存</button>
+        <button class="system-btn" id="return">返回</button>
+    </div>
+    <div class="main-rg-tb">
+        <div id="new-ctrl">
+            <div class="table-box1">
+                <table class="table2 table-bordered table-h">
+                    <thead>
+                    <tr>
+                        <th width="20%">设备id</th>
+                        <th width="30%">类型</th>
+                        <th width="30%">命名</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered table-b">
+                    <tbody id="bbb">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script type="text/javascript" src="js/dianzhan.js"></script>
+<script>
+
+    var tempHost = null;
+    function test() {
+        var deviceId = localStorage['code'];
+        var accessKey = localStorage['ktt'];
+
+        // 生成主机对象
+        tempHost = new SHost(deviceId, accessKey);
+
+        // 初始化主机
+        tempHost.init();
+
+        // 注册主机状态推送
+        tempHost.registerHostStatusCallbackFunc(callBack);
+
+
+        //生成主机对象
+        //tempHost2 = new SHost("CCU_00018", "84267E60962B75092FC68C2AD123B641");
+
+        //初始化主机
+        //tempHost2.init();
+    }
+    test();
+    var str=[];
+    var roomId=''
+    function callBack(temp) {
+        console.warn(temp);
+        var tempJson = JSON.parse(temp);
+        if (tempJson.status.statusStep == "link" && tempJson.status.statusValue == 1) {
+            $("#link").html('链接成功');
+        }
+        if (tempJson.status.statusStep == "login" && tempJson.status.statusValue == 1) {
+            $("#login").html('登录成功');
+        }
+        if (tempJson.status.statusStep == "synch" && tempJson.status.statusValue == 1) {
+            $("#synch").html('信息同步成功');
+            status0=1
+            if(tempHost.hostDataRepository.getAllRoomsInfo()==''){tempHost.asyncAddRoom('电站', 'icon', 3, 100);}
+            roomId=tempHost.hostDataRepository.getAllRoomsInfo()[tempHost.hostDataRepository.getAllRoomsInfo().length-1].id;
+            var newDevices=tempHost.hostDataRepository.getAllNewDevicesInfo();
+            var html='';
+            for(var i=0;i<newDevices.length;i++) {
+                html+=`
+                    <tr>
+                       <td>${newDevices[i].id}</td>
+                       <td>${newDevices[i].deviceType}</td>
+                       <td><input type="text"/></td>
+                       <td><a onclick="oper(this)" >操作</a>
+                        <span>|</span>
+                        <a onclick="binding(this)">绑定单个</a></td>
+                    </tr>
+                `
+            }
+            $('#bbb').html(html);
+        }
+        var address=$('#new-ctrl');
+        table_djust(address);
+    }
+    $('#btn').click(function(){
+        for(var i=0;i<$('#bbb tr').length;i++){
+            var newDid=$('#bbb tr').eq(i);
+            tempHost.asyncEditDevice(newDid.find("td:first").html()*1,newDid.find('input').val(), 'icon', roomId);
+        }
+    })
+    function checkHostObject() {
+        if (tempHost == null) {
+            return false;
+        }
+
+        return true;
+    }
+    function oper(btn){
+        var newDtp=$(btn).parent().parent().find("td:eq(1)").html();
+        var newDid=$(btn).parent().parent().find("td:eq(0)").html()*1;
+        console.error(newDtp);
+        if(newDtp=='ZIGBEE_Light'){
+            tempHost.asyncOperationSwitchDevices('"' + newDid + '"', true)
+        }else if(newDtp=='ZIGBEE_KonkeSocket'){
+            console.error(newDid)
+            tempHost.asyncOperationSocketSwitchDevices('"' + newDid + '"',true);
+        }else if(newDtp=='ZIGBEE_InfraredTransponder'){
+            tempHost.asyncLaunchInfraredCodes('"' + newDid + '"',1);
+        }
+    }
+    function binding(btn){
+        var newDid=$(btn).parent().parent();
+        tempHost.asyncEditDevice((newDid.find("td:first").html()*1).toString(),newDid.find('input').val(), 'icon', roomId);
+    }
+    $(function () {
+        var html;
+        console.error($('#new-ctrl tbody').find('tr').length);
+        if($('#new-ctrl tbody').find('tr').length==0){
+            html=`<tr><td colspan="${$('#new-ctrl').find('.table-box1 .table-h th').length-1}">暂无新设备</td></tr>`;
+            $('#new-ctrl').find('.table-box2 tbody').append(html);
+        }
+    })
+</script>
+</html>

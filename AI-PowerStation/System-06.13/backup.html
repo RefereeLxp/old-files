@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <div class="col-xs-8 nav-rg">
+                <div class="exponent-box">
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                    <span><i></i><b>25°</b></span>
+                </div>
+                <div class="date-box">
+                    <span>2017年4月11日</span>
+                    <span>星期四</span>
+                    <span>8:30</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>情景编号</th>
+        <th>名字</th>
+    </tr>
+    </thead>
+    <tbody id="ooo"></tbody>
+</table>
+<table>
+    <thead>
+    <tr>
+        <th>配置id</th>
+        <th>配置名</th>
+        <th>情景应用1</th>
+        <th>情景应用2</th>
+    </tr>
+    </thead>
+    <tbody id="bbb">
+    </tbody>
+</table>
+<button id="rev">编辑</button>
+<button id="btn">保存</button>
+<button id="return">返回</button>
+ip:<input type="text"id="uip"/>
+名字：<input type="text"id="uname"/>
+密码：<input type="text"id="upwd"/>
+<button id="bing"></button>
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script>
+    $('#bing').click(function(){
+        localStorage['uip']=$('#uip').val();
+        localStorage['uname']=$('#uname').val();
+        localStorage['upwd']=$('#upwd').val();
+
+    })
+    $('#return').click(function(){
+        location.href='index.html'
+    })
+    $('#rev').click(function(){
+        $('#bbb').html(`
+        <tr>
+            <td>a</td>
+            <td><input type="text"value="${v1[0]}"/></td>
+            <td><input type="text"value="${v1[1]}"/></td>
+            <td><input type="text"value="${v1[2]}"/></td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td><input type="text"value="${v2[0]}"/></td>
+            <td><input type="text"value="${v2[1]}"/></td>
+            <td><input type="text"value="${v2[2]}"/></td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td><input type="text"value="${v3[0]}"/></td>
+            <td><input type="text"value="${v3[1]}"/></td>
+            <td><input type="text"value="${v3[2]}"/></td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td><input type="text"value="${v4[0]}"/></td>
+            <td><input type="text"value="${v4[1]}"/></td>
+            <td><input type="text"value="${v4[2]}"/></td>
+        </tr>
+        <tr>
+            <td>e</td>
+            <td><input type="text"value="${v5[0]}"/></td>
+            <td><input type="text"value="${v5[1]}"/></td>
+            <td><input type="text"value="${v5[2]}"/></td>
+        </tr>
+        <tr>
+            <td>f</td>
+            <td><input type="text"value="${v6[0]}"/></td>
+            <td><input type="text"value="${v6[1]}"/></td>
+            <td><input type="text"value="${v6[2]}"/></td>
+        </tr>
+    `)
+    })
+    $('#btn').click(function(){
+        localStorage['a']=JSON.stringify([$('#bbb').find('input:eq(0)').val(),$('#bbb').find('input:eq(1)').val(),$('#bbb').find('input:eq(2)').val()]);
+        localStorage['b']=JSON.stringify([$('#bbb').find('input:eq(3)').val(),$('#bbb').find('input:eq(4)').val(),$('#bbb').find('input:eq(5)').val()]);
+        localStorage['c']=JSON.stringify([$('#bbb').find('input:eq(6)').val(),$('#bbb').find('input:eq(7)').val(),$('#bbb').find('input:eq(8)').val()]);
+        localStorage['d']=JSON.stringify([$('#bbb').find('input:eq(9)').val(),$('#bbb').find('input:eq(10)').val(),$('#bbb').find('input:eq(11)').val()]);
+        localStorage['e']=JSON.stringify([$('#bbb').find('input:eq(12)').val(),$('#bbb').find('input:eq(13)').val(),$('#bbb').find('input:eq(14)').val()]);
+        localStorage['f']=JSON.stringify([$('#bbb').find('input:eq(15)').val(),$('#bbb').find('input:eq(16)').val(),$('#bbb').find('input:eq(17)').val()]);
+    })
+    var v1=(v1==undefined?[0,0,0]:JSON.parse(localStorage['a']));
+    var v2=(v2==undefined?[0,0,0]:JSON.parse(localStorage['b']));
+    var v3=(v3==undefined?[0,0,0]:JSON.parse(localStorage['c']));
+    var v4=(v4==undefined?[0,0,0]:JSON.parse(localStorage['d']));
+    var v5=(v5==undefined?[0,0,0]:JSON.parse(localStorage['e']));
+    var v6=(v6==undefined?[0,0,0]:JSON.parse(localStorage['f']));
+    var htmln=`
+        <tr>
+            <td>a</td>
+            <td>${v1[0]}</td>
+            <td>${v1[1]}</td>
+            <td>${v1[2]}</td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td>${v2[0]}</td>
+            <td>${v2[1]}</td>
+            <td>${v2[2]}</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>${v3[0]}</td>
+            <td>${v3[1]}</td>
+            <td>${v3[2]}</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>${v4[0]}</td>
+            <td>${v4[1]}</td>
+            <td>${v4[2]}</td>
+        </tr>
+        <tr>
+            <td>e</td>
+            <td>${v5[0]}</td>
+            <td>${v5[1]}</td>
+            <td>${v5[2]}</td>
+        </tr>
+        <tr>
+            <td>f</td>
+            <td>${v6[0]}</td>
+            <td>${v6[1]}</td>
+            <td>${v6[2]}</td>
+        </tr>
+    `;
+    $('#bbb').html(htmln)
+
+    var tempHost = null;
+    function test() {
+        var deviceId = sessionStorage['code'];
+        var accessKey = sessionStorage['ktt'];
+
+        // 生成主机对象
+        tempHost = new SHost(deviceId, accessKey);
+
+        // 初始化主机
+        tempHost.init();
+
+        // 注册主机状态推送
+        tempHost.registerHostStatusCallbackFunc(callBack);
+
+
+        //生成主机对象
+        //tempHost2 = new SHost("CCU_00018", "84267E60962B75092FC68C2AD123B641");
+
+        //初始化主机
+        //tempHost2.init();
+    }
+    test();
+    var status0=0;
+    var str=[];
+    function callBack(temp) {
+        console.warn(temp);
+        var tempJson = JSON.parse(temp);
+        if (tempJson.status.statusStep == "link" && tempJson.status.statusValue == 1) {
+            $("#link").html('链接成功');
+        }
+        if (tempJson.status.statusStep == "login" && tempJson.status.statusValue == 1) {
+            $("#login").html('登录成功');
+        }
+        if (tempJson.status.statusStep == "synch" && tempJson.status.statusValue == 1) {
+            $("#synch").html('信息同步成功');
+            status0=1
+        }
+        str=showScenes();
+        var html='';
+        for(var i=0;i<str.length;i++){
+            html+=`
+                <ul>
+                    <li>${str[i].id}</li>
+                    <li>${str[i].name}</li>
+                </ul>
+            `
+        }
+        $('#ooo').html(html)
+    }
+    setTimeout(function(){
+        if(status0==0){
+            alert('主机连接失败');
+            location.href='login.html'
+        }
+    },5000)
+    function checkHostObject() {
+        if (tempHost == null) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/view3d.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div style="position:absolute;left:0;height: 100%;width:300px;">
+   <!-- <select id="floorSelecter" class="form-control">
+        <option value="0">请选择机房</option>
+    </select>
+-->
+    <div class="panel panel-default" style="overflow-y: auto; position: absolute; width: 100%; height: 100%;">
+        <div class="panel-heading">
+            <h3 class="panel-title">测试数据</h3>
+        </div>
+        <ul id="deviceList" class="list-group">
+
+        </ul>
+    </div>
+</div>
+
+<div id="container" ondrop="drop(event)" ondragover="allowDrop(event)"
+     style="height: 100%;position: absolute; left: 300px;right: 0; background-color: #e8e8e8 ">
+    <div id="view3dToolbar" style="  position:absolute; left:0;  top: 0; ">
+
+        <div class="dropdown pull-left">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                自动排列
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="javascript:void(0);" onclick="v3d.floorExplorer.align('left')">左侧排列</a></li>
+                <li><a href="javascript:void(0);" onclick="v3d.floorExplorer.align('right')">右侧排列</a></li>
+                <li><a href="javascript:void(0);" onclick="v3d.floorExplorer.align('front')">前方排列</a></li>
+                <li><a href="javascript:void(0);" onclick="v3d.floorExplorer.align('rear')">后方排列</a></li>
+
+            </ul>
+        </div>
+
+
+        <div class="dropdown pull-left">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                自动巡检
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#" onclick="v3d.floorExplorer.defineAutoWalk()">定义巡检</a></li>
+                <!--<li><a href="#" onclick="v3d.floorExplorer.saveAutoWalk()">保存路径</a></li>-->
+                <li role="separator" class="divider"></li>
+                <li><a href="#" onclick="v3d.floorExplorer.startAutoWalk()">开始巡检</a></li>
+                <li><a href="#" onclick="v3d.floorExplorer.stopAutoWalk()">结束巡检</a></li>
+            </ul>
+        </div>
+
+        <label class="pull-left"><input id="floorEditCheck" type="checkbox" checked onclick="onfloorEditChanged()">
+            锁定设备位置</label>
+        <label class="pull-left"><input id="AssetLableCheck" type="checkbox" onclick="onShowLabelChanged()">
+            资产标签</label>
+        <label class="pull-left"><input id="heatmpaCheck" type="checkbox" onclick="onHeatmapChanged()"> 热力图</label>
+        <label class="pull-left"><input id="capacityCheck" type="checkbox" onclick="onCapacityChanged()"> 机架容量</label>
+
+        <label class="pull-left"><input id="highLightCheck" type="checkbox" onclick="onHighChanged()"> 高亮API测试</label>
+        <label class="pull-left"><input id="showTextCheck" type="checkbox" onclick="onshowTextChanged()">
+            标签API测试</label>
+
+    </div>
+
+
+</div>
+<div id="formContainer" style="display: none; height: 100%;position: absolute;top:0px; left: 800px;right: 0; ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span id="deviceName"></span> 资产信息</h3>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="loadingContainer" style="display:none;position: absolute;left:50%;top: 50%;">
+    <span id="percentage"></span>
+</div>
+
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/DragControls.js"></script>
+<script src="js/Tween.js"></script>
+<script src="js/paper-full.min.js"></script>
+<script src="js/MTLLoader.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/FloorDefine.js"></script>
+<script src="js/V3D.js"></script>
+<script src="js/V3D.FloorView.js"></script>
+<script src="js/V3D.DeviceExplorer.js"></script>
+<script src="js/V3D.RackDetail.js"></script>
+<script src="js/PlaceNode.js"></script>
+<script src="js/RotateControls.js"></script>
+<script src="js/EditHelper.js"></script>
+<script src="js/Common.js"></script>
+<script src="js/Common.Data.js"></script>
+<script src="js/heatmap.js"></script>
+<script src="js/V3D.HeatMap.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/PathEditor.js"></script>
+<script src="js/AutoWalkHelper.js"></script>
+<script src="js/ThreeCSG.js"></script>
+<script>
+    var dragData = null;
+    //init load floor list
+    $(function () {
+	/*
+        loadData(SERVICE.GetFloorList, null,
+                function (result) {
+                    $("#floorSelecter").empty();
+                    $("#floorSelecter").append('<option value="0">请选择机房</option>');
+                    $.each(result, function (idx, value) {
+                        $("#floorSelecter").append('<option value="' + value.id + '">' + value.name + '</option>');
+                    })
+                }
+        );
+*/
+        loadData(SERVICE.GetDeviceList, null,
+                function (result) {
+                    $("#deviceList").empty();
+                    $.each(result, function (idx, value) {
+                        var door = value.model_id == 5 ?
+                        '<div class="btn-group" role="group" >'
+                        + '    <a   href="javascript:void(0)" class="btn btn-success btn-xs " onclick="v3d.floorExplorer.openDoor(' + value.device_id + ')">开门</a>'
+                        + '    <a   href="javascript:void(0)" class="btn btn-danger  btn-xs " onclick="v3d.floorExplorer.closeDoor(' + value.device_id + ')">关门</a>'
+                        + '</div>' : "";
+
+
+                        var window = value.model_id == 6 ?
+                        '<div class="btn-group" role="group" >'
+                        + '        <a   href="javascript:void(0)" class="btn btn-success  btn-xs " onclick="v3d.floorExplorer.openWindow(' + value.device_id + ')">开窗</a>'
+                        + '        <a   href="javascript:void(0)" class="btn btn-danger   btn-xs  " onclick="v3d.floorExplorer.closeWindow(' + value.device_id + ')">关窗</a>'
+                        + '</div> ' : "";
+                        $("#deviceList").append('<li class="list-group-item device-item" ><a draggable="true" ' +
+                                ' data-id="' + value.device_id +
+                                '"  data-uSize="' + value.u_size +
+                                '" ondragend="dragend(event)" ondragstart="drag(event)">' + value.device_name +
+                                '  </a><span onclick="locateDevice(' + value.device_id + ')" >定位</span>  ' + door + window + '</li>');
+                    })
+                }
+        );
+
+
+    });
+
+    function locateDevice(id) {
+        v3d.floorExplorer.flyToTargetDevice(id);
+    }
+
+/*
+    $("#floorSelecter").change(function () {
+        switchView("3d");
+        var v = 3;
+        if (v != 0) {
+            v3d.floorExplorer.loadFloor(v);
+        }
+    });
+
+*/
+    var floor2d = null;
+    var v3d = new V3D("container");
+    v3d.addEventListener(V3DEventType.FLOOR_NOT_DEFINED, function (event) {
+        switchView("2d");
+    });
+
+    switchView = function (viewType) {
+        if (viewType == '2d') {
+            v3d.set3dStatus(false);
+            if (!floor2d) {
+                floor2d = new FloorDefine("container");
+                floor2d.init();
+                floor2d.addEventListener(V3DEventType.FLOOR_DEFINED_SAVED, function (event) {
+                    v3d.floorExplorer.loadFloorShape(event.object, $("#floorSelecter").val());
+                    switchView("3d");
+                });
+            }
+            floor2d.initView(v3d.floorExplorer.floorShapedata, $("#floorSelecter").val());
+            switchToolBar(ToolBarType.FLOOR2D);
+        }
+        else if (viewType == '3d') {
+            v3d.goToMode(V3DMode.FLOOR);
+            v3d.set3dStatus(true);
+            switchToolBar(ToolBarType.FLOOR3D);
+        }
+    };
+
+
+    function onfloorEditChanged() {
+        if ($("#floorEditCheck").is(':checked'))
+            v3d.floorExplorer.setEditable(false);
+        else
+            v3d.floorExplorer.setEditable(true);
+    }
+
+
+    function onCapacityChanged() {
+        if ($("#capacityCheck").is(':checked'))
+            v3d.floorExplorer.showRackCapacity();
+        else
+            v3d.floorExplorer.hideRackCapacity();
+    }
+
+    function onShowLabelChanged() {
+        if ($("#AssetLableCheck").is(':checked'))
+            v3d.floorExplorer.showAssetLabel();
+        else
+            v3d.floorExplorer.hideAssetLabel();
+    }
+
+
+    function onHeatmapChanged() {
+        v3d.floorExplorer.showHeatMap($("#heatmpaCheck").is(':checked'));
+    }
+
+    function onHighChanged() {
+        var devices = [
+            {id: 1, color: "red"},
+            {id: 2, color: "blue"},
+        ];
+        if ($("#highLightCheck").is(':checked'))
+            v3d.floorExplorer.highlight(devices);
+        else
+            v3d.floorExplorer.deHighlight(devices);
+    }
+
+    function onshowTextChanged() {
+        var devices = [
+            {id: 1, text: "asdfasdf", color: "black"},
+            {id: 2, text: "xadfsafd", color: "yellow"},
+        ];
+        if ($("#showTextCheck").is(':checked'))
+            v3d.floorExplorer.showText(devices);
+        else
+            v3d.floorExplorer.hideText(devices);
+    }
+
+    function allowDrop(ev) {
+        if (v3d.mode == V3DMode.FLOOR && v3d.floorExplorer.checkDropPosition(ev)) {
+            ev.preventDefault();
+        }
+        else if (v3d.mode == V3DMode.DEVICE && v3d.deviceExplorer.checkDropPosition(ev, dragData))
+            ev.preventDefault();
+
+    }
+
+    function drag(ev) {
+        var data = {
+            type: ev.target.getAttribute("data-type"),
+            uSize: ev.target.getAttribute("data-uSize"),
+            device_id: ev.target.getAttribute("data-id")
+        };
+
+        dragData = data;
+        ev.dataTransfer.setDragImage(getDragCanvas(), 15, 45);
+        // document.getElementById("overlay").style.display = "";
+    }
+
+    function dragend(ev) {
+        //document.getElementById("overlay").style.display = "none";
+
+        if (v3d.mode == V3DMode.FLOOR) {
+        }
+        else if (v3d.mode == V3DMode.DEVICE) {
+            v3d.deviceExplorer.onDragDropEnd();
+
+        }
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        if (v3d.mode == V3DMode.FLOOR) {
+            v3d.floorExplorer.addDevice(dragData, ev);
+        }
+        else if (v3d.mode == V3DMode.DEVICE && v3d.deviceExplorer.checkDropPosition(ev, dragData)) {
+            v3d.deviceExplorer.mount(ev, dragData);
+            //v3d.floorExplorer.addDevice(data,ev);
+        }
+
+
+    }
+
+
+    function getDragCanvas() {
+
+        var dragIcon = document.createElement('img');
+        var canvas = document.createElement("canvas");
+        canvas.width = canvas.height = 50;
+
+        var ctx = canvas.getContext("2d");
+
+        ctx.lineWidth = 2;
+        ctx.moveTo(0, 0);
+        ctx.lineTo(15, 45);
+        ctx.lineTo(30, 0);
+        ctx.lineTo(15, 15);
+        ctx.lineTo(0, 0);
+        ctx.fillStyle = '#2891FF';
+        ctx.fill();
+
+        dragIcon.src = canvas.toDataURL();
+        return dragIcon;
+    }
+ switchView("3d");
+        var v = 3;
+        if (v != 0) {
+            v3d.floorExplorer.loadFloor(v);
+        }
+
+</script>
+
+</html>

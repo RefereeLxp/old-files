@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<div class="loading loadingin">
+    <img src="image/loading.gif" alt=""/>
+</div>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <!--<div class="col-xs-8 nav-rg">-->
+            <!--<div class="exponent-box">-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--<span><i></i><b>25°</b></span>-->
+            <!--</div>-->
+            <!--<div class="date-box">-->
+            <!--<span>2017年4月11日</span>-->
+            <!--<span>星期四</span>-->
+            <!--<span>8:30</span>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="guanli main">
+    <div class="main-lf-btn">
+        <button class="system-btn" id="add0">添加</button>
+
+        <button class="system-btn"id="save0">保存</button>
+        <button class="system-btn"id="save1">保存修改</button>
+        <button class="system-btn" id="return">返回</button>
+        <div class=""></div>
+    </div>
+    <div class="main-rg-tb">
+        <div id="example2">
+            <div class="table-box1">
+                <table class="table2 table-bordered table-h">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th width="10%">房间</th>
+                        <th>IFTTT名称</th>
+                        <th>是否开启</th>
+                        <th>通知是否开启</th>
+                        <th width="28%">操作</th>
+                    </tr>
+                    </thead>
+                </table>
+                <b class="scroll-add" style=""></b>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered table-b">
+                    <tbody>
+                        <!--<tr>-->
+                            <!--<td>2</td>-->
+                            <!--<td>3</td>-->
+                            <!--<td>4</td>-->
+                            <!--<td>5</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>2</td>-->
+                            <!--<td>3</td>-->
+                            <!--<td>4</td>-->
+                            <!--<td>5</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td>2</td>-->
+                            <!--<td>3</td>-->
+                            <!--<td>4</td>-->
+                            <!--<td>5</td>-->
+                        <!--</tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="btn-box">
+            <button class="system-btn right" id="addL1">添加一行</button>
+        </div>
+                <table id="example3" class="table2 table-bordered">
+                    <thead>
+                    <tr>
+                        <th>房间ID</th>
+                        <th>设备类型</th>
+                        <th>设备名</th>
+                        <th>应用状态</th>
+                        <th>数值</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+        <div class="btn-box">
+            <button class="system-btn right" id="addL2">添加一行</button>
+        </div>
+        <table class="table2 table-bordered"id="example4">
+            <thead>
+            <tr>
+                <th>房间ID</th>
+                <th>设备类型</th>
+                <th>设备名称</th>
+                <th>状态(开/关)</th>
+                <th>延时值</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!--<tr>-->
+                    <!--<td>1</td>-->
+                    <!--<td>2</td>-->
+                    <!--<td>3</td>-->
+                    <!--<td>4</td>-->
+                    <!--<td>5</td>-->
+                <!--</tr>-->
+            </tbody>
+        </table>
+
+
+    <div class="modal fade" id="maintenance" tabindex="-1" role="dialog" aria-labelledby="ModalLabel1" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" style="width:560px;margin-top: 220px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" >
+                        情景设置
+                    </h4>
+                </div>
+                <div class="modal-body" id="flex">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+</div>
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script type="text/javascript" src="js/dianzhan.js"></script>
+<script>
+
+var tempHost = null;
+var str=null;
+var tempnn=0;
+var roomI='';
+function connect() {
+    var deviceId = localStorage['code'];
+    var accessKey = localStorage['ktt'];
+
+
+    // 生成主机对象
+    tempHost = new SHost(deviceId, accessKey);
+
+    // 初始化主机
+    tempHost.init();
+
+    // 注册主机状态推送
+    tempHost.registerHostStatusCallbackFunc(callBack);
+
+    // 注册主机设备状态推送
+    tempHost.registerDevicesStatusCallbackFunc(deviceCallBack);
+}
+if(localStorage['code']!=null) {
+    connect();
+}
+function checkHostObject() {
+    if (tempHost== null) {
+        return false;
+    }
+    return true;
+}
+function callBack(temp) {
+    console.warn(temp);
+    var tempJson = JSON.parse(temp);
+    if (tempJson.status.statusStep == "link" && tempJson.status.statusValue == 1) {
+        $("#link").html('链接成功');
+    }
+    if (tempJson.status.statusStep == "login" && tempJson.status.statusValue == 1) {
+        $("#login").html('登录成功');
+    }
+    if (tempJson.status.statusStep == "synch" && tempJson.status.statusValue == 1) {
+        $("#synch").html('信息同步成功');
+        str=showEXIFTTT();
+        roomI=tempHost.hostDataRepository.getAllRoomsInfo()[0].id;
+        if(str!=''&&str!=undefined){
+            var html='';
+            for(var i=0;i<str.length;i++){
+                console.error(str[i]);
+                html+=`
+            <tr>
+                <td>${str[i].id}</td>
+                <td>${roomId}</td>
+                <td>${str[i].name}</td>
+                <td>${str[i].ruleEnable}</td>
+                <td>${str[i].notificationEnable}</td>
+                <td>
+                <a href="#" onclick="showT(${i})">查看</a>
+                <span>|</span>
+                <a href="#"onclick=deleteT("${str[i].id}")>删除</a>
+                <span>|</span>
+                <a href="#"onclick=revT("${str[i].id}")>编辑</a>
+                </td>
+                </tr>
+                `;
+            }
+            $('#example2 tbody').empty().html(html);
+        }
+    }
+    var address=$('#example2');
+    table_djust(address,3);
+}
+function deviceCallBack(temp) {
+    str=showEXIFTTT();
+}
+function showT(n){
+    str=showEXIFTTT();
+    tempnn=n;
+    console.error(str[n]);
+    var html='';
+    for(var i=0;i<str[n].conditionList.length;i++) {
+        var deviceT='';
+        switch (str[n].conditionList[i].deviceType) {
+            case 'ZIGBEE_Light':
+                deviceT='灯';
+                break;
+            case 'ZIGBEE_KonkeSocket':
+                deviceT='智能插座';
+                break;
+            case 'ZIGBEE_InfraredSensor':
+                deviceT='人体红外';
+                break;
+            case 'ZIGBEE_SmokeSensor':
+                deviceT='烟感';
+                break;
+            case 'ZIGBEE_DipSensor':
+                deviceT='水浸传感';
+                break;
+            case 'ZIGBEE_DoorSensor':
+                deviceT='门磁';
+                break;
+            case 'ZIGBEE_TempSensor':
+                deviceT='温度传感器';
+                break;
+            case 'ZIGBEE_HumiSensor':
+                deviceT='湿度传感器';
+                break;
+        }
+        html += `
+    <tr>
+        <td>${str[n].conditionList[i].roomId}</td>
+        <td>${deviceT}</td>
+        <td>${str[n].conditionList[i].name}</td>
+        <td>${str[n].conditionList[i].compareType}</td>
+        <td>${str[n].conditionList[i].rightValue}</td>
+        <td></td>
+        </tr>
+                `
+    }
+    $('#example3 tbody').empty().html(html);
+    var html2=''
+    for(var i=0;i<str[n].actionList.length;i++){
+        var deviceT2='';
+        switch (str[n].actionList[i].deviceType) {
+            case 'ZIGBEE_Light':
+                deviceT2='灯';
+                break;
+            case 'ZIGBEE_KonkeSocket':
+                deviceT2='智能插座';
+                break;
+            case 'ZIGBEE_InfraredSensor':
+                deviceT2='人体红外';
+                break;
+            case 'ZIGBEE_SmokeSensor':
+                deviceT2='烟感';
+                break;
+            case 'ZIGBEE_DipSensor':
+                deviceT2='水浸传感';
+                break;
+            case 'ZIGBEE_DoorSensor':
+                deviceT2='门磁';
+                break;
+            case 'ZIGBEE_TempSensor':
+                deviceT2='温度传感器';
+                break;
+            case 'ZIGBEE_HumiSensor':
+                deviceT2='湿度传感器';
+                break;
+        }
+        html2+=`
+    <tr>
+        <td>${str[n].actionList[i].roomId}</td>
+        <td>${deviceT2}</td>
+        <td>${str[n].actionList[i].name}</td>
+        <td>${str[n].actionList[i].operation}</td>
+        <td>${str[n].actionList[i].delay}</td>
+        </tr>
+            `
+    }
+    $('#example4 tbody').empty().html(html2);
+}
+function deleteT(n){
+    tempHost.asyncDeleteIFTTT(n);
+    refresh.destroy();
+    setTimeout(function(){connect()},1000)
+}
+var tempD=''
+$('#add0').click(function(){
+    $('#example3').unbind();
+    tempD=showAllDevices();
+    var html1=`
+    <tr>
+    <td></td>
+    <td><input type="text" id="IFTTTRoom" value="${roomI}"disabled></td>
+    <td><input type="text" id="IFTTTName"></td>
+    <td>
+    <select id="IFTTTNoteEnable">
+    <option value="true">启用</option>
+    <option value="false">禁用</option>
+    </select>
+    </td>
+    <td>
+    <select id="IFTTTEnable">
+    <option value="true">启用</option>
+    <option value="false">禁用</option>
+    </select>
+    </td>
+    <td>
+
+    </td>
+    </tr>`;
+
+    $('#example2 tbody').empty().html(html1);
+
+    var html2=`
+    <tr>
+    <td><input type="text"id="roomIdI0"value='${roomI}'disabled/></td>
+    <td><select name="deviceType"id="deviceTypeI0">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select name="id"id="selI0">
+    </select></td>
+    <td><select name="compareType"id="compareTypeI0">
+    <option value="0">请选择</option>
+    <option value="1">相等</option>
+    <option value="2">小于</option>
+    <option value="3">大于</option>
+    </select></td>
+    <td><input type="text"id="xiaoyu0"/></td>
+    <td></td>
+    </tr>` ;
+    $('#example3').on('change','#deviceTypeI0',function() {
+                var html3='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $('#deviceTypeI0').val()) {
+                            html3 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                                `
+                        }
+                    })(i)
+                }
+                $('#selI0').html(html3);
+                var htmle1='';
+                var htmle2='';
+                switch ($(this).val()) {
+                    case 'ZIGBEE_Light':
+                        htmle1+=`
+                    <option value="ON">开</option>
+                    <option value="OFF">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_KonkeSocket':
+                        htmle1+=`
+                    <option value="ON">开</option>
+                    <option value="OFF">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_InfraredSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_SmokeSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_DipSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_DoorSensor':
+                        htmle1+=`
+                    <option value="OPEN">开</option>
+                    <option value="CLOSE">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_TempSensor':
+                        htmle1+=`
+                    <option value="1">相等</option>
+                    <option value="2">小于</option>
+                    <option value="3">大于</option>
+                            `
+                            break;
+                    case 'ZIGBEE_HumiSensor':
+                        htmle1+=`
+                    <option value="1">相等</option>
+                    <option value="2">小于</option>
+                    <option value="3">大于</option>
+                            `
+                            break;
+                }
+                if(htmle1!=''){
+                    $('#compareTypeI0').html(htmle1);
+                }
+                if(htmle2==true){
+                    $('#xiaoyu0').attr('type','hidden');
+                }else{
+                    $('#xiaoyu0').attr('type','text');
+                }
+            }
+    )
+    $('#example3 tbody').empty().html(html2);
+    var html4=`
+    <tr>
+    <td><input type="text"id="roomId0"value="${roomI}"disabled/></td>
+    <td><select id="deviceType0">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select id="selP0">
+    </select></td><td>
+    <select id="OOC0" style="width:200px">
+    <option value="OFF">OFF</option>
+    <option value="ON">ON</option>
+    </select>
+    </td>
+    <td><input type='text'  id="delay0"value=""></td>
+    </tr>
+        `;
+    $('#example4').on('change','#deviceType0',function() {
+                var html5='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $('#deviceType0').val()) {
+                            html5 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                    `
+                        }
+                    })(i)
+                }
+                $('#selP0').html(html5)
+            }
+    )
+    $('#example4 tbody').empty().html(html4);
+
+})
+function revT(n){
+    $('#example3').unbind();
+    var strN=tempHost.hostDataRepository.getEXIFTTTInfoById(n);
+    tempD=showAllDevices();
+    var html1=`<tr>
+    <td><input type="text" id="IFTTTId" value=${n}></td>
+    <td><input type="text" id="IFTTTRoom"value="${roomI}"disabled></td>
+    <td><input type="text" id="IFTTTName"value="${strN.name}"></td>
+    <td>
+    <select id="IFTTTNoteEnable">
+    <option value="true">启用</option>
+    <option value="false">禁用</option>
+    </select>
+    </td>
+    <td>
+    <select id="IFTTTEnable">
+    <option value="true">启用</option>
+    <option value="false">禁用</option>
+    </select>
+    </td>
+    <td>
+
+    </td>
+    </tr>`;
+
+    $('#example2 tbody').empty().html(html1);
+    var html2=`
+<tr>
+    <td><input type="text"id="roomIdI0"value="${roomI}"disabled/></td>
+    <td><select name="deviceType"id="deviceTypeI0">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select name="id"id="selI0">
+    </select></td>
+    <td><select name="compareType"id="compareTypeI0">
+    <option value="0">请选择</option>
+    </select></td>
+    <td><input type="text"id="xiaoyu0"/></td>
+    <td></td>
+    </tr>` ;
+    $('#example3').on('change','#deviceTypeI0',function() {
+                var html3='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $('#deviceTypeI0').val()) {
+                            html3 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                                `
+                        }
+                    })(i)
+                }
+                $('#selI0').html(html3);
+                var htmle1='';
+                var htmle2='';
+                switch ($(this).val()) {
+                    case 'ZIGBEE_Light':
+                        htmle1+=`
+                    <option value="ON">开</option>
+                    <option value="OFF">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_KonkeSocket':
+                        htmle1+=`
+                    <option value="ON">开</option>
+                    <option value="OFF">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_InfraredSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_SmokeSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_DipSensor':
+                        htmle1+=`
+                    <option value="1">报警</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_DoorSensor':
+                        htmle1+=`
+                    <option value="OPEN">开</option>
+                    <option value="CLOSE">关</option>
+                            `
+                            htmle2=true;
+                        break;
+                    case 'ZIGBEE_TempSensor':
+                        htmle1+=`
+                    <option value="1">相等</option>
+                    <option value="2">小于</option>
+                    <option value="3">大于</option>
+                            `
+                            break;
+                    case 'ZIGBEE_HumiSensor':
+                        htmle1+=`
+                    <option value="1">相等</option>
+                    <option value="2">小于</option>
+                    <option value="3">大于</option>
+                            `
+                            break;
+                }
+                if(htmle1!=''){
+                    $('#compareTypeI0').html(htmle1);
+                }
+                if(htmle2==true){
+                    $('#xiaoyu0').attr('type','hidden');
+                }else{
+                    $('#xiaoyu0').attr('type','text');
+                }
+            }
+    )
+    $('#example3 tbody').empty().html(html2);
+    var html4=`
+<tr>
+    <td><input type="text"id="roomId0"value="${roomI}"disabled/></td>
+    <td><select id="deviceType0">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select id="selP0">
+    </select></td><td>
+    <select id="OOC0" style="width:200px">
+    <option value="OFF">OFF</option>
+    <option value="ON">ON</option>
+    </select>
+    </td>
+    <td><input type='text'  id="delay0"value=""></td>
+    </tr>
+        `;
+    $('#example4').on('change','#deviceType0',function() {
+                var html5='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $('#deviceType0').val()) {
+                            html5 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                    `
+                        }
+                    })(i)
+                }
+                $('#selP0').html(html5)
+            }
+    )
+    $('#example4 tbody').empty().html(html4);
+
+}
+$('#save0').click(function(){
+    var arrA=[];
+    for(var i=0;i<$('#example4 tr').length-1;i++){
+        (function(i) {
+            var roomId = '#roomId' + i;
+            var deviceType = '#deviceType' + i;
+            var deviceName = '#deviceName' + i;
+            var OOC = '#OOC' + i;
+            var delay = '#delay' + i;
+            var selP='#selP'+i;
+            if($(deviceType).val()=="ZIGBEE_InfraredTransponder"){
+                OOC="空调打开"
+            }else{
+                OOC=$(OOC).val()
+            }
+            arrA.push({
+                "deviceType": $(deviceType).val(),
+                "area": "11",
+                "name": $(selP).find("option:selected").text(),
+                "id": $(selP).val(),
+                "roomId": $(roomId).val(),
+                "operation":OOC,
+                "delay": $(delay).val()
+            })
+        })(i)
+    }
+    var arrB=[];
+    for(var i=0;i<$('#example3 tr').length-1;i++){
+        (function(i) {
+            var roomId = '#roomIdI' + i;
+            var deviceType = '#deviceTypeI' + i;
+            var compareType = '#compareTypeI' + i;
+            var xiaoyu='#xiaoyu'+i;
+            var selI='#selI'+i;
+            arrB.push({
+                "deviceType": $(deviceType).val(),
+                "area": "11",
+                "name": $(selI).find("option:selected").text(),
+                "id": $(selI).val(),
+                "roomId": $(roomId).val(),
+                "compareType": ($(compareType).find("option:selected").text()!='大于'&&$(compareType).find("option:selected").text()!='小于')?'相等':$(compareType).find("option:selected").text(),
+                "deivceIcon": '',
+                "leftValue": '*',
+                "rightValue": ($(compareType).find("option:selected").text()!='大于'&&$(compareType).find("option:selected").text()!='小于')?$(compareType).find("option:selected").val():$(xiaoyu).val()
+
+            })
+        })(i)
+    }
+    console.error(arrA);
+    console.error(arrB);
+    IFTTTName = $("#IFTTTName").val();
+    IFTTTRoomId = $("#IFTTTRoom").val();
+    IFTTTNote = ($("#IFTTTNoteEnable").val() == "true") ? true : false;
+    IFTTTEnable = ($("#IFTTTEnable").val() == "true") ? true : false;
+    tempHost.asyncAddEXIFTTT(IFTTTName, IFTTTRoomId, IFTTTNote, IFTTTEnable,arrB,[], arrA);
+    setTimeout(function(){
+        location.reload()
+    },2000)
+
+
+})
+$('#save1').click(function(){
+    var arrA=[];
+    for(var i=0;i<$('#example4 tr').length-1;i++){
+        (function(i) {
+            var roomId = '#roomId' + i;
+            var deviceType = '#deviceType' + i;
+            var deviceName = '#deviceName' + i;
+            var OOC = '#OOC' + i;
+            var delay = '#delay' + i;
+            var selP='#selP'+i
+            arrA.push({
+                "deviceType": $(deviceType).val(),
+                "area": "11",
+                "name": $(selP).find("option:selected").text(),
+                "id": $(selP).val(),
+                "roomId": $(roomId).val(),
+                "operation": $(OOC).val(),
+                "delay": $(delay).val()
+            })
+        })(i)
+    }
+    var arrB=[];
+    for(var i=0;i<$('#example3 tr').length-1;i++){
+        (function(i) {
+            var roomId = '#roomIdI' + i;
+            var deviceType = '#deviceTypeI' + i;
+            var compareType = '#compareTypeI' + i;
+            var xiaoyu='#xiaoyu'+i;
+            var selI='#selI'+i
+            arrB.push({
+                "deviceType": $(deviceType).val(),
+                "area": "11",
+                "name": $(selI).find("option:selected").text(),
+                "id": $(selI).val(),
+                "roomId": $(roomId).val(),
+                "compareType": ($(compareType).find("option:selected").text()!='大于'&&$(compareType).find("option:selected").text()!='小于')?'相等':$(compareType).find("option:selected").text(),
+                "deivceIcon": '',
+                "leftValue": '*',
+                "rightValue": ($(compareType).find("option:selected").text()!='大于'&&$(compareType).find("option:selected").text()!='小于')?$(compareType).find("option:selected").val():$(xiaoyu).val()
+
+            })
+        })(i)
+    }
+    console.error(arrA);
+    console.error(arrB);
+    IFTTTId = $("#IFTTTId").val();
+    IFTTTName = $("#IFTTTName").val();
+    IFTTTRoomId = $("#IFTTTRoom").val();
+    IFTTTNote = ($("#IFTTTNoteEnable").val() == "true") ? true : false;
+    IFTTTEnable = ($("#IFTTTEnable").val() == "true") ? true : false;
+    tempHost.asyncUpdateEXIFTTT(IFTTTId,IFTTTName, IFTTTRoomId, IFTTTNote, IFTTTEnable,arrB, [],arrA);
+setTimeout(function(){
+    location.reload()
+},2000)
+
+})
+$('#return').click(function(){
+    location.href='index.html'
+});
+$('#addL1').click(function(){
+    tempD=showAllDevices();
+    var n=$('#example3 tr').length-1;
+    var html2=`
+    <tr>
+    <td><input type="text"id="roomIdI${n}"value="${roomI}"disabled/></td>
+    <td><select name="deviceType"id="deviceTypeI${n}">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select name="id"id="selI${n}">
+    </select></td>
+    <td><select name="compareType"id="compareTypeI${n}">
+    <option value="0">请选择</option>
+    </select></td>
+    <td><input type="text"id="xiaoyu${n}"/></td>
+    <td></td>
+    </tr>` ;
+    var deviceType='#deviceTypeI'+n;
+    var selI='#selI'+n;
+    $('#example3').on('change',deviceType,function() {
+                var html3='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $(deviceType).val()) {
+                            html3 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                                `
+                        }
+                    })(i)
+                }
+                $(selI).html(html3)
+            }
+    )
+    $('#example3 tbody').append(html2);
+})
+$('#addL2').click(function(){
+    tempD=showAllDevices();
+    var n=$('#example4 tr').length-1;
+    var html4=`
+    <tr>
+    <td><input type="text"id="roomId${n}"value="${roomI}"disabled/></td>
+    <td><select id="deviceType${n}">
+    <option value="0">请选择</option>
+    <option value="ZIGBEE_Light">灯</option>
+    <option value="ZIGBEE_InfraredTransponder">红外遥控</option>
+    <option value="ZIGBEE_CurtainMotor">窗帘电机</option>
+    <option value="ZIGBEE_KonkeSocket">智能插座</option>
+    <option value="ZIGBEE_InfraredSensor">人体红外</option>
+    <option value="ZIGBEE_SmokeSensor">烟感</option>
+    <option value="ZIGBEE_DipSensor">水浸</option>
+    <option value="ZIGBEE_DoorSensor">门禁</option>
+    <option value="ZIGBEE_TempSensor">温度传感</option>
+    <option value="ZIGBEE_HumiSensor">湿度传感</option>
+    </select></td>
+    <td><select id="selP${n}">
+    </select></td><td>
+    <select id="OOC${n}" style="width:200px">
+    <option value="OFF">OFF</option>
+    <option value="ON">ON</option>
+    </select>
+    </td>
+    <td><input type='text'  id="delay${n}"value=""></td>
+    </tr>
+        `;
+    var deviceType='#deviceType'+n;
+    var selP='#selP'+n;
+    $('#example4').on('change',deviceType,function() {
+                var html5='';
+                for (var i = 0; i < tempD.length; i++) {
+                    (function (i) {
+                        if (tempD[i].deviceType == $(deviceType).val()) {
+                            html5 += `
+                        <option value="${tempD[i].id}">${tempD[i].name}</option>
+                    `
+                        }
+                    })(i)
+                }
+                $(selP).html(html5)
+            }
+    )
+    $('#example4 tbody').append(html4);
+})
+</script>
+</html>

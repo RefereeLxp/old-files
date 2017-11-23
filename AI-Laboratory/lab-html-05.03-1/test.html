@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #sceneWeek li{
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            list-style: none;
+            border: 1px solid #5e5e5e;
+            text-align: center;
+        }
+        .week-active{
+            background: #96d7ff;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li data-week="1">1</li>
+        <li data-week="2">2</li>
+        <li data-week="3">3</li>
+        <li data-week="4">4</li>
+        <li data-week="5">5</li>
+        <li data-week="6">6</li>
+        <li data-week="7">7</li>
+    </ul>
+<button id="dd">保存</button>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $('#sceneWeek').on('click','li', function () {
+        if($(this).hasClass('week-active')){
+            $(this).removeClass('week-active');
+        }else{
+            $(this).addClass('week-active');
+        }
+    });
+    $('#dd').click(function () {
+        var text='';
+        $('ul li.week-active').each(function () {
+            text+=$(this).html();
+            text+=',';
+        })
+        text=text.slice(0,-1);
+        console.error(text);
+    })
+</script>
+</html>

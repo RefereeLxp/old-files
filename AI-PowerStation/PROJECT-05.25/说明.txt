@@ -1,0 +1,10 @@
+views 文件夹下只存放 HTML 网页文件
+图片、CSS、JS等文件均放在 views 文件夹外，并按文件类型建立相应的文件夹进行存放
+
+登录页：    views\home\login.html
+主页：      views\home\index.html
+3D监控：    monitor\threed\index.html
+角色管理：  prv\role\index.html
+操作员管理：prv\member\index.html
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #btn{
+            width: 100px;
+            height: 100px;
+            background: #8F938F;
+
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="line"/>
+    <input type="text" id="pr"/>
+    <div id="btn">点击</div>
+</div>
+<script>
+    document.getElementById("btn").click(function () {
+        function t(a){
+            var line=document.getElementById("line").value;
+            var pr=document.getElementById("pr").value;
+            for(var i=1;i<=a;i++){
+                document.write('&nbsp;');
+            }
+            for(var k=1;k<=i;k++){
+                document.write('*');
+                document.write('&nbsp;');
+            }
+            document.write('<br/>');
+            t(line);
+            if(pr=0){
+                b(line1);
+            }
+        }
+        function b(c,b){
+            var line1=document.getElementById("line").value;
+            var pr=document.getElementById("pr").value;
+            for(var i=1;i<=a-1;i++){
+                document.write('&nbsp;');
+            }
+            for(var k=a-1;k>=i;k--){
+                document.write('*');
+                document.write('&nbsp;');
+            }
+            document.write('<br/>');
+            b(line1);
+        }
+    });
+
+</script>
+</body>
+</html>

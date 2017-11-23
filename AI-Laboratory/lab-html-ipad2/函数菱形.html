@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function t(a){
+				var line = document.getElementById("line").value;
+				var pr = document.getElementById("pr").value;
+				for(var i=1;i<=a;i++){
+					for(var j=1;j<=a-i;j++){
+						document.write("&nbsp;");
+					}
+					for(var k=1;k<=i;k++){
+						document.write("*");
+						document.write("&nbsp;");
+					}
+					document.write("<br />");
+				}
+				t(line);
+				if(pr=0){
+					b(line1);
+				}
+			}
+//			var l1 = line;
+			function b(c,b){
+				var line1 = document.getElementById("line").value;
+				var pr = document.getElementById("pr").value;
+				for(var i=1;i<=a-1;i++){
+					for(var j=1;j<=i;j++){
+						document.write("&nbsp;");
+					}
+					for(var k=a-1;k>=i;k--){
+						document.write("*");
+						document.write("&nbsp;");
+					}
+					document.write("<br />");
+				}
+				b(line1);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="line" id="line" value="" />
+		<input type="text" name="pr" id="pr" value="" />
+		<input type="button" name="" id="" value="打印" onclick="t()" />
+	</body>
+</html>

@@ -1,0 +1,145 @@
+@color: #fe3728;
+@font-color1:#A7A6AB;
+@font-color2:#696969;
+@font-color3: #494949;
+@percentage:90%;
+body{
+  width: 100%;
+  height: 100%;
+  /*background: url("../image/body-bg.jpg") repeat;*/
+  background: #fff;
+}
+p{
+  margin: 0;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.nav-box{
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+.nav-title{
+  height: 45px;
+  width: 100%;
+  background: @color;
+  color: #fff;
+  line-height: 45px;
+  font-size: 16px;
+  letter-spacing:2px;
+}
+.insurance-box{
+  width: 100%;
+  padding: 20px 10px;
+  .insurance-box-title{
+    font-size: 16px;
+    color: @color;
+    margin: 0;
+    border-left: 3px solid @color;
+    padding: 0 8px;
+  }
+  .insurance-box-from,.insurance-box-list{
+    div{
+      margin: 15px auto;
+      width: @percentage;
+      padding: 0 20px;
+      height: 40px;
+      border: 1px solid #dadada;
+      line-height: 40px;
+      span{
+        font-size: 15px;
+        display: inline-block;
+        //width: 20%;
+        width: 100px;
+        color: @font-color3;
+      }
+      input{
+        line-height: 25px;
+        border: 1px solid transparent;
+        outline:none;
+      }
+    }
+
+  }
+  .insurance-box-list{
+    span{
+      width: 120px!important;
+    }
+    b{
+      font-weight: normal;
+    }
+  }
+}
+.insurance-box3{
+  div {
+    display: inline-block;
+    width: @percentage;
+    margin:  15px auto 0;
+    padding: 0 20px;
+    line-height: 20px;
+    p{
+      font-size: 15px;
+      color: @font-color3;
+      b{
+        font-weight: normal;
+        color: @font-color2;
+        padding-left: 5px;
+      }
+    }
+    input{
+      width: 16px;
+      height: 16px;
+      vertical-align: sub;
+      margin-right: 5px;
+    }
+    i{
+      font-style: normal;
+    }
+    b{
+      font-weight: normal;
+      color: @color!important;
+      padding: 0 3px;
+    }
+    .my-btn{
+      display: inline-block;
+      width: 80%;
+      box-sizing: border-box;
+      margin: 20px 10%;
+      background:@color;
+      color: #fff;
+      font-size: 16px;
+      height: 35px;
+      line-height: 35px;
+      border: 1px solid @color;
+      border-radius: 5px;
+    }
+
+  }
+}
+.insurance-readOnly{
+  div{
+    display: inline-block;
+    width: @percentage;
+    margin:  15px auto 0;
+    padding: 0 20px;
+    line-height: 20px;
+    span{
+      font-size: 15px;
+      display: inline-block;
+      //width: 20%;
+      width: 120px;
+      color: @font-color3;
+    }
+    i{
+      font-style: normal;
+    }
+    b{
+      font-weight: normal;
+    }
+  }
+
+}

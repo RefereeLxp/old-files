@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
+    <style>
+        /* CSS Document */
+        .bcon{
+            width:270px;
+            border:1px solid #868680;
+            margin:30px auto;
+        }
+        .list_lh{
+            height:40px;
+            overflow:hidden;
+        }
+        .list_lh ul{
+            list-style: none;
+        }
+        .list_lh li{
+            line-height: 50px;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="bcon">
+        <!-- 代码开始 -->
+        <div class="list_lh">
+            <ul>
+                <li>谁都会发生款到发货1</li>
+                <li>谁都会发生款到发货2</li>
+                <li>谁都会发生款到发货3</li>
+                <li>谁都会发生款到发货4</li>
+            </ul>
+        </div>
+        <!-- 代码结束 -->
+    </div>
+</div>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $("div.list_lh").myScroll({
+                speed:30, //数值越大，速度越慢
+                rowHeight:50 //li的高度
+            });
+        });
+        (function($){
+            $.fn.myScroll = function(options){
+                //默认配置
+                var defaults = {
+                    speed:40,  //滚动速度,值越大速度越慢
+                    rowHeight:24 //每行的高度
+                };
+
+                var opts = $.extend({}, defaults, options),intId = [];
+
+                function marquee(obj, step){
+
+                    obj.find("ul").animate({
+                        marginTop: '-=1'
+                    },0,function(){
+                        var s = Math.abs(parseInt($(this).css("margin-top")));
+                        if(s >= step){
+                            $(this).find("li").slice(0, 1).appendTo($(this));
+                            $(this).css("margin-top", 0);
+                        }
+                    });
+                }
+
+                this.each(function(i){
+                    var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
+                    intId[i] = setInterval(function(){
+                        if(_this.find("ul").height()<=_this.height()){
+                            clearInterval(intId[i]);
+                        }else{
+                            marquee(_this, sh);
+                        }
+                    }, speed);
+
+                    _this.hover(function(){
+                        clearInterval(intId[i]);
+                    },function(){
+                        intId[i] = setInterval(function(){
+                            if(_this.find("ul").height()<=_this.height()){
+                                clearInterval(intId[i]);
+                            }else{
+                                marquee(_this, sh);
+                            }
+                        }, speed);
+                    });
+
+                });
+
+            }
+
+        })(jQuery);
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* Demo Syles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    height:900px;
+}
+.device {
+    width: 100%;
+    height: 100%;
+    background: #d3dcd3;
+    border: 3px solid white;
+    position: relative;
+}
+.device .arrow-left {
+    background: url('../images/arrows.png') no-repeat left top;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -15px;
+    width: 17px;
+    height: 30px;
+    z-index: 2000;
+}
+.device .arrow-right {
+    background: url('../images/arrows.png') no-repeat left bottom;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px;
+    width: 17px;
+    height: 30px;
+    z-index: 2000;
+}
+/*.swiper-container {*/
+/*height: 300px;*/
+/*width: 640px;*/
+/*}*/
+.content-slide {
+    padding: 20px;
+    color: #fff;
+}
+.title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.pagination {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    bottom:5px;
+    width: 100%;
+    z-index: 1000;
+}
+.swiper-pagination-switch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #999;
+    box-shadow: 0px 1px 2px #555 inset;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.swiper-active-switch {
+    background: #fff;
+}
+.swiper-container {
+    width: 100%;
+    height: 800px;
+}
+/* Demo Syles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    height:900px;
+}
+.device {
+    width: 100%;
+    height: 100%;
+    background: #EFF6EE;
+    border: 3px solid white;
+    position: relative;
+}
+.device .arrow-left {
+    background: url("../images/arrows.png") no-repeat left top;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -15px;
+    width: 17px;
+    height: 30px;
+    z-index: 2000;
+}
+.device .arrow-right {
+    background: url("../images/arrows.png") no-repeat left bottom;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px;
+    width: 17px;
+    height: 30px;
+    z-index: 2000;
+}
+/*.swiper-container {*/
+/*height: 300px;*/
+/*width: 640px;*/
+/*}*/
+.content-slide {
+    padding: 20px;
+    color: #fff;
+}
+.title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.pagination {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    bottom:5px;
+    width: 100%;
+}
+.swiper-pagination-switch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: #A0EF65;
+    box-shadow: 0px 1px 2px #847f7f;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.swiper-active-switch {
+    background: #fff;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    /*overflow: auto;*/
+}
+/*±³¾°Í¼*/
+.swiper-container{
+    background: url("../images/bg1.jpg");
+    position: relative;
+    background-size: cover;
+}

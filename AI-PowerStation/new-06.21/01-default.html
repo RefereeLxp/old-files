@@ -1,0 +1,350 @@
+<!doctype html>
+<html ng-app="proApp">
+<head  lang="en" >
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <link rel="stylesheet" href="css/idangerous.swiper.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/slide.css">
+  <link rel="stylesheet" href="css/new.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/angular.js"></script>
+  <style>
+
+  </style>
+</head>
+<body  ng-controller="proCtrl as ctrl">
+  <div class="device">
+      <!--左右切换-->
+    <a class="arrow-left" href="#"></a> 
+    <a class="arrow-right" href="#"></a>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="index-main">
+            <!--导航栏-->
+            <div ng-include="'tpl/include/header.html'"></div>
+            <!--页面中部-->
+            <div ng-include="'tpl/index-main.html'"></div>
+        </div>
+        <div class="swiper-slide" style="overflow: auto" id="timershaft">
+          <!--导航栏-->
+            <div ng-include="'tpl/include/header.html'"></div>
+            <!--<div ng-include="'tpl/timer-shaft.html'" ></div>-->
+            <div class="content">
+                <div class="wrapper">
+                    <!--<hr class="line-left">-->
+                    <!--<hr class="line-right">-->
+                    <div class="roller-main">
+                        <h1 class="title">二级页面</h1>
+                        <div class="year">
+                            <h2><a href="#">二级页面<i></i></a></h2>
+                            <div class="list">
+                                <ul>
+                                    <li class="cls highlight">
+                                        <p class="date">表格1</p>
+                                        <p class="intro">表格内容介绍 <span class="btn btn-default">按钮</span> <span class="btn btn-default">按钮</span></p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <table class="table  table-bordered">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="cls">
+                                        <p class="date">表格2</p>
+                                        <p class="intro">表格内容介绍</p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <table class="table  table-bordered">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="cls">
+                                        <p class="date">表格2</p>
+                                        <p class="intro">表格内容介绍</p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <table class="table  table-bordered">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="cls">
+                                        <p class="date">表格2</p>
+                                        <p class="intro">表格内容介绍</p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <table class="table  table-bordered">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="cls">
+                                        <p class="date">3月12日</p>
+                                        <p class="intro">首家支持微信支付，多客服系统上线！</p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <p>为公众账号的微信支付提供技术接入，通过简单配置即可使用微信支付</p>
+                                            <p>微信公众平台高级接口支持，通过认证的服务号可以使用多客服系统回复粉丝</p>
+                                            <p>微商城首页添加多套模板，详情页支持模板自定义，商城购买商品支持微信支付；商城首页图片自适应等等十多个细节改进</p>
+                                        </div>
+                                    </li>
+                                    <li class="cls highlight">
+                                        <p class="date">1月</p>
+                                        <p class="intro">微俱聚V6.0上线</p>
+                                        <p class="version">&nbsp;</p>
+                                        <div class="more">
+                                            <p>确立每周迭代、周三发布，用户参与推动模块开发的小米模式</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide" id="menu">
+          <div ng-include="'tpl/include/header.html'"></div>
+          <div ng-include="'tpl/menu.html'"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination"></div>
+  </div>
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/dist/idangerous.swiper.min.js"></script>
+  <!--<script src="js/angular-route.js"></script>-->
+  <script src="js/new.js"></script>
+  <script>
+      angular.module('proApp',[])
+              .controller('proCtrl',[function ($http) {
+//              var self=this;
+//              self.num=1;
+//              self.add=function () {
+//                self.num++;
+//              };
+//              self.list=[];
+//              $http.get('http://202.119.65.27:9999/monitor/mon/alert/findAllAlert').then(function (response) {
+//                self.list=response.data.alert;
+//                console.log(self.list);
+//                for(var i=0;i<self.list.length;i++){
+//                  console.log(self.list[i]);
+//                }
+//              });
+              }])
+  </script>
+  <script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    loop:false,
+    grabCursor: true,
+    paginationClickable: true,
+    onTouchEnd: function(swiper){
+      if(mySwiper.activeIndex==2){
+        setTimeout(function () {
+          $('.menu-box').slideDown("slow");
+        },100);
+      }else{
+        $('.menu-box').slideUp("slow");
+      };
+    }
+  });
+//  点击左右切换页面
+  $('.arrow-left').on('click', function(e){
+    e.preventDefault();
+    mySwiper.swipePrev();
+  });
+  $('.arrow-right').on('click', function(e){
+    e.preventDefault();
+    mySwiper.swipeNext();
+  });
+//  时间轴
+  $("#timershaft").find(".roller-main").find(".year .list").each(function (e, target) {
+    var $target=  $(target),
+            $ul = $target.find("ul");
+    $target.height($ul.outerHeight()), $ul.css("position", "absolute");
+  });
+  $("#timershaft").find(".roller-main").find(".year>h2>a").click(function (e) {
+      e.preventDefault();
+    $(this).parents(".year").toggleClass("close");
+  });
+//  点击菜单栏切换
+    $('#menu').on('click','.menu-box .menu-list', function () {
+        if($(this).siblings().hasClass('active')){
+        $('.menu-box').find('.active').removeClass('active');
+        $(this).addClass('active');
+      }else{
+        $(this).addClass('active');
+      }
+    });
+//      时间同步
+  function showLeftTime()
+  {
+      var now=new Date();
+      var year=now.getFullYear();
+      var month=now.getMonth();
+      var day=now.getDate();
+      var hours=now.getHours();
+      var minutes=now.getMinutes();
+      var seconds=now.getSeconds();
+      if(month<10){
+          month='0'+month;
+      }
+      if(hours<10){
+          hours='0'+hours;
+      }
+      if(minutes<10){
+          minutes='0'+minutes;
+      }
+      if(seconds<10){
+          seconds='0'+seconds;
+      }
+      $('.swiper-wrapper').find('.time').html(""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"");
+//一秒刷新一次显示时间
+      var timeID=setTimeout(showLeftTime,1000);
+  }
+  showLeftTime();
+  </script>
+
+</body>
+</html>

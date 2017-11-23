@@ -1,0 +1,96 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+#
+newmtl 09_-_Default
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.6
+illum 2
+#
+# Multi/Sub Material__179 (7) to come 
+#
+newmtl mat0
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__180
+Ka  0.7 0.8 0.0
+Kd  0.7 0.8 0.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl mat1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl mat4
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl mat5
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl mat6
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl mat7
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Material__179 done 
+#
+newmtl 02_-_Default
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  10.5
+illum 2
+#
+newmtl 01_-_Default
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.2
+illum 2
+map_Kd 18.jpg
+#
+newmtl 08_-_Default
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+#
+# EOF

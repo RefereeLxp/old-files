@@ -1,0 +1,212 @@
+#define superAdmin()  
+   <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <form id="view" action="loginSuccess" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="submit" value="总览"  /> 
+		   </form> 
+            </li>            
+
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>航空宇航学院</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li> <form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="航空宇航学院" />
+			  <input type="submit" value="一院总览"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所B" />
+			  <input type="submit" value="研究所B"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所C" />
+			  <input type="submit" value="研究所C"  /> 
+		   </form></li>
+		   
+                </ul>
+            </li>
+            
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>能源与动力学院</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="能源与动力学院" />
+			  <input type="submit" value="二院总览"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所A" />
+			  <input type="submit" value="研究所A"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所D" />
+			  <input type="submit" value="研究所D"  /> 
+		   </form></li>
+		            <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所E" />
+			  <input type="submit" value="研究所E"  /> 
+		   </form></li>		           		   
+                </ul>
+            </li>
+            
+             <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>自动化学院</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="自动化学院" />
+			  <input type="submit" value="三院总览"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所F" />
+			  <input type="submit" value="研究所F"  /> 
+		   </form></li>                    		           		   
+                </ul>
+            </li> 
+             <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>电子信息工程学院</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="电子信息工程学院" />
+			  <input type="submit" value="四院总览"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所G" />
+			  <input type="submit" value="研究所G"  /> 
+		   </form></li>                    		           		   
+                </ul>
+            </li> 
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>机电学院</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="机电学院" />
+			  <input type="submit" value="五院总览"  /> 
+		   </form></li>
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="研究所H" />
+			  <input type="submit" value="研究所H"  /> 
+		   </form></li>                    		           		   
+                </ul>
+            </li>                                        
+        </ul>
+    </div>
+    <!-- end sidebar -->
+#end
+#define collegeAdmin()
+<!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+                       
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>#(user.college)</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li> <form id="view" action="selectCollege" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="college" value="#(user.college)" />
+			  <input type="submit" value="#(user.college)"  /> 
+		   </form></li>
+		   #for(x : laboratory)
+                    <li> <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="#(x.laboratory)" />
+			  <input type="submit" value="#(x.laboratory)"  /> 
+		   </form></li>
+           #end
+		   
+                </ul>
+            </li>
+                                                               
+        </ul>
+    </div>
+    <!-- end sidebar -->
+#end
+#define laboratoryAdmin()
+<!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+                       
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>#(user.college)</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="#(user.laboratory)" />
+			  <input type="submit" value="#(user.college)"  /> 
+		   </form>		  
+                    <li>  <form id="view" action="selectLaboratory" method="post">  
+			  <input type="hidden" name="name" value="#(user.username)" /> 
+			  <input type="hidden" name="laboratory" value="#(user.laboratory)" />
+			  <input type="submit" value="#(user.laboratory)"  /> 
+		   </form></li>
+		   
+                </ul>
+            </li>
+                                                               
+        </ul>
+    </div>
+    <!-- end sidebar -->
+#end
+#define normalUser()
+ <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+                       
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>#(user.college)</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+               
+            </li>
+                                                               
+        </ul>
+    </div>
+    <!-- end sidebar -->
+#end

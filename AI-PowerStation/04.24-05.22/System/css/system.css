@@ -1,0 +1,283 @@
+.container{
+    width: 100%;
+}
+.nav{
+    height: 60px;
+    vertical-align: middle;
+    background: #2E2E2E;
+    box-shadow: 0 4px 10px #929192;
+}
+.log-box{
+    line-height: 58px;
+}
+.log-box img{
+    height: 55px;
+}
+.log-box span{
+    font-size: 20px;
+    color: #E9D342;
+    font-weight: bold;
+}
+.nav-rg{
+    text-align: right;
+    line-height: 60px;
+}
+.exponent-box{
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.date-box{
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #FEFEFE;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.exponent-box span,.date-box span{
+    margin-right: 10px;
+}
+.exponent-box b{
+    line-height: 30px;
+    vertical-align: middle;
+    color: #FEFEFE;
+    font-size: 16px;
+}
+.exponent-box i{
+    margin-right: 5px;
+    line-height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 30px;
+    height: 38px;
+}
+.exponent-box span:nth-child(1) i{
+    background: url("../image/icon_nav.png") no-repeat 12px -6px;
+}
+.exponent-box span:nth-child(2) i{
+    background: url("../image/icon_nav.png") no-repeat -23px -6px;
+}
+.exponent-box span:nth-child(3) i{
+    background: url("../image/icon_nav.png") no-repeat -60px -6px;
+}
+/*-----------页面主体*/
+.main{
+    /*background: url("../image/main-bg.png") no-repeat;*/
+    min-height: 708px;
+    background-size:100%;
+}
+.warning-bar{
+    height: 120px;
+    background-image: linear-gradient(#FDD186 0%,#F2A868 100%);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 10px #929192;
+}
+.warning-box{
+    width: 50%;
+    height: 120px;
+    margin: 0 auto;
+}
+.warning-icon{
+    float: left;
+    width: 50%;
+    height: 120px;
+    line-height: 65px;
+}
+.warning-icon{
+    margin: 0 auto;
+    height: 120px;
+    vertical-align: middle;
+    text-align: center;
+}
+.warning-icon b{
+    display: inline-block;
+    height: 65px;
+    width: 62px;
+    line-height: 120px;
+    vertical-align: middle;
+    background: url("../image/jinggao.png") no-repeat 0px 2px ;
+}
+.warning-icon span.warning{
+    font-size: 20px;
+    color:#F31E43;
+    font-weight: bold;
+    line-height: 120px;
+}
+.warning-info{
+    text-align: left;
+    float: left;
+    width: 50%;
+    height: 120px;
+    padding: 10px;
+}
+.warning-info p{
+    /*margin-left: 15px;*/
+    font-size: 15px;
+    margin: 10px 0;
+    color:#F31E43;
+    font-weight: bold;
+}
+.main-manager{
+    background: #F5F5F5;
+    padding: 25px 0;
+    box-shadow: 0px 2px 3px #999 inset;
+}
+.manager-box{
+    margin: 0 auto;
+    /*min-width: 390px;*/
+    width: 610px;
+}
+.manager-lt{
+    text-align: center;
+    float: left;
+    width: 200px;
+    height: 170px;
+    padding-top: 10px;
+    border-right:2px solid #D8D9D8;
+    border-bottom:2px solid #D8D9D8;
+}
+.manager-lt b{
+    display: inline-block;
+    width: 97px;
+    height: 111px;
+}
+.manager-box .manager-lt:nth-child(1) b{
+    background: url("../image/dengguang.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(2) b{
+    background: url("../image/shuibeng.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(3) b{
+    background: url("../image/kongtiao.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(4) b{
+    background: url("../image/fengji.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(5) b{
+    background: url("../image/menjing.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(6) b{
+    background: url("../image/jiankong.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(1):hover b{
+    background: url("../image/dengguang1.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(2):hover b{
+    background: url("../image/shuibeng1.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(3):hover b{
+    background: url("../image/kongtiao1.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(4):hover b{
+    background: url("../image/fengji1.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(5):hover b{
+    background: url("../image/menjing1.png") no-repeat;
+}
+.manager-box .manager-lt:nth-child(6):hover b{
+    background: url("../image/jiankong1.png") no-repeat;
+}
+.manager-lt p{
+    margin: 10px 0;
+    font-size: 16px;
+    color: #8F938F;
+    font-weight: bold;
+}
+.manager-lt:hover p{
+    color: #FFCF85;
+}
+.manager-box .manager-lt:nth-child(3),.manager-box .manager-lt:nth-child(6){
+    border-right:0;
+}
+.manager-box .manager-lt:nth-child(4),.manager-box .manager-lt:nth-child(5),.manager-box .manager-lt:nth-child(6){
+    border-bottom:0;
+}
+/*情景模式盒子*/
+.contextual-model{
+    height: auto;
+}
+.modal-box{
+    width: 86%;
+    margin: 0 auto;
+}
+.modal-line{
+    margin: 10px 0;
+    background:#F0F0F0;
+    height: 2px;
+}
+.modal-tit h3{
+    padding-left: 10px;
+    font-size: 16px;
+    color: #F69C3B;
+    text-align: left;
+    font-weight: bold;
+}
+.modal-info-box{
+    display: inline-block;
+    /*float: left;*/
+    width:13%;
+    text-align: center;
+}
+.modal-info{
+    text-align: center;
+}
+.modal-info-box b{
+    margin-top: 10px;
+    display:inline-block;
+    height: 60px;
+    width: 90px;
+}
+.modal-info-box p{
+    font-size: 15px;
+    color: #8D8787;
+    letter-spacing:5px;
+    font-weight: bold;
+}
+
+.modal-info .modal-info-box:nth-child(1) b{
+    background: url("../image/huo.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(2) b{
+    background: url("../image/shuijing.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(3) b{
+    background: url("../image/hujiao.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(4) b{
+    background: url("../image/ruqing.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(5) b{
+    background: url("../image/jingbao.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(6) b{
+    background: url("../image/chefang.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(7) b{
+    background: url("../image/zidingyi.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(1):hover b{
+    background: url("../image/huo1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(2):hover b{
+    background: url("../image/shuijing1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(3):hover b{
+    background: url("../image/hujiao1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(4):hover b{
+    background: url("../image/ruqing1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(5):hover b{
+    background: url("../image/jingbao1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(6):hover b{
+    background: url("../image/chefang1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:nth-child(7):hover b{
+    background: url("../image/zidingyi1.png") no-repeat 0 0;
+}
+.modal-info .modal-info-box:hover p{
+    color: #DD8B35;
+}

@@ -1,0 +1,113 @@
+body{
+    color:#9CA1A9;
+    height: auto;
+    background: url('../image/bg.png') no-repeat;
+    background-position: top center;
+}
+.login-box {
+    /*border:3px solid #407CC8;*/
+    border-radius: 20px;
+    width: 590px;
+    height: 420px;
+    background: url(../image/login.png) no-repeat;
+    margin: 220px auto;
+    background-size: cover;
+    text-align: center;
+}
+@media (max-height: 780px) {
+    .login-box {
+        margin: 140px auto;
+    }
+}
+#title {
+    color:white;
+    height: 72px;
+    text-align: center;
+    margin-bottom: 50px;
+    background: url(../image/tktop.png) no-repeat;
+    text-shadow:0 0 5px #ffb468;
+    font-size: 24px;
+    padding: 17px;
+}
+.p1{background: url('../image/ren.png') 11px 7px no-repeat}
+.p2{background: url('../image/suo.png') 11px 7px no-repeat}
+
+#title p {
+    font-size: 18px;
+    height: 46px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+#title i {
+    width: 95px;
+    height: 41px;
+    margin-left: 5px;
+    background: url(../image/wife.png) no-repeat;
+    float: left;
+}
+#title span {
+    /*margin:-10px 5px 0 0;*/
+    /*width: 54px;*/
+    /*height: 56px;*/
+    /*background: url(../image/icon.png) no-repeat;*/
+    /*float: right;*/
+    margin: -10px 5px 0 0;
+    width: 63px;
+    height: 51px;
+    background: url(../image/icon.png) no-repeat;
+    float: right;
+    background-size: 72px;
+}
+#login-form p{
+    float:left;
+    width: 46px;
+    height: 46px;
+    background-color: #E1E4ED;
+}
+.input-lg{
+    border: 0;
+    background-color: #E1E4ED;;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+    /*border-color: #30c3fb;*/
+    color: #989DA5;
+    line-height:30px;
+    vertical-align:middle;;
+    margin-bottom: 20px;
+    float:right;
+    width: 315px;
+}
+
+.help-block {
+    width: 320px;
+    height: 20px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 5px;
+    color:#a94442;
+}
+/*阴影*/
+ .input-group{
+     box-shadow:5px 2px 6px #000 inset;
+     /*border-radius: 0 5px 5px 0;*/
+     border-radius: 5px;
+ }
+ /*按钮*/
+#d1{
+    color: white;
+    width: 384px;
+    height: 60px;
+    margin:0 auto;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background:#ffb468;
+    border-radius: 5px;
+    box-shadow:0 0 2px 2px #ffcd48;
+    border:none;
+}
+#d1:hover{cursor: pointer;}
+a:hover{
+    text-decoration: none;
+}

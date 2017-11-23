@@ -1,0 +1,92 @@
+.container{
+    width: 100%;
+}
+.search{
+    height: 180px;
+    background: url("../image/search-bg.png") no-repeat;
+    background-size: 100%;
+}
+.search-box{
+    width: 60%;
+    margin:60px auto 0;
+}
+.search-box .input-group-addon b{
+    margin-top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../image/search-icon.png") no-repeat;
+}
+.search-box input{
+    height: 40px;
+}
+.search-box .input-group-addon{
+    vertical-align: middle;
+    background: #fff;
+}
+.line{
+    margin: 30px auto 0;
+    width: 60%;
+    background: #64ABFD;
+    height: 2px;
+}
+.carousel-control span{
+    position: absolute;
+    top: 48%;
+}
+/*·ÖÒ³¿ò*/
+.page-box .nav-tabs > li{
+    width: 33.3%;
+    text-align: center;
+    background: #F5F4F0;
+}
+.page-box .nav-tabs > li > a{
+    border-radius: 2px 2px 0 0;
+    line-height: 40px;
+    font-size: 16px;
+    color: #A1A19F;
+
+}
+.page-box .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+    color: #489CFF;
+}
+th{
+    text-align: center!important;
+    font-size: 15px;
+}
+#myTabContent td{
+    padding: 5px 0;
+    min-height: 30px;
+    /*line-height: 30px;*/
+    vertical-align: middle;
+}
+.product-num input{
+    width: 100%;
+    line-height: 30px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    text-align: center;
+}
+#myTabContent td img{
+    width: 80%;
+    /*height: 90%;*/
+}
+#myTabContent{
+    overflow: auto;
+}
+#myTabContent td.total{
+    text-align: right;
+    min-height: 30px;
+    font-size: 16px;
+    padding: 10px 25px;
+}
+.next{
+    line-height: 100px;
+    height: 100px;
+    background: #F5F4F0;
+    text-align: center;
+    vertical-align: middle;
+}
+.next .btn{
+    border: 1px solid #686868;
+}

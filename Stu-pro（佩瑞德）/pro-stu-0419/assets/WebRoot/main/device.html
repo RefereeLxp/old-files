@@ -1,0 +1,68 @@
+<html>
+<table class="list">
+        <tbody>
+            <h3 align=center>计算机设备</h3>
+			<tr>
+				<th width="2%"><font size="3"> 编号 </th>
+				<th width="2%"><font size="3">品牌</th>
+				<th width="2%"><font size="3">类型</th>
+				<th width="4%"><font size="4">操作</th>
+			</tr>			
+			#for(x : computer)
+			<tr>
+				<td align=center>#(x.number)</td>
+				<td align=center>#(x.brand)</td>
+				<td align=center>#(x.type)</td>
+				<td align=center>
+					<a href="/assets/device/deleteComputer/#(x.id)-#(userId)">删除</a>
+					<a href="/assets/device/editComputer/#(x.id)">修改</a>
+				</td>				     
+			</tr>			
+			#end
+		</tbody> 		
+</table>
+<table class="list">
+        <tbody>
+            <h3 align=center>办公自动化设备</h3>
+			<tr>
+				<th width="2%"><font size="3"> 编号 </th>
+				<th width="2%"><font size="3">品牌</th>
+				<th width="2%"><font size="3">类型</th>
+				<th width="4%"><font size="4">操作</th>
+			</tr>			
+			#for(x : office)
+			<tr>
+				<td align=center>#(x.number)</td>
+				<td align=center>#(x.brand)</td>
+				<td align=center>#(x.type)</td>	
+				<td align=center>
+					<a href="/assets/device/deleteOffice/#(x.id)-#(userId)">删除</a>
+					<a href="/assets/device/editOffice/#(x.id)">修改</a>
+				</td>			     
+			</tr>			
+			#end
+		</tbody> 		
+</table>
+<table class="list">
+        <tbody>
+            <h3 align=center>存储设备</h3>
+			<tr>
+				<th width="2%"><font size="3"> 编号 </th>
+				<th width="2%"><font size="3">类型</th>
+				<th width="2%"><font size="3">硬盘序列号</th>
+				<th width="4%"><font size="4">操作</th>
+			</tr>			
+			#for(x : storage)
+			<tr>
+				<td align=center>#(x.number)</td>
+				<td align=center>#(x.type)</td>
+				<td align=center>#(x.diskNum)</td>
+				<td align=center>
+					<a href="/assets/device/deleteStorage/#(x.id)-#(userId)">删除</a>
+					<a href="/assets/device/editStorage/#(x.id)">修改</a>
+				</td>				     
+			</tr>			
+			#end
+		</tbody> 		
+</table>
+</html>

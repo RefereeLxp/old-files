@@ -1,0 +1,247 @@
+{
+  "type": "group",
+  "children": [
+    {
+      "type": "mesh",
+      "name": "leftPart",
+      "size": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": -6,
+        "y": 5,
+        "z": 0
+      },
+      "geometry": {
+        "type": "box",
+        "size": {
+          "x": 6,
+          "y": 10,
+          "z": 0.2
+        },
+        "translate": {
+          "x": 3,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "material": {
+        "type": "multiMaterial",
+        "materials": [
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "map": "images/window-left.jpg",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 0.5
+          },
+          {
+            "type": "phong",
+            "map": "images/window-right.jpg",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "type": "mesh",
+      "name": "rightPart",
+      "size": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": 6,
+        "y": 5,
+        "z": 0
+      },
+      "geometry": {
+        "type": "box",
+        "size": {
+          "x": 6,
+          "y": 10,
+          "z": 0.2
+        },
+        "translate": {
+          "x": -3,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "material": {
+        "type": "multiMaterial",
+        "materials": [
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 1
+          },
+          {
+            "type": "phong",
+            "map": "images/window-right.jpg",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 0.5
+          },
+          {
+            "type": "phong",
+            "map": "images/window-left.jpg",
+            "color": "#C3C3C3",
+            "side": 2,
+            "opacity": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "type": "mesh",
+      "name": "topPart",
+      "size": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": 0,
+        "y": 10,
+        "z": 0
+      },
+      "geometry": {
+        "type": "box",
+        "size": {
+          "x": 12,
+          "y": 0.01,
+          "z": 0.2
+        }
+      },
+      "material": {
+        "type": "phong",
+        "color": "#C3C3C3",
+        "side": 2,
+        "opacity": 1
+      }
+    },
+    {
+      "type": "mesh",
+      "name": "bottomPart",
+      "size": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "geometry": {
+        "type": "box",
+        "size": {
+          "x": 12,
+          "y": 0.01,
+          "z": 0.2
+        }
+      },
+      "material": {
+        "type": "phong",
+        "color": "#C3C3C3",
+        "side": 2,
+        "opacity": 1
+      }
+    }
+  ],
+  "animation": [
+    {
+      "type": "on",
+      "object": "leftPart",
+      "attribute": "rotation",
+      "to": {
+        "x": 0,
+        "y": -2.0943951023931953,
+        "z": 0
+      },
+      "time": 800
+    },
+    {
+      "type": "on",
+      "object": "rightPart",
+      "attribute": "rotation",
+      "to": {
+        "x": 0,
+        "y": 2.0943951023931953,
+        "z": 0
+      },
+      "time": 800
+    },
+    {
+      "type": "off",
+      "object": "leftPart",
+      "attribute": "rotation",
+      "to": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "time": 800
+    },
+    {
+      "type": "off",
+      "object": "rightPart",
+      "attribute": "rotation",
+      "to": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "time": 800
+    }
+  ]
+}

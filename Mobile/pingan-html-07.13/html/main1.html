@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html  ng-app="ngApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../drcss/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="../css/style.css"/>-->
+    <link rel="stylesheet" href="../drcss/main-css.css"/>
+    <script src="../drjs/jquery-1.11.2.min.js"></script>
+    <!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
+    <script src="../drjs/bootstrap.js"></script>
+    <script src="../drjs/angular.js"></script>
+    <style>
+        .fade{
+            display: none;
+        }
+        .in{
+            display: inline-block;
+        }
+        .changed{
+            color: #494949 !important;
+        }
+
+    </style>
+</head>
+<body  ng-controller="ngControl as info">
+    <div class="container">
+        <div class="nav-box">
+            <div class="nav-title">
+                <span>填写信息</span>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box1">
+            <h4 class="insurance-box-title">
+                投保人信息
+            </h4>
+            <div class="insurance-box-from">
+                <div>
+                    <span>姓名*</span>
+                    <input type="text" placeholder="请输入您的姓名" ng-model="info.userName"/>
+                    <i ng-bind="info.userNametest"></i>
+                </div>
+                <div>
+                    <span>身份证号*</span>
+                    <input type="text" placeholder="请输入身份证号" ng-model="info.idNum"/>
+                    <i ng-bind="info.idNumtest"></i>
+                </div>
+                <div>
+                    <span>手机号码*</span>
+                    <input type="text" placeholder="请输入手机号码" ng-model="info.telNum"/>
+                    <i ng-bind="info.telNumtest"></i>
+                </div>
+                <div>
+                    <span>电子邮箱</span>
+                    <input type="text" placeholder="请输入电子邮箱" ng-model="info.email"/>
+                    <i ng-bind="info.emailtest"></i>
+                </div>
+                <div>
+                    <span>合同号*</span>
+                    <input type="text" placeholder="请输入合同号" ng-model="info.pactId"/>
+                    <i ng-bind="info.pactIdtest"></i>
+                </div>
+                <div>
+                    <span>贷款金额*</span>
+                    <input type="text" placeholder="请输入贷款金额" ng-model="info.money"/>
+                    <i ng-bind="info.moneytest"></i>
+                </div>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box2">
+            <h4 class="insurance-box-title">
+                被保人信息
+            </h4>
+            <div class="insurance-box-list">
+                <div>
+                    <span>与投保人关系：</span>
+                    <input  type="checkbox" value=""  ng-model="relation" ng-init="relation = true" id="relation-select"/>本人
+                </div>
+                <div>
+                    <span>姓名:</span>
+                    <b ng-bind="info.userName" ng-if="relation">--</b>
+                    <input type="text" placeholder="" class="fade"/>
+                    <i></i>
+                </div>
+                <div>
+                    <span>身份证号：</span>
+                    <b ng-bind="info.idNum" ng-if="relation"></b>
+                    <input type="text" placeholder="" class="fade"/>
+                    <i></i>
+                </div>
+                <div>
+                    <span>手机号码：</span>
+                    <b ng-bind="info.telNum" ng-if="relation">--</b>
+                    <input type="text" placeholder="" class="fade"/>
+                    <i></i>
+                </div>
+                <div>
+                    <span>电子邮箱：</span>
+                    <b ng-bind="info.email" ng-if="relation">--</b>
+                    <input type="text" placeholder="" class="fade"/>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box3">
+            <h4 class="insurance-box-title">
+                受益人信息
+            </h4>
+            <div>
+                <p>受益人：<i>南京智视界科技有限公司</i></p>
+            </div>
+            <div>
+                <p>保费：<b>￥23423</b>元</p>
+            </div>
+            <div>
+                <input  type="checkbox" value=""  ng-model="myVar" ng-init="myVar = true"/>
+                <i>我已阅读 <a href="#">《投保须知》</a>和 <a href="#">《投保声明》</a></i>
+            </div>
+        </div>
+        <div class="btn-box">
+            <button class="my-btn my-btn1">
+                上一步
+            </button>
+            <button class="my-btn my-btn1"  ng-click="info.submit()"  ng-if="myVar">
+                立即投保
+            </button>
+
+        </div>
+    </div>
+    <script>
+        $('#relation-select').change(function () {
+            if($(this).is(':checked')){
+                $('.insurance-box2').find('span');
+                $('.insurance-box2').find('.insurance-box-list div').each(function () {
+                    $(this).find('b').removeClass('fade').addClass('in');
+                    $(this).find("input[ type='text']").removeClass('in').addClass('fade');
+                })
+            }else{
+                $('.insurance-box2').removeClass('changed');
+                $('.insurance-box2').find('.insurance-box-list div').each(function () {
+                    $(this).find('b').removeClass('in').addClass('fade');
+                    $(this).find("input[ type='text']").removeClass('fade').addClass('in');
+                })
+            }
+        });
+        angular.module('ngApp',[]).controller('ngControl',[function ($http) {
+            var self=this;
+            self.submit=function () {
+                self.userNametest=userName(self.userName)?'':'格式错误';
+                self.idNumtest=idNum(self.idNum)?'':'格式错误';
+                self.telNumtest=telNum(self.telNum)?'':'格式错误';
+                self.emailtest=email(String(self.email))?'':'格式错误';
+                self.pactIdtest=pactId(self.pactId)?'':'格式错误';
+                self.moneytest=money(self.money)?'':'格式错误';
+            };
+        }])
+        function userName(txt) {
+            var patrn =  /^[\u4e00-\u9fa5]+(·[\u4e00-\u9fa5]+)*$/;
+            if (!patrn.exec(txt)) return false;
+            return true
+        }
+            function idNum(txt) {
+                var patrn = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+                if (!patrn.exec(txt)) return false;
+                return true
+            }
+            function telNum(txt) {
+                var patrn = /^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;
+                if (!patrn.exec(txt)) return false;
+                return true
+            }
+        function email(txt) {
+            var patrn = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            if(txt!='undefined'){
+                if (!patrn.exec(txt)) return false;
+                return true
+            }else{
+                return true
+            }
+        }
+        function pactId(txt) {
+            var patrn = /^[1-9]\d*$/;
+            if (!patrn.exec(txt)) return false;
+            return true
+        }
+        function money(txt) {
+            var patrn = /^\d+\.\d{1,2}|\d+$/;
+            if (!patrn.exec(txt)) return false;
+            return true
+        }
+    </script>
+    <script>
+        $('.insurance-box-from').on('focus','input',function(){
+            $(this).parent().parent().find('span').removeClass('activeColor').addClass('normalColor');
+            $(this).parent().find('span').removeClass('normalColor').addClass('activeColor');
+        })
+    </script>
+</body>
+</html>

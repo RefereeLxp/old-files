@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="pop-main">
+    <div class="monitor-station">
+        <p class="main-title">选择主机</p>
+        <div class="head-box">
+            <div class="row">
+                <div class="col-xs-12">
+                    <select id="seprovince"><option>--监控中心--</option></select>
+                    <select id="secity"><option>--监控站--</option></select>
+                    <select id="searea"><option>--主机--</option></select>
+                </div>
+            </div>
+            <div class="btn-box">
+                <botton type="button" class="btn" id="hostselect-submit">保存</botton>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script>
+    //三级联动
+    $(function () {
+//监控中心
+        $.ajax({
+            type: "post",
+            url: "http://202.119.65.27:9999/monitor/ass/station/getAllStation1",
+            data:{sessionId:sessionStorage['sessionid']},
+            success: function (list) {
+                var html = "";
+                $.each(list.stations, function(i, p){
+//                        console.log(p);
+                    html += `
+                            <option value=${p.st_id}>${p.st_name}</option>
+				        `;
+                });
+                $("#seprovince").append(html);
+            }
+        });
+//选择某中心，出现相应监控站监控站
+        $('#seprovince').change(function () {
+            $('#secity option:gt(0)').remove();
+            $('#searea option:gt(0)').remove();
+            var num=$(this).val();
+            $.ajax({
+                type: "get",
+                url: "http://202.119.65.27:9999/monitor/ass/station/getAll",
+                data:{sessionId:sessionStorage['sessionid']},
+                success: function (list) {
+                    var html = "";
+                    $.each(list.rows, function (i, p) {
+                        if (p.st_id_1 ==num ) {
+                            html += `
+                                   <option value=${p.st_id_2}>${p.st_name_2}</option>
+                                `;
+                        }
+                    });
+                    $('#secity').append(html);
+                }
+            })
+        })
+
+//选择某监控站，出现相应主机
+        $('#secity').change(function () {
+            console.log($(this).find('option:selected').text());
+            var tit=$(this).find('option:selected').text();
+            $.ajax({
+                type: "get",
+                url: "http://202.119.65.27:9999/monitor/ass/host/getAll",
+                data:{sessionId:sessionStorage['sessionid']},
+                success: function (list) {
+                    var html = '<option value="null">--主机--</option>';
+                    $.each(list.hosts, function (i, p) {
+                        if (p.st_name ==tit ) {
+                            html += `
+                                   <option value="${p.host_id}">${p.host_name}</option>
+                                `;
+                        }
+                    });
+                    $('#searea').empty().html(html);
+                }
+            })
+        })
+    });
+
+
+</script>
+</body>
+</html>

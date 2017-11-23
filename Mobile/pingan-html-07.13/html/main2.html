@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html  ng-app="ngApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../drcss/bootstrap.css"/>
+    <link rel="stylesheet" href="../drcss/main-css.css"/>
+    <script src="../drjs/jquery-1.11.2.min.js"></script>
+    <script src="../drjs/bootstrap.js"></script>
+    <script src="../drjs/angular.js"></script>
+</head>
+<body  ng-controller="ngControl as info">
+<div class="container">
+    <div class="nav-box">
+        <div class="nav-title">
+            <span>确认保单</span>
+        </div>
+    </div>
+    <div class="insurance-box">
+        <h4 class="insurance-box-title">
+            借款人意外保
+        </h4>
+        <div class="insurance-readOnly">
+            <div>
+                <span>最高保额</span>
+                <i><b>111元</b></i>
+            </div>
+            <div>
+                <span>保险期间</span>
+                <i><b>2017-7-7</b>至<b>2017-7-7</b></i>
+            </div>
+            <div>
+                <span>保费</span>
+                <i><b>5656</b>元</i>
+            </div>
+        </div>
+    </div>
+    <div class="insurance-box">
+        <h4 class="insurance-box-title">
+            投保人信息
+        </h4>
+        <div class="insurance-readOnly">
+            <div>
+                <span>姓名:</span>
+                <i></i>
+            </div>
+            <div>
+                <span>身份证号：</span>
+                <i></i>
+            </div>
+            <div>
+                <span>手机号码：</span>
+                <i></i>
+            </div>
+            <div>
+                <span>电子邮箱：</span>
+                <i></i>
+            </div>
+            <div>
+                <span>合同号：</span>
+                <i></i>
+            </div>
+            <div>
+                <span>贷款金额：</span>
+                <i></i>
+            </div>
+        </div>
+    </div>
+    <div class="insurance-box">
+        <h4 class="insurance-box-title">
+            被保人信息
+        </h4>
+        <div class="insurance-readOnly">
+            <div>
+                <span>与投保人关系：</span>
+                <i>本人</i>
+            </div>
+            <div>
+                <span>姓名:</span>
+                <i>--</i>
+            </div>
+            <div>
+                <span>身份证号：</span>
+                <i></i>
+            </div>
+            <div>
+                <span>手机号码：</span>
+                <i>--</i>
+            </div>
+            <div>
+                <span>电子邮箱：</span>
+                <i>--</i>
+            </div>
+        </div>
+    </div>
+    <div class="insurance-box insurance-box3">
+        <h4 class="insurance-box-title">
+            受益人信息
+        </h4>
+        <div>
+            <p>受益人：<i>南京智视界科技有限公司</i></p>
+        </div>
+        <div>
+            <p>保费：<b>￥23423</b>元</p>
+        </div>
+        <div>
+            <input name="Fruit" type="checkbox" value=""  ng-model="myVar" ng-init="myVar = false"/>
+            <i>我已阅读 <a href="#">《投保须知》</a>和 <a href="#">《投保声明》</a></i>
+        </div>
+    </div>
+    <div class="btn-box">
+        <button class="my-btn my-btn1">
+            上一步
+        </button>
+        <button class="my-btn my-btn1" ng-if="myVar">
+            立即投保
+        </button>
+    </div>
+</div>
+<script>
+    angular.module('ngApp',[]).controller('ngControl',[function ($http) {
+    }])
+</script>
+</body>
+</html>

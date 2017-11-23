@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/phone.css" rel="stylesheet">
+</head>
+<body>
+<div class="search">
+    <div class="container">
+        <div class="input-group search-box">
+            <input type="text" class="form-control" placeholder="搜索">
+            <span class="input-group-addon">
+                <b></b>
+            </span>
+        </div>
+        <div class="line"></div>
+    </div>
+</div>
+<div class="Carousel-bar">
+    <!--<div class="container">-->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="image/1.jpg" alt="First slide" style="width: 100%">
+            </div>
+            <div class="item">
+                <img src="image/2.jpg" alt="Second slide" style="width: 100%">
+            </div>
+            <div class="item">
+                <img src="image/3.jpg" alt="Third slide" style="width: 100%">
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#myCarousel"
+           data-slide="prev"><span>&lsaquo;</span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel"
+           data-slide="next"><span>&rsaquo;</span>
+        </a>
+    </div>
+
+    <!--</div>-->
+</div>
+<div class="menu">
+    <div class="container">
+        <ul class="menu-list">
+            <li>
+                <a href="#">
+                    <div class="menu-icon">
+                        <b class="glyphicon glyphicon-pushpin"></b>
+                    </div>
+                    <div class="menu-tit">
+                        <h2>虹吸</h2>
+                        <span>这是副标题</span>
+                    </div>
+                </a>
+                <button class="del-menu"><b class="glyphicon glyphicon-trash"></b></button>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="menu-icon">
+                        <b class="glyphicon glyphicon-wrench"></b>
+                    </div>
+                    <div class="menu-tit">
+                        <h2>同层</h2>
+                        <span>这是副标题这是副标题</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="menu-icon">
+                        <b class="glyphicon glyphicon-home"></b>
+                    </div>
+                    <div class="menu-tit">
+                        <h2>雨水同收</h2>
+                        <span>这是副标题</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="menu-icon">
+                       <b class="glyphicon glyphicon-cog"></b>
+                    </div>
+                    <div class="menu-tit">
+                        <h2>HDPE管道</h2>
+                        <span>这是副标题这是副标题</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="menu-icon">
+                        <img src="image/rebtou.png" alt=""/>
+                    </div>
+                    <div class="menu-tit">
+                        <h2>虹吸</h2>
+                        <span>试验试验试验</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/phone.js"></script>
+<script>
+    var H=$(window).height()-$(".search").outerHeight(true)-$(".Carousel-bar").outerHeight(true);
+    $('.menu').height(H);
+</script>
+<script></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../css/login.css"/>
+    <script src="../../js/plugins/jQuery/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+<div class="login-box">
+    <div id="title">
+        <!--<p>变配电机房安全智能管理系统</p>-->
+        <i></i>
+        <b>变配电机房安全智能管理系统  &nbsp;&nbsp;</b>
+        <span></span>
+    </div>
+    <form id="login-form">
+        <div class="row">
+            <div class="has-feedback col-xs-offset-2 col-xs-8 required">
+                <p class="p1"></p>
+                <input type="text" id="username" name="uname" class="input-lg" placeholder="输入用户名"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="has-feedback col-xs-offset-2 col-xs-8 required">
+                <p class="p2"></p>
+                <input type="password" id="password" name="upwd"class="input-lg"placeholder="输入密码"/>
+            </div>
+        </div>
+        <div id="info"class="help-block"></div>
+        <div class="row">
+            <input type="button" id="d1"class="btn-block" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录"/>
+        </div>
+    </form>
+    <div class="row">
+        <a href="#">注册账户</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">意见反馈</a>
+    </div>
+</div>
+<script>
+    $("#d1").click(function(){
+        if($("#username").val()==""){
+            $("#info").html("需要用户名")}
+        else if($("#password").val()==""){
+            $("#info").html("需要密码")
+        }else{
+            var data = $("#login-form").serializeArray();
+            console.log(data);
+            $.ajax({
+                url:'http://202.119.65.27:9999/monitor/prv/user/login',
+                data:{ login_name:$('#username').val(),login_pwd:$('#password').val()},
+                success:function(text){
+                    if(text.success==true) {
+                        sessionStorage.setItem('sessionid', text.sessionid);
+                        location.href='main/index.html'
+                    }else{
+                        $("#info").html(text.errors)
+                    }
+                }
+                })
+        }
+    })
+</script>
+</body>
+</html>

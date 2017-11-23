@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="../css/style.css"/>-->
+    <link rel="stylesheet" href="../css/new-css.css"/>
+    <link rel="stylesheet" href="../css/idangerous.swiper.css"/>
+    <!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>-->
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/idangerous.swiper.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="add-btn" data-toggle="modal" data-target="#myModal">
+            <img src="../image/add.png" alt=""/>
+        </div>
+
+        <!--搜索框+广告条-->
+        <div class="banner-nav">
+            <div id="banner" class="carousel slide" data-ride="carousel">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#banner" data-slide-to="0" class="active"></li>
+                    <li data-target="#banner" data-slide-to="1"></li>
+                    <li data-target="#banner" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="../image/bg-1.png" alt="">
+                        <!--<div class="carousel-caption">-->
+                        <!--</div>-->
+                    </div>
+                    <div class="item">
+                        <img src="../image/bg-2.jpg" alt="...">
+                        <!--<div class="carousel-caption">-->
+                        <!--</div>-->
+                    </div>
+                    <div class="item">
+                        <img src="../image/bg-3.jpg" alt="...">
+                        <!--<div class="carousel-caption">-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#banner" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#banner" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="nav-box">
+                <div class="search-box">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <input type="text"/>
+                </div>
+            </div>
+        </div>
+        <div class="menu-button">
+            <div class="device">
+                <!--<a class="arrow-left" href="#"></a>-->
+                <!--<a class="arrow-right" href="#"></a>-->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a class="button-box">
+                                <div>
+                                    <img src="../image/kb.png" alt=""/>
+                                    <b>23</b>
+                                </div>
+                                <p>我的课表</p>
+                            </a>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/rw.png" alt=""/>
+                                    <b>343</b>
+                                </div>
+                                <p>教学任务</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/kcgl.png" alt=""/>
+                                    <b>3</b>
+                                </div>
+                                <p>课程管理</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/sys.png" alt=""/>
+                                </div>
+                                <p>实验室</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/xl.png" alt=""/>
+                                </div>
+                                <p>查看校历</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/xscx.png" alt=""/>
+                                </div>
+                                <p>学生查询</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/znxx.png" alt=""/>
+                                </div>
+                                <p>站内消息</p>
+                            </div>
+                            <div class="button-box">
+                                <div>
+                                    <img src="../image/xm.png" alt=""/>
+                                </div>
+                                <p>试验项目</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="button-box">
+                                <div><img src="../image/icon1.png" alt=""/></div>
+                                <p>标题1</p>
+                            </div>
+                            <div class="button-box">
+                                <div><img src="../image/icon2.png" alt=""/></div>
+                                <p>标题2</p>
+                            </div>
+                            <div class="button-box">
+                                <div><img src="../image/icon3.png" alt=""/></div>
+                                <p>标题3</p>
+                            </div>
+                            <div class="button-box">
+                                <div><img src="../image/icon4.png" alt=""/></div>
+                                <p>标题4</p>
+                            </div>
+                            <div class="button-box">
+                                <div><img src="../image/icon3.png" alt=""/></div>
+                                <p>标题5</p>
+                            </div>
+                            <div class="button-box">
+                                <div><img src="../image/icon4.png" alt=""/></div>
+                                <p>标题6</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+        <!--事项选择-->
+        <div class="tab-change">
+            <div class="tabs">
+                <a href="#" class="active"><span>今日</span></a>
+                <a href="#"><span>本周</span></a>
+                <a href="#"><span>站内信</span></a>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="content-slide">
+                            <div class="item-box3">
+                                <div class="item-box3-lf">
+                                    <div class="yuan">
+                                        <img src="../image/icon-1.png" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="item-box3-rg">
+                                    <p>
+                                        <span><i>教室：</i><b>3304</b></span>
+                                        <span><i>课程：</i><b>高等数学</b></span>
+                                    </p>
+                                    <p>
+                                        <span><i>班级：</i><b>56565</b></span>
+                                        <span><i>时间：</i><b>周一 15:00</b></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item-box3">
+                                <div class="item-box3-lf">
+                                    <div class="yuan">
+                                        <img src="../image/icon-1.png" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="item-box3-rg">
+                                    <p>
+                                        <span><i>教室：</i><b>3304</b></span>
+                                        <span><i>课程：</i><b>高等数学高等数学高等数学</b></span>
+                                    </p>
+                                    <p>
+                                        <span><i>班级：</i><b>56565</b></span>
+                                        <span><i>时间：</i><b>周一 15:00</b></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide week-schedule">
+                            <div class="item-box3">
+                                <div class="item-box3-lf">
+                                    <div class="yuan">
+                                        <img src="../image/icon-2.png" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="item-box3-rg">
+                                    <p>
+                                        <span><i>教室：</i><b>3304</b></span>
+                                        <span><i>课程：</i><b>高等数学高等数学高等数学</b></span>
+                                    </p>
+                                    <p>
+                                        <span><i>班级：</i><b>56565</b></span>
+                                        <span><i>时间：</i><b>周一 15:00</b></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item-box3">
+                                <div class="item-box3-lf">
+                                    <div class="yuan">
+                                        <img src="../image/icon-2.png" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="item-box3-rg">
+                                    <p>
+                                        <span><i>教室：</i><b>3304</b></span>
+                                        <span><i>课程：</i><b>高等数学</b></span>
+                                    </p>
+                                    <p>
+                                        <span><i>班级：</i><b>56565</b></span>
+                                        <span><i>时间：</i><b>周一 15:00</b></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="content-slide">
+                            <div class="item-box">
+                                <img src="../image/icon5.png" alt=""/>
+                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quis, quo. Ab adipisci beatae culpa cumque doloribus ducimus ex facere, fugiat, fugit itaque minima nihil odio, porro quidem soluta temporibus!</span>
+                            </div>
+                            <div class="item-box">
+                                <img src="../image/icon5.png" alt=""/>
+                                <span>Lorem ipsum dolor sit amet, porro quidem soluta temporibus!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--常用教室-->
+        <div class="common-use">
+            <h4><img src="../image/manager.png" alt=""/>教室管理</h4>
+            <div class="item-box3">
+                <div class="item-box3-lf">
+                    <div class="yuan">
+                        <img src="../image/classroom.png" alt=""/>
+                    </div>
+                </div>
+                <div class="item-box3-rg">
+                    <p>
+                        <span><i>教室：</i><b>3304</b></span>
+                        <span><i>湿度：</i><b>25</b></span>
+                    </p>
+                    <p>
+                        <span><i>温度：</i><b>25</b></span>
+                        <span><i>光照：</i><b>25</b></span>
+                    </p>
+                </div>
+            </div>
+            <div class="item-box3">
+                <div class="item-box3-lf">
+                    <div class="yuan">
+                        <img src="../image/classroom.png" alt=""/>
+                    </div>
+                </div>
+                <div class="item-box3-rg">
+                    <p>
+                        <span><i>教室：</i><b>3304</b></span>
+                        <span><i>湿度：</i><b>25</b></span>
+                    </p>
+                    <p>
+                        <span><i>温度：</i><b>25</b></span>
+                        <span><i>光照：</i><b>25</b></span>
+                    </p>
+                </div>
+            </div>
+            <!--<div class="common-use-info">-->
+                <!--<div class="common-use-line1">-->
+                    <!--<i><img src="../image/classroom.png" alt=""/></i>-->
+                    <!--<b>3304</b>-->
+                <!--</div>-->
+                <!--<div class="common-use-line2">-->
+                    <!--<i><img src="../image/wendu1.png" alt=""/></i><b>25</b>-->
+                    <!--<i><img src="../image/guangzhao.png" alt=""/></i><b>25</b>-->
+                    <!--<i><img src="../image/shidu1.png" alt=""/></i><b>25</b>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="common-use-info">-->
+                <!--<div class="common-use-line1">-->
+                    <!--<i><img src="../image/classroom.png" alt=""/></i>-->
+                    <!--<b>3304</b>-->
+                <!--</div>-->
+                <!--<div class="common-use-line2">-->
+                    <!--<i><img src="../image/wendu1.png" alt=""/></i><b>25</b>-->
+                    <!--<i><img src="../image/guangzhao.png" alt=""/></i><b>25</b>-->
+                    <!--<i><img src="../image/shidu1.png" alt=""/></i><b>25</b>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <!--模态框-盒子-->
+        <div class="modal-box">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                教学安排
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="pop-line">
+                                <span>时间</span>
+                                <input type="text"/>
+                            </div>
+                            <div class="pop-line">
+                                <span>排课方式</span>
+                                <input type="text"/>
+                            </div>
+                            <div class="pop-line1">
+                                <span>课程</span>
+                                <input type="text"/>
+                            </div>
+                            <div class="pop-line1">
+                                <span>实验</span>
+                                <input type="text"/>
+                            </div>
+                            <div class="pop-line1">
+                                <span>教室</span>
+                                <input type="text"/>
+                            </div>
+                            <div class="pop-line1">
+                                <span>班级</span>
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">
+                                提交
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var mySwiper = new Swiper('.menu-button .swiper-container',{
+            pagination: '.menu-button .pagination',
+            loop:true,
+            grabCursor: true,
+            paginationClickable: true
+        });
+        $('.arrow-left').on('click', function(e){
+            e.preventDefault();
+            mySwiper.swipePrev();
+        });
+        $('.arrow-right').on('click', function(e){
+            e.preventDefault();
+            mySwiper.swipeNext();
+        });
+//        tab
+        var tabsSwiper = new Swiper('.tab-change .swiper-container',{
+            speed:500,
+            onSlideChangeStart: function(){
+                $(".tabs .active").removeClass('active');
+                $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+            }
+        })
+        $(".tabs a").on('touchstart mousedown',function(e){
+            e.preventDefault()
+            $(".tabs .active").removeClass('active');
+            $(this).addClass('active')
+            tabsSwiper.swipeTo( $(this).index() )
+        })
+        $(".tabs a").click(function(e){
+            e.preventDefault()
+        })
+        $(".tabs a").each(function () {
+            $(this).width(100/$(".tabs a").length+'%');
+        })
+    </script>
+</body>
+</html>

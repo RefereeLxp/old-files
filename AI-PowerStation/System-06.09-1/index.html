@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <div class="col-xs-8 nav-rg">
+                <div class="exponent-box">
+                    <span><i></i><b id="temple">25℃</b></span>
+                    <span><i></i><b id="humi">25%</b></span>
+                    <span><i></i><b id="illum">25%</b></span>
+                </div>
+                <div class="date-box">
+                    <span id="time">2017年4月11日</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="warning-bar">
+        <div class="container">
+            <div class="warning-box fade">
+                <div class="warning-icon">
+                    <b></b>
+                    <span class="warning">设备故障</span>
+                </div>
+                <div class="warning-info">
+                    <p>1.023设备故障</p>
+                    <p>1.023设备故障</p>
+                    <p>1.023设备故障</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-manager">
+        <div class="container">
+            <div class="manager-box">
+            </div>
+        </div>
+    </div>
+    <div class="contextual-model">
+        <div class="container">
+            <div class="modal-box">
+                <div class="modal-tit">
+                    <h3>情景模式</h3>
+                </div>
+                <div class="modal-line"></div>
+                <div class="modal-info">
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra1"])'>
+                        <b></b>
+                        <p>火警</p>
+                    </div>
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra2"])'>
+                        <b></b>
+                        <p>漏水</p>
+                    </div>
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra3"])'>
+                        <b></b>
+                        <p>呼叫</p>
+                    </div>
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra4"])'>
+                        <b></b>
+                        <p>入侵</p>
+                    </div>
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra5"])'>
+                        <b></b>
+                        <p>警戒</p>
+                    </div>
+                    <div class="modal-info-box"onclick='tempHost.asyncOperationSceneExecute(localStorage["extra6"])'>
+                        <b></b>
+                        <p>撤防</p>
+                    </div>
+                    <div class="modal-info-box" onclick="nn()">
+                        <b></b>
+                        <p>自定义</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="video-box" tabindex="-1" role="dialog" aria-labelledby="video-box" aria-hidden="true">
+    <div class="modal-dialog" style="width:860px;margin-top: 180px;">
+        <div class="modal-content">
+            <!--<div class="modal-header">-->
+            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+            <!--×-->
+            <!--</button>-->
+            <!--</div>-->
+            <div class="modal-body" style="height:600px">
+                <div class="video1">
+                    <!--<img class="btn-control" src="../../../image/play.png">-->
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script>
+
+    $('.main-manager').on('click','.manager-lt', function () {
+        var srcs;
+        var src=$(this).find('b').css('background-image');
+        if(!$(this).hasClass('on')){
+            console.error($(this))
+            $(this).addClass('on');
+            src=to_xxx1(src)
+            $(this).find('b').css('background-image',src);
+        }else{
+//            修改图片url为 xxx模式
+            $(this).removeClass('on');
+            src=to_xxx(src)
+            $(this).find('b').css('background-image',src);
+        }
+    });
+    $('.modal-info').on('click','.modal-info-box', function () {
+        var srcs;
+        var src=$(this).find('b').css('background-image');
+        if(!$(this).hasClass('sunken-2')){
+            $(this).addClass('sunken-2');
+            src=to_xxx1(src);
+            $(this).find('b').css('background-image',src);
+        }else{
+//            修改图片url为 xxx模式
+            $(this).removeClass('sunken-2');
+            src=to_xxx(src);
+            $(this).find('b').css('background-image',src);
+        }
+    });
+    //            修改图片url为 xxx1模式
+    function to_xxx1(src){
+        var srcs;
+        src = src.split('.');
+        srcs=src[src.length - 2];
+        src[src.length - 2]=srcs+1;
+        src=src.join(".");
+        return src;
+    }
+    function to_xxx(src){
+        var srcs;
+        src = src.split('.');
+        srcs=src[src.length - 2];
+        src[src.length - 2]=srcs.slice(0,-1);
+        src=src.join(".");
+        return src;
+    }
+    var username1='';
+    var userpassword1='';
+    var uip1='';
+    var username2='';
+    var userpassword2='';
+    var uip2='';
+    var username3='';
+    var userpassword3='';
+    var uip3='';
+    var username4='';
+    var userpassword4='';
+    var uip4='';
+    if(localStorage['uname1']==undefined){
+        username1='admin';
+        userpassword1='qwer1234';
+        uip1='192.168.1.119';
+        username2='admin';
+        userpassword2='qwer1234';
+        uip2='192.168.1.119';
+        username3='admin';
+        userpassword3='qwer1234';
+        uip3='192.168.1.119';
+        username4='admin';
+        userpassword4='qwer1234';
+        uip4='192.168.1.119';
+
+    }else{
+        username1=localStorage['uname1'];
+        userpassword1=localStorage['upwd1'];
+        uip1=localStorage['uip1'];
+        username2=localStorage['uname2'];
+        userpassword2=localStorage['upwd2'];
+        uip2=localStorage['uip2'];
+        username3=localStorage['uname3'];
+        userpassword3=localStorage['upwd3'];
+        uip3=localStorage['uip3'];
+        username4=localStorage['uname4'];
+        userpassword4=localStorage['upwd4'];
+        uip4=localStorage['uip4']
+    }
+    function nn(){
+        location.href='guanli.html'
+    }
+    var tempHost = null;
+    function test() {
+        var deviceId = localStorage['code'];
+        var accessKey = localStorage['ktt'];
+
+        // 生成主机对象
+        tempHost = new SHost(deviceId, accessKey);
+
+        // 初始化主机
+        tempHost.init();
+
+        // 注册主机状态推送
+        tempHost.registerHostStatusCallbackFunc(callBack);
+
+        // 注册主机设备状态推送
+        tempHost.registerDevicesStatusCallbackFunc(deviceCallBack);
+        var temp=tempHost.hostDataRepository.getAllDevicesInfo();
+
+        if(temp.length!=0) {
+            for (var k in temp) {
+                (function (k) {
+                    if (temp[k].deviceType=='ZIGBEE_KonkeSocket'&&temp[k].status.socketSwitch=='ON'){
+                        var outlet=$('.manager-box').find('div[data-val="outlet"]');
+                        for(var i=0;i<outlet.length;i++){
+                            checkVn(eval(outlet[i].id));
+                            console.error(arrD)
+                            if(arrD.indexOf(tempJson.id)!=-1){
+                                if(!$(outlet[i]).hasClass('on')) {
+                                    $(outlet[i]).addClass('on')
+                                }
+                                break;
+                            }
+                        }
+
+                    }
+                }(k))
+            }
+        }
+
+        //生成主机对象
+        //tempHost2 = new SHost("CCU_00018", "84267E60962B75092FC68C2AD123B641");
+
+        //初始化主机
+        //tempHost2.init();
+    }
+    test();
+    var status0=0;
+    function callBack(temp) {
+        console.warn(temp);
+        var tempJson = JSON.parse(temp);
+        if (tempJson.status.statusStep == "link" && tempJson.status.statusValue == 1) {
+            $("#link").html('链接成功');
+        }
+        if (tempJson.status.statusStep == "login" && tempJson.status.statusValue == 1) {
+            $("#login").html('登录成功');
+        }
+        if (tempJson.status.statusStep == "synch" && tempJson.status.statusValue == 1) {
+            $("#synch").html('信息同步成功');
+            status0=1
+        }
+    }
+    setTimeout(function(){
+        if(status0==0){
+            alert('失败');
+            location.href='login.html'
+        }
+    },10000)
+    var arr=[]
+    function deviceCallBack(temp) {
+        var tempJson = JSON.parse(temp);
+        console.error(tempJson);
+        if(tempHost.hostDataRepository.getDevicesByName('ZIGBEE_TempSensor')[0]!=undefined){var temple=tempHost.hostDataRepository.getDevicesByName('ZIGBEE_TempSensor')[0].status.value+'℃';
+        $('#temple').html(temple)}
+        if(tempHost.hostDataRepository.getDevicesByName('ZIGBEE_HumiSensor')[0]!=undefined){var humi=tempHost.hostDataRepository.getDevicesByName('ZIGBEE_HumiSensor')[0].status.value+'%';
+        $('#humi').html(humi)}
+        if(tempHost.hostDataRepository.getDevicesByName('ZIGBEE_IllumSensor')[0]!=undefined){var illum=tempHost.hostDataRepository.getDevicesByName('ZIGBEE_IllumSensor')[0].status.value+'Lux';
+        $('#illum').html(illum);}
+        if (tempJson.status!=null&&tempJson.status.hasOwnProperty('alarm')) {
+            if (tempJson.status.alarm) {
+                if(tempJson.deviceType=='ZIGBEE_InfraredSensor') {
+                    arr.push('警告：有人入侵');
+                }else if(tempJson.deviceType=='ZIGBEE_SmokeSensor') {
+                    arr.push('警告：有火情')
+                }else if(tempJson.deviceType=='ZIGBEE_DipSensor') {
+                    arr.push('警告：漏水')
+                }
+                if(!$('#video-box').hasClass('in')) {
+                    $('.video1').html(
+                            `
+                <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(1)">
+                    <param name='mrl' value='rtsp://${username1}:${userpassword1}@${uip1}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(2)">
+                    <param name='mrl' value='rtsp://${username2}:${userpassword2}@${uip2}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+
+                    <div class='camera-into'><div onclick="goT(1)">查看摄像头</div></div>
+                    <div class='camera-into'><div onclick="goT(3)">查看摄像头</div></div>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(3)">
+                    <param name='mrl' value='rtsp://${username3}:${userpassword3}@${uip3}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(4)">
+                    <param name='mrl' value='rtsp://${username4}:${userpassword4}@${uip4}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+
+                    <div class='camera-into'><div onclick="goT(3)">查看摄像头</div></div>
+                    <div class='camera-into'><div onclick="goT(4)">查看摄像头</div></div>
+                    `
+                    )
+                    $('#video-box').modal('show')
+                }
+            }
+        }else if(tempJson.status!=null&&tempJson.status.hasOwnProperty('type')){
+            if (tempJson.status.type == "℃" && (tempJson.status.value >= 70 || tempJson.status.value <= 0)) {
+                arr.push('温度超出范围')
+                var kt=tempHost.hostDataRepository.getDevicesByName('ZIGBEE_InfraredTransponder');
+                if (!$('#'+kongT).hasClass('on')) {
+                    tempHost.asyncLaunchInfraredCodes(kt[0].id, "1");
+                    $('#'+kongT).addClass('on')
+                }
+            } else if (tempJson.status.type == "%" && (tempJson.status.value >= 70 || tempJson.status.value <= 20)) {
+                arr.push('湿度超出范围');
+                if(!$('#video-box').hasClass('in')) {
+                    $('.video1').html(
+                            `
+                <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(1)">
+                    <param name='mrl' value='rtsp://${username1}:${userpassword1}@${uip1}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(2)">
+                    <param name='mrl' value='rtsp://${username2}:${userpassword2}@${uip2}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+
+                    <div class='camera-into'><div onclick="goT(1)">查看摄像头</div></div>
+                    <div class='camera-into'><div onclick="goT(2)">查看摄像头</div></div>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(3)">
+                    <param name='mrl' value='rtsp://${username3}:${userpassword3}@${uip3}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+                    <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(4)">
+                    <param name='mrl' value='rtsp://${username4}:${userpassword4}@${uip4}/h264/ch2/main/av_stream' />
+                    <param name='volume' value='50' />
+                    <param name='autoplay' value='true' />
+                    <param name='loop' value='false' />
+                    <param name='fullscreen' value='false' />
+                    <param name='controls' value='false' />
+                    </object>
+
+                    <div class='camera-into'><div onclick="goT(3)">查看摄像头</div></div>
+                    <div class='camera-into'><div onclick="goT(4)">查看摄像头</div></div>
+                    `
+                    )
+                    $('#video-box').modal('show')
+                }
+            }
+        }else if(tempJson.status!=null&&tempJson.status.switch=='ON'){
+            if(!$('.manager-box').find('div[data-val="light"]').hasClass('on')) {
+                $('.manager-box').find('div[data-val="light"]').addClass('on')
+            }
+        }else if(tempJson.status!=null&&tempJson.status.switch=='OFF'&&checkOff('ZIGBEE_Light')){
+            if($('.manager-box').find('div[data-val="light"]').hasClass('on')) {
+                $('.manager-box').find('div[data-val="light"]').removeClass('on')
+            }
+        }else if(tempJson.status!=null&&tempJson.status.socketSwitch=='ON'){
+            var outlet=$('.manager-box').find('div[data-val="outlet"]');
+            for(var i=0;i<outlet.length;i++){
+                checkVn(eval(outlet[i].id));
+                console.error(arrD)
+                if(arrD.indexOf(tempJson.id)!=-1){
+                    if(!$(outlet[i]).hasClass('on')) {
+                        $(outlet[i]).addClass('on')
+                    }
+                    break;
+                }
+            }
+        }else if(tempJson.status!=null&&tempJson.status.socketSwitch=='OFF'){
+            var outlet=$('.manager-box').find('div[data-val="outlet"]');
+            for(var j=0;j<outlet.length;j++){
+                checkVn(eval(outlet[j].id));
+                if(arrD.indexOf(tempJson.id)!=-1&&checkOffId(arrD)){
+                    if($(outlet[j]).hasClass('on')) {
+                        $(outlet[j]).removeClass('on')
+                    }
+                    break;
+                }
+            }
+        }
+        var html='';
+        if(arr.length>=3){
+            arr=arr.splice(-3,3)
+        }
+        for(var i=0;i<arr.length;i++){
+            html+=`<p>${arr[i]}</p>`
+        }
+        $('.warning-info').html(html)
+    }
+    function checkOff(device){
+        var a=true;
+        var temp=tempHost.hostDataRepository.getDevicesByName(device);
+        for(var i=0;i<temp.length;i++){
+            if(temp[i].status.switch=='ON'||temp[i].status.socketSwitch=='ON'){
+                a=false
+            }
+        }
+        return a
+    }
+    function checkOffId(ids){
+        var a=true;
+        var temp='';
+        for(var i=0;i<temp.length;i++){
+            temp=tempHost.hostDataRepository.getDeviceInfoByNodeId(ids[i]);
+            if(temp.status.switch=='ON'||temp.status.socketSwitch=='ON'){
+                a=false
+            }
+        }
+        return a
+
+    }
+    function checkHostObject() {
+        if (tempHost == null) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function showDataRepository() {
+        if (!checkHostObject()) {
+            console.log("please link host.");
+            return;
+        }
+
+        var temp = tempHost.hostDataRepository.getHostSynchData();
+        //console.warn(JSON.stringify(temp));
+        console.warn(temp);
+    }
+
+    function showNodeInfo() {
+        console.log("" +
+        "\n * ZIGBEE_Light           3032 3033 3034" +
+        "\n * ZIGBEE_CurtainMotor    2918" +
+        "\n * ZIGBEE_Outlet          3107" +
+        "\n * ZIGBEE_InfraredSensor  3186" +
+        "\n * ZIGBEE_SmokeSensor     3139" +
+        "\n * ZIGBEE_DipSensor       3251" +
+        "\n * ZIGBEE_DoorSensor      3671" +
+        "\n * ZIGBEE_TempSensor      3645" +
+        "\n * ZIGBEE_HumiSensor      3646");
+    }
+    function showLeftTime()
+    {
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth();
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+        if(seconds<10){
+            seconds='0'+seconds;
+        }
+        $('#time').html(""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"");
+//一秒刷新一次显示时间
+        var timeID=setTimeout(showLeftTime,1000);
+    }
+    showLeftTime()
+    var socket;
+    var doorIP=localStorage['dip'];
+    var openDIP=localStorage['odip'];
+    socket = new WebSocket('ws://'+doorIP+':8080/monitor/access/ZhangSan');
+    function openDD(){
+        var msg = "{'op': 'opendoor', 'ip': '"+openDIP+"', 'mac': '85D6F1'}";
+        socket.send(msg);
+    }
+    setInterval(function(){
+        if(arr!='') {
+            var msg = new SpeechSynthesisUtterance(arr[arr.length-1]);
+            msg.lang = 'zh';
+            msg.voice = speechSynthesis.getVoices().filter(function (voice) {
+                return voice.name == 'Whisper';
+            })[0];
+            speechSynthesis.speak(msg);
+            $('.warning-box').removeClass('fade')
+        }else if(!$('.warning-box').hasClass('fade')){
+            $('.warning-box').addClass('fade')
+
+        }
+    },10000);
+    var kongT='';
+    var v1=JSON.parse(localStorage['a']);
+    var v2=JSON.parse(localStorage['b']);
+    var v3=JSON.parse(localStorage['c']);
+    var v4=JSON.parse(localStorage['d']);
+    var v5=JSON.parse(localStorage['e']);
+    var v6=JSON.parse(localStorage['f']);
+    var arrD=[];
+    function checkVn(b){
+        if(!isNaN(b[2]*1)){
+            arrD=[];
+            var deviceAll=tempHost.hostDataRepository.getScenesInfoById(b[2]);
+            for(var i=0;i<deviceAll.actions.length;i++){
+                arrD[arrD.length]=deviceAll.actions[i].id
+            }
+        }
+    }
+    if(v1[1]=='kongitao'){
+        kongT='v1'
+    }else if(v2[1]=='kongitao'){
+        kongT='v2'
+    }else if(v3[1]=='kongitao'){
+        kongT='v3'
+    }else if(v4[1]=='kongitao'){
+        kongT='v4'
+    }else if(v5[1]=='kongitao'){
+        kongT='v5'
+    }else if(v6[1]=='kongitao'){
+        kongT='v6'
+    }
+    $('.manager-box').html(`
+                <div class="manager-lt" onclick="a(this,v1)"id="v1"data-val='${v1[3]}'>
+                    <b></b>
+                    <p>${v1[0]}</p>
+                    <i class="light"></i>
+                </div>
+                <div class="manager-lt" onclick="a(this,v2)"id="v2"data-val='${v2[3]}'>
+                    <b></b>
+                    <p>${v2[0]}</p>
+                    <i class="light"></i>
+                </div>
+                <div class="manager-lt" onclick="a(this,v3)"id="v3"data-val='${v3[3]}'>
+                    <b></b>
+                    <p>${v3[0]}</p>
+                </div>
+                <div class="manager-lt" onclick="a(this,v4)"id="v4"data-val='${v4[3]}'>
+                    <b></b>
+                    <p>${v4[0]}</p>
+                </div>
+                <div class="manager-lt" onclick="a(this,v5)"id="v5"data-val='${v5[3]}'>
+                    <b></b>
+                    <p>${v5[0]}</p>
+                </div>
+                <div class="manager-lt" onclick="a(this,v6)"id="v6"data-val='${v6[3]}'>
+                    <b></b>
+                    <p>${v6[0]}</p>
+                </div>`)
+
+    function a(th,vi){
+        if(!isNaN(vi[1]*1)) {
+            if ($(th).hasClass('on')) {
+                tempHost.asyncOperationSceneExecute(vi[2])
+            } else {
+                tempHost.asyncOperationSceneExecute(vi[1])
+            }
+        }else if(vi[1]=='kongtiao'){
+            var kt=tempHost.hostDataRepository.getDevicesByName('ZIGBEE_InfraredTransponder');
+            if ($(th).hasClass('on')) {
+                tempHost.asyncLaunchInfraredCodes(kt[0].id, "0");
+            } else {
+                tempHost.asyncLaunchInfraredCodes(kt[0].id, "1");
+            }
+        }else if(vi[1]=='door'){
+            openDD()
+        }else if(vi[1]=='mon'){
+            $('.video1').html(
+                    `
+        <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"">
+            <param name='mrl' value='rtsp://${username1}:${userpassword1}@${uip1}/h264/ch2/main/av_stream' />
+            <param name='volume' value='50' />
+            <param name='autoplay' value='true' />
+            <param name='loop' value='false' />
+            <param name='fullscreen' value='false' />
+            <param name='controls' value='false' />
+            </object>
+            <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(2)">
+            <param name='mrl' value='rtsp://${username2}:${userpassword2}@${uip2}/h264/ch2/main/av_stream' />
+            <param name='volume' value='50' />
+            <param name='autoplay' value='true' />
+            <param name='loop' value='false' />
+            <param name='fullscreen' value='false' />
+            <param name='controls' value='false' />
+            </object>
+            <div  class='camera-into'><div onclick="goT(1)">查看摄像头</div></div>
+            <div  class='camera-into'><div onclick="goT(2)">查看摄像头</div></div>
+            <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(3)">
+            <param name='mrl' value='rtsp://${username3}:${userpassword3}@${uip3}/h264/ch2/main/av_stream' />
+            <param name='volume' value='50' />
+            <param name='autoplay' value='true' />
+            <param name='loop' value='false' />
+            <param name='fullscreen' value='false' />
+            <param name='controls' value='false' />
+            </object>
+            <object type='application/x-vlc-plugin' pluginspage="http://www.videolan.org/" id='vlc' events='false' width="400" height="240"onclick="goT(4)">
+            <param name='mrl' value='rtsp://${username4}:${userpassword4}@${uip4}/h264/ch2/main/av_stream' />
+            <param name='volume' value='50' />
+            <param name='autoplay' value='true' />
+            <param name='loop' value='false' />
+            <param name='fullscreen' value='false' />
+            <param name='controls' value='false' />
+            </object>
+            <div class='camera-into'><div onclick="goT(3)">查看摄像头</div></div>
+            <div class='camera-into'><div onclick="goT(4)">查看摄像头</div></div>
+                    `
+            )
+            $('#video-box').modal('show')
+        }
+    }
+    function goT(n){
+        sessionStorage['goT']=n;
+        location.href='demo/en/demo.html'
+    }
+
+</script>
+</body>
+</html>

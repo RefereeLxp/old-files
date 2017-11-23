@@ -1,0 +1,338 @@
+.container{
+    width: 100%;
+}
+body{
+    margin-bottom: 150px;
+}
+.search{
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*z-index: 100;*/
+    height: 180px;
+    background: #668ab4;
+    background-size: 100%;
+}
+.search-box{
+    width: 80%;
+    margin:60px auto 0;
+}
+.search-box .input-group-addon b{
+    margin-top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../image/search-icon.png") no-repeat;
+}
+.search-box input{
+    height: 60px;
+    font-size: 3.2rem;
+    border-bottom-left-radius:30px;
+    border-top-left-radius:30px;
+    padding-left: 30px;
+}
+.search-box .input-group-addon{
+    vertical-align: middle;
+    background: #fff;
+    border-bottom-right-radius:30px;
+    border-top-right-radius:30px;
+    border: 1px solid transparent;
+    padding: 6px 30px;
+    display: inline-block;
+    height: 60px;
+    width: 80px;
+    outline:none;
+}
+.search-box .input-group-addon:hover{
+    background: #f1f1f1;
+}
+.line{
+    margin: 30px auto 0;
+    width: 60%;
+    background: #64ABFD;
+    height: 2px;
+}
+.carousel-control span{
+    position: absolute;
+    top: 48%;
+}
+/*分页框*/
+.page-box .nav-tabs > li{
+    width: 33.3%;
+    text-align: center;
+    background: #F5F4F0;
+}
+.page-box .nav-tabs > li > a{
+    border-radius: 2px 2px 0 0;
+    line-height: 40px;
+    font-size: 3rem;
+    color: #A1A19F;
+
+}
+.page-box .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+    color: #489CFF;
+}
+th{
+    text-align: center!important;
+    font-size: 2.8rem;
+}
+#myTab{
+    /*position: fixed;*/
+    /*width: 100%;*/
+}
+#myTabContent td{
+    padding: 5px 0;
+    min-height: 30px;
+    /*line-height: 30px;*/
+    vertical-align: middle;
+}
+.product-num input{
+    width: 100%;
+    line-height: 30px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    text-align: center;
+    font-size:2.8rem;
+}
+#myTabContent td img{
+    width: 80%;
+    /*height: 90%;*/
+}
+#myTabContent{
+    overflow: auto;
+}
+#myTabContent td.total{
+    text-align: right;
+    min-height: 30px;
+    font-size: 3rem;
+    padding: 10px 25px;
+}
+.next{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    line-height: 100px;
+    height: 100px;
+    background: #F5F4F0;
+    text-align: center;
+    vertical-align: middle;
+}
+.next .btn{
+    font-size: 3rem;
+    border: 1px solid #686868;
+}
+#install .install-input{
+     width: 80%;
+     margin: 20px auto;
+ }
+#install .install-input>div{
+    padding: 15px 0;
+    font-size: 3rem;
+}
+span.tit-type {
+    display: inline-block;
+    width: 20%;
+    min-width: 100px;
+
+}
+b.vial-type{
+    color: #b4afad;
+    font-weight: normal;
+}
+.input-type,#install .install-input>div>select{
+    width: 50%;
+    border: 1px solid #a09c9a;
+    min-height: 30px;
+    border-radius: 5px;
+    padding-left: 5px;
+    font-size: 3rem;
+}
+.num-change{
+    display: inline-block;
+}
+.num-change input{
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    border: 1px solid #a09c9a;
+    /*margin: 0 5px;*/
+    box-sizing: border-box;
+    line-height: 30px;
+    border-radius: 2px;
+    font-size: 3rem;
+}
+.num-change a{
+    /*float: left;*/
+    width:40px;
+    display: inline-block;
+    border:1px solid #a09c9a;
+    text-align: center;
+    border-radius: 2px;
+    cursor:pointer;
+    font-size: 2rem;
+    height: 40px;
+    line-height: 40px;
+}
+.num-change a span{
+    font-size: 3rem;
+}
+.num-change a:hover{
+    text-decoration: none;
+    color: #fff;
+    background: #3D92F5;
+}
+#design .design-input{
+    width: 80%;
+    margin: 20px auto;
+}
+#design .design-input>div{
+    padding: 10px 0;
+}
+.design-line{
+    margin: 50px auto 0;
+    width: 100%;
+    background: #D3D3D3;
+    height: 2px;
+}
+.menu{
+    background:#fff;
+    background-size: 100%;
+    box-sizing: border-box;
+}
+ul.menu-list{
+    width: 100%;
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+ul.menu-list li{
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid #668AB4;
+    text-align: center;
+}
+/*ul.menu-list li:hover{*/
+    /*background: #2E8BFC;*/
+/*}*/
+ul.menu-list li a{
+    display: inline-block;
+    color: #fff;
+    font-size: 3rem;
+    width: 80%;
+    text-decoration: none;
+    text-align: left;
+}
+.menu-icon{
+    float: left;
+    vertical-align: middle;
+    line-height: 150px;
+}
+.menu-icon img{
+    width: 100px;
+    line-height: 150px;
+}
+.menu-tit{
+    float: left;
+    height: 150px;
+    display: inline-block;
+    margin-left: 8%;
+}
+.menu-tit h2{
+    font-size:3.8rem;
+    padding-bottom: 8px;
+    color: #535353;
+}
+.menu-tit span{
+    font-size: 3rem;
+    margin-left: 15px;
+    color: #7f7676;
+}
+/*ul.menu-list li a>span{*/
+    /*padding-left: 20%;*/
+/*}*/
+/*ul.menu-list li a>b{*/
+    /*display: inline-block;*/
+    /*width: 20%;*/
+    /*float: right;*/
+    /*height: 80px;*/
+    /*line-height: 80px;*/
+    /*text-align: right;*/
+/*}*/
+/*ul.menu-list li a>b i{*/
+    /*margin-right: 15px;*/
+    /*font-weight: normal;*/
+/*}*/
+.Carousel-bar{
+    width: 100%;
+}
+.menu{
+    overflow: auto;
+    margin-top: 20px;
+}
+.itrem,.Carousel-bar  .carousel-inner .active{
+    width: 100%;
+}
+td{
+    font-size: 2.8rem;
+}
+.page-box caption{
+    font-size: 2.8rem;
+}
+#design .design-input>div {
+    padding: 15px 0;
+    font-size: 3rem;
+}
+.menu-icon b{
+    display: inline-block;
+    line-height: 150px;
+    color:  #668AB4;
+    font-size: 7rem;
+}
+/*------------弹框样式*/
+#myModal .modal-title{
+    padding-left: 25px;
+}
+#myModal .modal-body div span{
+    margin-left: 15%;
+    /*margin-left: 60px;*/
+    font-size: 2.5rem;
+}
+#myModal .modal-body div{
+    margin-top:30px;
+    font-size: 3rem;
+}
+#myModal .modal-footer .btn{
+    font-size:3rem;
+}
+#myModal .close{
+    font-size:5rem;
+}
+#myModal .modal-dialog {
+    width: 82%;
+    margin: 30px auto;
+}
+#search_btn1{
+    border-bottom-right-radius: 30px;
+    padding:6px 6px;
+    border-top-right-radius: 30px;
+    width: 15%;
+}
+.menu-list li{
+    position: relative;
+}
+.del-menu{
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: 37px;
+    right: 50px;
+    background:transparent;
+    font-size: 3.5rem;
+    color: #668AB4;
+    line-height: 60px;
+    border: 0;
+    outline:none;
+}
+.del-menu:hover b{
+    color: #869cae;
+}

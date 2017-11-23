@@ -1,0 +1,558 @@
+body {
+  width: 100%;
+  height: 100%;
+  /*background: url("../image/body-bg.jpg") repeat;*/
+  background: #efeded;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#banner .item img {
+  width: 100%;
+}
+.banner-nav {
+  position: relative;
+}
+.nav-box {
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+.nav-title {
+  height: 45px;
+  width: 100%;
+  background: #fe3728;
+  color: #fff;
+  line-height: 45px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.nav-title img {
+  height: 20px;
+}
+.info-box {
+  width: 100%;
+  padding: 15px;
+  line-height: 25px;
+  background: #fff;
+  font-size: 14px;
+}
+.info-box .info-box-line1 {
+  margin-bottom: 10px;
+}
+.info-box .info-box-line1 span {
+  font-size: 15px;
+  color: #080808;
+  text-align: left;
+}
+.info-box .info-box-line1 b {
+  float: right;
+  color: #a7a6ab;
+  font-weight: normal;
+}
+.info-box .info-box-line1 b img {
+  height: 22px;
+  margin-right: 3px;
+}
+.info-box .info-box-line2 {
+  color: #a7a6ab;
+}
+.info-box .info-box-line2 p {
+  margin: 0;
+}
+.info-box .info-box-line3 {
+  font-size: 12px;
+  line-height: 20px;
+  margin: 8px 0;
+}
+.info-box .info-box-line3 div {
+  margin: 5px 5px 5px 0;
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+}
+.info-box .info-box-line3 :nth-child(1) {
+  color: #FF7647 ;
+}
+.info-box .info-box-line3 :nth-child(2) {
+  color: #6BB5DB ;
+}
+.info-box .info-box-line3 :nth-child(3) {
+  color: #E8CC49 ;
+}
+.info-box .info-box-line3 :nth-child(4) {
+  color: #F4BF90 ;
+}
+.info-box .info-box-line3 :nth-child(5) {
+  color: #FF7647;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #fff;
+  /*box-shadow: 0px 1px 2px #555 inset;*/
+  margin: 0 3px;
+  cursor: pointer;
+  border: 1px solid #999;
+}
+.swiper-active-switch {
+  background: #999;
+}
+.button-box {
+  float: left;
+  width: 25%;
+  height: 100px;
+  text-align: center;
+}
+.button-box > div {
+  margin: 0 auto;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-top: 10px;
+  position: relative;
+}
+.button-box > div > b {
+  position: absolute;
+  background: red;
+  color: #fff;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 5px;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 8px;
+  font-weight: normal;
+}
+.button-box > div img {
+  height: 55%;
+  vertical-align: middle;
+  margin-top: 20%;
+}
+.button-box p {
+  display: inline-block;
+  height: 40px;
+  line-height: 30px;
+  margin: 0;
+  color: #2b2727;
+}
+.menu-button {
+  background: #fff;
+}
+.menu-button .pagination {
+  height: 30px;
+  position: relative;
+  margin: 0;
+  background: #fff;
+  border-radius: 0;
+}
+.banner-nav .carousel-indicators {
+  bottom: 0;
+}
+.tab-change {
+  width: 100%;
+  border-top: 4px solid #EEEEF3;
+  background: #fff;
+  padding-top: 10px;
+}
+.tabs {
+  width: 100%;
+}
+.tabs a {
+  display: block;
+  float: left;
+  width: 33.3%;
+  color: #696969;
+  text-align: center;
+  margin: 0;
+  background: #fff;
+  line-height: 35px;
+  font-size: 16px;
+  text-decoration: none;
+}
+.tabs a span {
+  padding-left: 23px;
+  display: inline-block;
+  line-height: 22px;
+}
+.insurance-plan {
+  padding: 20px 10px;
+  width: 100%;
+}
+.insurance-plan .insurance-plan-line {
+  margin: 6px 0;
+  line-height: 30px;
+}
+.insurance-plan .insurance-plan-line span {
+  display: inline-block;
+  width: 24%;
+  max-width: 100px;
+  font-size: 15px;
+  color: #a7a6ab;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+.insurance-plan .insurance-plan-line .long-span {
+  display: inline-block;
+  min-width: 145px;
+  width: 24%;
+  font-size: 15px;
+  color: #a7a6ab;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+.insurance-plan .insurance-plan-line .short-span {
+  width: 24%;
+  max-width: 70px;
+}
+.insurance-plan .insurance-plan-line .time-btn1 {
+  line-height: 20px;
+  width: 70%;
+  display: inline-block;
+}
+.insurance-plan .insurance-plan-line .time-btn1 div {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+}
+.insurance-plan .insurance-plan-line .time-btn1 div.active {
+  border: 1px solid #fe3728;
+  color: #fe3728;
+}
+.insurance-plan .insurance-plan-line .time-btn2 {
+  line-height: 20px;
+  width: 70%;
+  display: inline-block;
+}
+.insurance-plan .insurance-plan-line .time-btn2 div {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 4px 15px;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+}
+.insurance-plan .insurance-plan-line .time-btn2 div.active {
+  border: 1px solid #fe3728;
+  color: #fe3728;
+}
+.insurance-plan .insurance-plan-line .effective-date {
+  display: inline-block;
+  color: #a7a6ab;
+}
+.insurance-plan .insurance-plan-line .effective-date i {
+  font-style: normal;
+  margin-right: 3px;
+}
+.insurance-plan .insurance-plan-line > a {
+  color: #fe3728;
+}
+.insurance-plan .insurance-plan-line > a img {
+  height: 20px;
+  margin-right: 5px;
+}
+.insurance-plan .insurance-plan-line input {
+  line-height: 25px;
+  border: 1px solid #a7a6ab;
+  border-radius: 3px;
+}
+.insurance-plan .insurance-plan-line b {
+  color: #fe3728;
+  margin-right: 5px;
+}
+.insurance-plan .my-btn {
+  display: inline-block;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 20px 10%;
+  background: #fe3728;
+  color: #fff;
+  font-size: 16px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #fe3728;
+  border-radius: 5px;
+}
+.tabs a.active {
+  color: #fe3728;
+  border-bottom: 2px solid #fe3728;
+}
+.tab-change .swiper-container {
+  height: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  border-top: 0;
+}
+.swiper-slide {
+  height: 250px;
+  width: 640px;
+  background: none;
+  color: #6c6c6c;
+}
+.tabs img {
+  height: 18px;
+  padding-right: 5px;
+  vertical-align: sub;
+}
+.content-slide {
+  padding: 10px 10px 20px 10px;
+  position: relative;
+}
+.add-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  background: #fe3728;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 100;
+  box-shadow: 0px 3px 20px #e49e8a;
+}
+.add-btn img {
+  width: 50%;
+}
+.content-slide h4 {
+  font-size: 16px;
+}
+.item-box {
+  width: 92%;
+  margin: 12px auto;
+  background: #f1f0f1;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  line-height: 22px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #b9b5b5;
+}
+.item-box img {
+  width: 22px;
+}
+.item-box2 {
+  width: 95%;
+  margin: 10px auto;
+  background: #f5ede8;
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+.item-box2-lf {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  vertical-align: top;
+}
+.item-box2-lf img {
+  width: 80%;
+  vertical-align: middle;
+}
+.item-box2-rg {
+  display: inline-block;
+  width: 78%;
+}
+@media (max-width: 1000px) {
+  .item-box2-lf {
+    width: 30%;
+  }
+  .item-box2-rg {
+    width: 68%;
+  }
+}
+.item-box3 {
+  width: 92%;
+  margin: 12px auto;
+  background: #f5f5f5;
+  box-sizing: border-box;
+  padding: 15px 10px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #cacaca;
+}
+.item-box3-lf {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  vertical-align: top;
+}
+.item-box3-rg {
+  display: inline-block;
+  width: 78%;
+}
+.item-box3-rg p {
+  margin: 0;
+  line-height: 29px;
+  vertical-align: middle;
+}
+.item-box3-rg p i {
+  display: inline-block;
+  width: 45px;
+  font-style: normal;
+  color: #797575;
+  vertical-align: middle;
+}
+.item-box3-rg p b {
+  line-height: 29px;
+  display: inline-block;
+  width: 80px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.yuan {
+  width: 60px;
+  height: 60px;
+  border-radius: 40px;
+  border: 1px solid #dadada;
+  background: transparent;
+  display: inline-block;
+}
+.yuan img {
+  height: 60%;
+  margin-top: 18%;
+}
+.common-use {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 10px 10px 20px 10px;
+}
+.common-use:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.common-use h4 {
+  font-size: 16px;
+  color: #fe3728;
+}
+.common-use-info {
+  width: 92%;
+  background: #f5f5f5;
+  margin: 15px auto;
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #bbb9b9;
+}
+.common-use-info img {
+  height: 20px;
+  text-align: center;
+}
+.common-use-info i {
+  display: inline-block;
+  width: 40px;
+  font-style: normal;
+  color: #797575;
+  text-align: center;
+}
+.common-use-info b {
+  display: inline-block;
+  width: 30px;
+  margin-right: 5px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+  text-align: center;
+}
+@media (min-width: 1100px) {
+  .container {
+    width: 1100px!important;
+    margin: 0 auto;
+  }
+  .nav-box {
+    top: 20px;
+  }
+  .item-box {
+    width: 90%;
+    line-height: 30px;
+  }
+  .item-box img {
+    width: 30px;
+  }
+}
+@media (min-width: 700px) {
+  .common-use-info {
+    float: left;
+    width: 46%;
+    margin: 15px 2%;
+  }
+}
+/*模态框样式*/
+.modal-box .modal-header h4 {
+  color: #fe3728;
+  text-align: center;
+  font-size: 17px;
+}
+.modal-box .modal-body {
+  padding: 0;
+}
+.modal-body .pop-line,
+.modal-body .pop-line1 {
+  margin: 0 auto;
+  line-height: 35px;
+  /*border-bottom:1px solid #E3E3E3 ;*/
+}
+.modal-body .pop-line span,
+.pop-line1 span {
+  display: inline-block;
+  width: 80px;
+  text-align: left;
+  margin-left: 5%;
+  color: #969696;
+}
+.modal-body .pop-line input,
+.pop-line1 input {
+  width: 150px;
+  height: 28px;
+  border: 1px solid #969696;
+}
+.insurance-duty,
+.insurance-notice {
+  width: 100%;
+  padding: 20px 10px;
+}
+.insurance-duty .insurance-duty-box,
+.insurance-notice .insurance-duty-box {
+  width: 100%;
+}
+.insurance-duty .insurance-duty-box img,
+.insurance-notice .insurance-duty-box img {
+  height: 20px;
+}
+.insurance-duty .insurance-duty-box h4,
+.insurance-notice .insurance-duty-box h4 {
+  font-size: 15px;
+  color: #fe3728;
+  line-height: 25px;
+}
+.insurance-duty .insurance-duty-box p,
+.insurance-notice .insurance-duty-box p {
+  font-size: 13px;
+  color: #a7a6ab;
+  line-height: 25px;
+  margin: 0;
+}
+.insurance-duty .insurance-duty-box p a,
+.insurance-notice .insurance-duty-box p a {
+  color: #696969;
+}

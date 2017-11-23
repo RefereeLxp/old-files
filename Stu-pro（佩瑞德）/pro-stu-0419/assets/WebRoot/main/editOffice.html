@@ -1,0 +1,23 @@
+<html>
+<form action="/assets/device/updateOffice" method="post">
+    <div>
+		<label>编号</label>
+		<input type="text" name="office.number" value="#(office.number??)" />
+		<input type="hidden" name="office.id" value="#(office.id??)" />
+		<input type="hidden" name="userId" value="#(user.get(0).id)" />				
+	</div>
+	    <div>
+		<label>品牌</label>
+		<input type="text" name="office.brand" value="#(office.brand??)" />
+	</div>
+	    <div>
+		<label>类型</label>
+		<input type="text" name="office.type" value="#(office.type??)" />
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input value="提交" type="submit">
+	</div>
+</form>
+	
+</html>

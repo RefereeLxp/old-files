@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../drcss/bootstrap.css"/>
+    <link rel="stylesheet" href="../drcss/new-css.css"/>
+    <link rel="stylesheet" href="../drcss/main-css.css"/>
+    <link rel="stylesheet" href="../drcss/idangerous.swiper.css"/>
+    <script src="../drjs/jquery-1.11.2.min.js"></script>
+    <script src="../drjs/bootstrap.js"></script>
+    <script src="../drjs/angular.js"></script>
+    <script src="../drjs/idangerous.swiper.min.js"></script>
+    <title></title>
+</head>
+<body ng-app="ngApp">
+<div class="container" ng-controller="ngControl as info">
+    <!--标题+广告条-->
+    <div class="banner-nav">
+        <div class="nav-box">
+            <div class="nav-title">
+                <span><img src="../drimage/picc.png" alt=""/> 中国人保财险</span>
+            </div>
+        </div>
+    </div>
+    <!--<div class="info-box">-->
+        <!--<div class="info-box-line1">-->
+            <!--<span>借款人意外伤害保险</span>-->
+            <!--<a href="#"><b><i class="glyphicon glyphicon-search"></i>保单查询</b></a>-->
+        <!--</div>-->
+        <!--<div class="info-box-line2">-->
+            <!--<p>贷款用户必选；意外身故、残疾双项保障！</p>-->
+            <!--<p>超低费率；保额约定；留情不留债；</p>-->
+        <!--</div>-->
+        <!--<div class="info-box-line3">-->
+            <!--<div>保额高</div>-->
+            <!--<div>意外事故</div>-->
+            <!--<div>意外伤残</div>-->
+            <!--<div>自主约定期限</div>-->
+            <!--<div>保额约定</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--事项选择-->
+    <div class="tab-change">
+        <div class="tabs">
+            <a href="#" class="active"><span>订单</span></a>
+            <a href="#"><span>投保指南</span></a>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div id="insurancePolicy1" class="insurance-box">
+                        <h4 class="insurance-box-title">
+                            <img src="../drimage/mc.png" alt=""/>借款人意外保
+                        </h4>
+                        <div class="insurance-readOnly">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>投保人</td>
+                                    <td>乐山大佛</td>
+                                </tr>
+                                <tr>
+                                    <td>被保人</td>
+                                    <td>沙发</td>
+                                </tr>
+                                <tr>
+                                    <td>保险期间</td>
+                                    <td>沙43253发</td>
+                                </tr>
+                                <tr>
+                                    <td>最高保额</td>
+                                    <td>沙345345发</td>
+                                </tr>
+                                <tr>
+                                    <td>保费</td>
+                                    <td>3434</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button class="my-btn my-btn2">
+                                            立即投保
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="insurancePolicy2" class="insurance-box fade">
+                        <h4 class="insurance-box-title">
+                            <img src="../drimage/mc.png" alt=""/>借款人意外保
+                        </h4>
+                        <div class="insurance-readOnly">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>投保人</td>
+                                    <td>乐山大佛</td>
+                                </tr>
+                                <tr>
+                                    <td>被保人</td>
+                                    <td>沙发</td>
+                                </tr>
+                                <tr>
+                                    <td>保险期间</td>
+                                    <td>沙43253发</td>
+                                </tr>
+                                <tr>
+                                    <td>最高保额</td>
+                                    <td>沙345345发</td>
+                                </tr>
+                                <tr>
+                                    <td>保费</td>
+                                    <td>3434</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button class="my-btn my-btn2">
+                                            立即投保
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide insurance-duty">
+                    <div class="insurance-duty-box">
+                        <h4 class="insurance-duty-title">
+                            <img src="../drimage/bz.png" alt=""/>
+                            保障范围
+                        </h4>
+                        <p>
+                            在保险期间内，被保险人因遭受意外伤害事故导致身故、伤残的，保险公司按合同约定给付身故保险金或伤残保险金；
+                        </p>
+                    </div>
+                    <div class="insurance-duty-box">
+                        <h4 class="insurance-duty-title">
+                            <img src="../drimage/mc.png" alt=""/>
+                            责任免除
+                        </h4>
+                        <!--<p>-->
+                        <p>（一）投保人的故意行为；</p>
+                        <p>（二）被保险人自致伤害或自杀，但被保险人自杀时为无民事行为能力人的除外；</p>
+                        <p>（三）因被保险人挑衅或故意行为而导致的打斗、被袭击或被谋杀；</p>
+                        <p>（四）被保险人妊娠、流产、分娩、疾病、药物过敏、中暑、猝死；</p>
+                        <p>（五）被保险人接受整容手术及其他内、外科手术；</p>
+                        <p>（六）被保险人未遵医嘱，私自服用、涂用、注射药物；</p>
+                        <p>（七）核爆炸、核辐射或核污染；</p>
+                        <p>（八）恐怖袭击；</p>
+                        <p>（九）被保险人犯罪或拒捕；</p>
+                        <p>（十）被保险人从事高风险运动或参加职业或半职业体育运动。</p>
+                        <p>（十一）战争、军事行动、暴动或武装叛乱期间；</p>
+                        <p>（十二）被保险人醉酒或毒品、管制药物的影响期间；</p>
+                        <p>（十三）被保险人酒后驾车、无有效驾驶证驾驶或驾驶无有效行驶证的机动车期间；</p>
+                        <!--</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    angular.module('ngApp',[]).controller('ngControl',[function ($http) {
+        var self=this;
+    }]);
+    //        tab
+    var tabsSwiper = new Swiper('.tab-change .swiper-container',{
+        speed:500,
+        onSlideChangeStart: function(){
+            $(".tabs .active").removeClass('active');
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+        }
+    });
+    $(".tabs a").on('touchstart mousedown',function(e){
+        e.preventDefault();
+        $(".tabs .active").removeClass('active');
+        $(this).addClass('active');
+        tabsSwiper.swipeTo( $(this).index() )
+    })
+    $(".tabs a").click(function(e){
+        e.preventDefault()
+    })
+    $(".tabs a").each(function () {
+        $(this).width(100/$(".tabs a").length+'%');
+    });
+    function insurancePolicy(){
+        var times=22;
+        if(times>24){
+            $('#insurancePolicy2').removeClass('fade').addClass('in');
+        }
+    }
+    insurancePolicy();
+</script>
+</body>
+</html>

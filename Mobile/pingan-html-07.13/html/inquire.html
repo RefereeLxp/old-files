@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../drcss/bootstrap.css"/>
+    <link rel="stylesheet" href="../drcss/main-css.css"/>
+    <script src="../drjs/jquery-1.11.2.min.js"></script>
+    <script src="../drjs/bootstrap.js"></script>
+    <script src="../drjs/angular.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="nav-box">
+        <div class="nav-title">
+            <span>保单查询</span>
+        </div>
+    </div>
+    <div class="insurance-box">
+        <h4 class="insurance-box-title">
+            保单快递查询
+        </h4>
+        <div class="insurance-box-from">
+            <div>
+                <span>姓名*</span>
+                <input type="text" placeholder="请输入您的姓名" ng-model="info.userName"/>
+                <i ng-bind="info.userNametest"></i>
+            </div>
+            <div>
+                <span>身份证号*</span>
+                <input type="text" placeholder="请输入身份证号" ng-model="info.idNum"/>
+                <i ng-bind="info.idNumtest"></i>
+            </div>
+        </div>
+    </div>
+    <div class="btn-box">
+        <button class="my-btn">
+            查询
+        </button>
+    </div>
+</div>
+</body>
+</html>

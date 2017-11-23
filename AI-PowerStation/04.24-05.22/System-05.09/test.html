@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jQuery-2.1.4.min.js"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+				$(".div1").mouseenter(function(){
+					$(".div2").animate({
+						width:'+=50px',
+					});
+					$(".div2").css('display','block');
+					$(".div1").css('z-index','100');
+				});
+				$(".div1").mouseleave(function(){
+					$(".div2").animate({
+						width:'-=50px',
+					});
+					$(".div2").css('display','none')
+				});
+			});
+			
+		</script>
+		 
+		<style type="text/css"> 
+			li{
+				list-style: none;
+			}
+			.div1{
+				width: 50px;
+				height: 50px;
+				background: red;
+				float: right;
+			}
+			.div2{
+				width: 0px;
+				height: 50px;
+				float: right;
+				background: red;
+				display: none;
+			}
+			.div3{
+				width: 50px;
+				height: 200px;
+				background: black;	
+				float: right;
+			}
+			.line-box{
+				position: relative;
+			}
+			.div2{
+				position: absolute;
+				top: 0;
+				right: 50px;
+			}
+			
+		</style>
+	</head>
+		 
+	<body>
+		<div class="div3">
+			<div class="line-box">
+				<div class="div2">456</div>
+				<div class="div1">123</div>
+			</div>
+		</div>
+		
+	 
+	 	
+	 	
+	 	<!--<input type="checkbox">a <br>
+		<input type="checkbox" >b <br>
+		<input type="checkbox">c <br>
+		<input type="checkbox">d
+		<input type="button"  value="全选"  class="d1" >
+		<input type="button"  value="取消" class="d2">
+		<script>
+
+			$(document).ready(function(){
+				$(".d1").click(function(){
+					$("input").prop("checked",true)
+				})
+			})
+			$(document).ready(function(){
+				$(".d2").click(function(){
+					$("input").removeAttr("checked",false)
+				})
+			})
+		</script>-->
+
+	</body>
+</html>

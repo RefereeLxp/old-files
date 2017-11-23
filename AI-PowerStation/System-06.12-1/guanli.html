@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<body>
+<div class="loading loadingin">
+    <img src="image/loading.gif" alt=""/>
+</div>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <!--<div class="col-xs-8 nav-rg">-->
+                <!--<div class="exponent-box">-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                    <!--<span><i></i><b>25°</b></span>-->
+                <!--</div>-->
+                <!--<div class="date-box">-->
+                    <!--<span>2017年4月11日</span>-->
+                    <!--<span>星期四</span>-->
+                    <!--<span>8:30</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="guanli main">
+    <div class="main-lf-btn">
+        <button class="system-btn" id="rev">编辑</button>
+        <button class="system-btn" id="ipR">IP编辑</button>
+        <button class="system-btn" id="newR">新设备</button>
+        <button class="system-btn" id="newS">新情景</button>
+        <button class="system-btn" id="newIF">新IFTTT</button>
+        <button class="system-btn" id="btn">保存</button>
+        <button class="system-btn" id="return">返回</button>
+        <div class=""></div>
+    </div>
+    <div class="main-rg-tb">
+        <div class="table1">
+            <ul>
+                <li>情景编号</li>
+                <li>名字</li>
+            </ul>
+            <div class="ul-box" id="ooo">
+                <ul>
+                    <li>1</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>2</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>3</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>4</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>5</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>6</li>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li>7</li>
+                    <li></li>
+                </ul>
+            </div>
+            <b class="lf-move"><span class="glyphicon glyphicon-chevron-left"></span></sp></b>
+            <b class="rg-move"><span class="glyphicon glyphicon-chevron-right"></span></sp></b>
+        </div>
+        <div id="example2">
+            <div class="table-box1">
+                <table class="table2 table-bordered table-h">
+                    <thead>
+                    <tr>
+                        <th width="15%">配置id</th>
+                        <th width="25%">配置名</th>
+                        <th width="25%">情景应用1</th>
+                        <th width="25%">情景应用2</th>
+                        <th>备注</th>
+                    </tr>
+                    </thead>
+                </table>
+                <b class="scroll-add" style="background: rgb(241, 241, 241); width: 17px;"></b>
+            </div>
+            <div class="table-box2">
+                <table class="table2 table-bordered table-b">
+                    <tbody id="bbb">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="table2 table-bordered">
+        <thead>
+        <tr>
+            <th width="50%">额外配置名</th>
+            <th width="50%">额外配置使用情景</th>
+        </tr>
+        </thead>
+        <tbody id="ccc">
+        <tr>
+            <td width="50%">火警</td>
+            <td width="50%"><input type="text"id="extra1"/></td>
+        </tr>
+        <tr>
+            <td width="50%">漏水</td>
+            <td width="50%"><input type="text"id="extra2"/></td>
+        </tr>
+        <tr>
+            <td width="50%">呼叫</td>
+            <td width="50%"><input type="text"id="extra3"/></td>
+        </tr>
+        <tr>
+            <td width="50%">入侵</td>
+            <td width="50%"><input type="text"id="extra4"/></td>
+        </tr>
+        <tr>
+            <td width="50%">警戒</td>
+            <td width="50%"><input type="text"id="extra5"/></td>
+        </tr>
+        <tr>
+            <td width="50%">撤防</td>
+            <td width="50%"><input type="text"id="extra6"/></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script type="text/javascript" src="js/dianzhan.js"></script>
+<script>
+    var save1=false;
+    $(function(){
+        if($('.ul-box').find('ul').length>6){
+            console.error('jingru');
+            $('.rg-move').addClass('in');
+            $('.lf-move').addClass('in');
+        }
+    });
+//    点击右移
+    $('.rg-move').click(function () {
+        console.error('右移  '+$('.ul-box').find('ul').eq(5).find('li:first').attr('data-num'));
+        if($('.ul-box').find('ul').eq(5).find('li:first').attr('data-num')==$('.ul-box').find('ul').length){
+            console.error('123');
+            $(this).removeClass('in');
+        }else{
+            var frist_ul=$('.ul-box').find('ul').eq(0).html();
+            $('.ul-box').find('ul:first').remove();
+            $('.ul-box').append(`<ul>${frist_ul}</ul>`);
+            if($('.ul-box').find('ul:first').find('li:first').attr('data-num')>=2){
+                $('.lf-move').addClass('in');
+            }
+        }
+    });
+//    点击左移动
+    $('.lf-move').click(function () {
+//        console.error('左移  '+$('.ul-box').find('ul:first').find('li:first').attr('data-num'));
+        if($('.ul-box').find('ul').eq(0).find('li:first').attr('data-num')==1){
+            console.error('456');
+            $(this).removeClass('in');
+        }else{
+            var last_ul=$('.ul-box').find('ul:last').html();
+            $('.ul-box').prepend(`<ul>${last_ul}</ul>`);
+            $('.ul-box').find('ul:last').remove();
+            console.error('左移  '+$('.ul-box').find('ul').eq(5).find('li:first').attr('data-num'));
+            if($('.ul-box').find('ul').eq(5).find('li:first').attr('data-num')<$('.ul-box').find('ul').length){
+                $('.rg-move').addClass('in');
+            }
+        }
+    });
+
+    $('#return').click(function(){
+        location.href='guanli.html'
+    });
+    $('#ipR').click(function(){
+        location.href='IP.html'
+    });
+    $('#newR').click(function(){
+        location.href='bangding.html'
+    });
+    $('#newS').click(function(){
+        location.href='config.html'
+    });
+    $('#newIF').click(function(){
+        location.href='config2.html'
+    });
+
+    $('#rev').click(function(){
+        save1=true;
+        var htmle='';
+        for(var i=0;i<str.length;i++){
+            htmle+=`
+                <option value="${str[i].id}">${str[i].name}</option>
+            `
+        }
+        $('#bbb').html(`
+        <tr>
+            <td>a</td>
+            <td><input type="text"value="${v1[0]}"/></td>
+            <td><select>
+                <option value='${v1[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v1[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td><input type="text"value="${v2[0]}"/></td>
+            <td><select>
+                <option value='${v2[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v2[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td><input type="text"value="${v3[0]}"/></td>
+            <td><select>
+                <option value='${v3[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v3[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td><input type="text"value="${v4[0]}"/></td>
+            <td><select>
+                <option value='${v4[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v4[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>e</td>
+            <td><input type="text"value="${v5[0]}"/></td>
+            <td><select>
+                <option value='${v5[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v5[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>f</td>
+            <td><input type="text"value="${v6[0]}"/></td>
+            <td><select>
+                <option value='${v6[1]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td><select>
+                <option value='${v6[2]}'></option>
+                <option value="kongtiao">空调</option>
+                <option value="door">门</option>
+                <option value="mon">监控</option>
+                ${htmle}
+            </select></td>
+            <td>
+                <select>
+                    <option value="0"selected>无</option>
+                    <option value="outlet">插座</option>
+                    <option value="light">灯</option>
+                </select>
+            </td>
+        </tr>
+    `);
+        var address=$('#example2');
+        table_djust(address,4);
+    })
+    $('#btn').click(function(){
+        if(save1) {
+            localStorage['a'] = JSON.stringify([$('#bbb').find('tr:eq(0) input').val(), $('#bbb').find('tr:eq(0) select:eq(0)').val(), $('#bbb').find('tr:eq(0) select:eq(1)').val(), $('#bbb').find('tr:eq(0) select:eq(2)').val()]);
+            localStorage['b'] = JSON.stringify([$('#bbb').find('tr:eq(1) input').val(), $('#bbb').find('tr:eq(1) select:eq(0)').val(), $('#bbb').find('tr:eq(1) select:eq(1)').val(), $('#bbb').find('tr:eq(1) select:eq(2)').val()]);
+            localStorage['c'] = JSON.stringify([$('#bbb').find('tr:eq(2) input').val(), $('#bbb').find('tr:eq(2) select:eq(0)').val(), $('#bbb').find('tr:eq(2) select:eq(1)').val(), $('#bbb').find('tr:eq(2) select:eq(2)').val()]);
+            localStorage['d'] = JSON.stringify([$('#bbb').find('tr:eq(3) input').val(), $('#bbb').find('tr:eq(3) select:eq(0)').val(), $('#bbb').find('tr:eq(3) select:eq(1)').val(), $('#bbb').find('tr:eq(3) select:eq(2)').val()]);
+            localStorage['e'] = JSON.stringify([$('#bbb').find('tr:eq(4) input').val(), $('#bbb').find('tr:eq(4) select:eq(0)').val(), $('#bbb').find('tr:eq(4) select:eq(1)').val(), $('#bbb').find('tr:eq(4) select:eq(2)').val()]);
+            localStorage['f'] = JSON.stringify([$('#bbb').find('tr:eq(5) input').val(), $('#bbb').find('tr:eq(5) select:eq(0)').val(), $('#bbb').find('tr:eq(5) select:eq(1)').val(), $('#bbb').find('tr:eq(5) select:eq(2)').val()]);
+        }
+        localStorage["extra1"]=$('#extra1').val();
+        localStorage["extra2"]=$('#extra2').val();
+        localStorage["extra3"]=$('#extra3').val();
+        localStorage["extra4"]=$('#extra4').val();
+        localStorage["extra5"]=$('#extra5').val();
+        localStorage["extra6"]=$('#extra6').val();
+        setTimeout(function(){location.reload()},2000);
+    });
+    $('#extra1').val(localStorage["extra1"]);
+    $('#extra2').val(localStorage["extra2"]);
+    $('#extra3').val(localStorage["extra3"]);
+    $('#extra4').val(localStorage["extra4"]);
+    $('#extra5').val(localStorage["extra5"]);
+    $('#extra6').val(localStorage["extra6"]);
+    var v1=(localStorage['a']==undefined?[0,0,0]:JSON.parse(localStorage['a']));
+    var v2=(localStorage['b']==undefined?[0,0,0]:JSON.parse(localStorage['b']));
+    var v3=(localStorage['c']==undefined?[0,0,0]:JSON.parse(localStorage['c']));
+    var v4=(localStorage['d']==undefined?[0,0,0]:JSON.parse(localStorage['d']));
+    var v5=(localStorage['e']==undefined?[0,0,0]:JSON.parse(localStorage['e']));
+    var v6=(localStorage['f']==undefined?[0,0,0]:JSON.parse(localStorage['f']));
+    var htmln=`
+        <tr>
+            <td>a</td>
+            <td>${v1[0]}</td>
+            <td>${v1[1]}</td>
+            <td>${v1[2]}</td>
+            <td>${v1[3]}</td>
+        </tr>
+        <tr>
+            <td>b</td>
+            <td>${v2[0]}</td>
+            <td>${v2[1]}</td>
+            <td>${v2[2]}</td>
+            <td>${v2[3]}</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>${v3[0]}</td>
+            <td>${v3[1]}</td>
+            <td>${v3[2]}</td>
+            <td>${v3[3]}</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>${v4[0]}</td>
+            <td>${v4[1]}</td>
+            <td>${v4[2]}</td>
+            <td>${v4[3]}</td>
+        </tr>
+        <tr>
+            <td>e</td>
+            <td>${v5[0]}</td>
+            <td>${v5[1]}</td>
+            <td>${v5[2]}</td>
+            <td>${v5[3]}</td>
+        </tr>
+        <tr>
+            <td>f</td>
+            <td>${v6[0]}</td>
+            <td>${v6[1]}</td>
+            <td>${v6[2]}</td>
+            <td>${v6[3]}</td>
+        </tr>
+    `;
+    $('#bbb').html(htmln)
+    var address=$('#example2');
+    table_djust(address,4);
+    var tempHost = null;
+    function test() {
+        var deviceId = localStorage['code'];
+        var accessKey = localStorage['ktt'];
+
+        // 生成主机对象
+        tempHost = new SHost(deviceId, accessKey);
+
+        // 初始化主机
+        tempHost.init();
+
+        // 注册主机状态推送
+        tempHost.registerHostStatusCallbackFunc(callBack);
+
+
+        //生成主机对象
+        //tempHost2 = new SHost("CCU_00018", "84267E60962B75092FC68C2AD123B641");
+
+        //初始化主机
+        //tempHost2.init();
+    }
+    test();
+    var status0=0;
+    var str=[];
+    function callBack(temp) {
+        console.warn(temp);
+        var tempJson = JSON.parse(temp);
+        if (tempJson.status.statusStep == "link" && tempJson.status.statusValue == 1) {
+            $("#link").html('链接成功');
+        }
+        if (tempJson.status.statusStep == "login" && tempJson.status.statusValue == 1) {
+            $("#login").html('登录成功');
+        }
+        if (tempJson.status.statusStep == "synch" && tempJson.status.statusValue == 1) {
+            $("#synch").html('信息同步成功');
+            status0=1
+        }
+        str=showScenes();
+        var html='';
+        for(var i=0;i<str.length;i++){
+            html+=`
+                <ul>
+                    <li data-num=${i+1} style="display: none"></li>
+                    <li>${str[i].id}</li>
+                    <li>${str[i].name}</li>
+                </ul>
+            `
+        }
+        $('#ooo').html(html)
+    }
+    setTimeout(function(){
+        if(status0==0){
+            alert('失败');
+            location.href='login.html'
+        }
+    },10000)
+    function checkHostObject() {
+        if (tempHost == null) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</html>

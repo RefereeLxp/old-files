@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/login.css" rel="stylesheet">
+    <style>
+    .step-box{
+        position: fixed;
+        top: 50px;
+        width: 500px;
+        background: #fff;
+        height: 50px;
+        left: 50px;
+    }
+    .step-box ul {
+        width: 100%;
+    }
+    .step-box ul li{
+        float: left;
+        list-style: none;
+        text-align: center;
+    }
+    .step-box ul span{
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+    }
+    .step-box ul p{
+        /*display: inline-block;*/
+        line-height: 20px;
+        font-size: 14px;
+        color: #EAC489;
+        /*width: 80px;*/
+        /*height: 20px;*/
+    }
+    .step span{
+        background: #EAC489;
+        border-radius: 50%;
+        color: #fff;
+    }
+    .step-line{
+        width: 100px;
+        display: inline-block;
+    }
+    .step-box .step-line span{
+        width: 100%;
+        background: #EAC489;
+        height: 2px;
+        vertical-align: super;
+    }
+    </style>
+</head>
+<body>
+<div class="step-box">
+    <ul>
+        <li class="step">
+            <span>1</span>
+            <p>第一步</p>
+        </li>
+        <li class="step-line">
+            <span></span>
+            <p></p>
+        </li>
+        <li class="step">
+            <span>2</span>
+            <p>第二步</p>
+        </li>
+    </ul>
+</div>
+<div class="beijing">
+    <div class="logo">
+        <div class="logo-box">
+            <img src="image/logo.png">
+        </div>
+        <div class="logo-tit">
+            <img src="image/nanhang.png">
+            <p>涉密人员非涉密设备管理系统</P>
+        </div>
+    </div>
+    <div class="content">
+        <div class="leftb">
+            <div class="leftb-tit">
+                <p>已有账号，请登录</p>
+            </div>
+            <div class="slider">
+                <img src="image/hua.png">
+            </div>
+            </div>
+        <div class="rightb">
+            <form action="">
+                <div class="userhead">
+                    <div>
+                        <img class="tk" src="image/touxiang.png">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input class="yhm" type="text" value="用户名"/>
+                    <b></b>
+                </div>
+                <div class="input-box">
+                    <input class="mm" type="text" value="密码"/>
+                    <b></b>
+                </div>
+                <div class="button">
+                    <input type="checkbox"/><span>记住我</span>
+                    <b>|</b>
+                    <span>
+                        <a href="#">忘记密码</a>
+                    </span>
+                    <button>登录</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

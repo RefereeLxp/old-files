@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html  ng-app="ngApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="../css/style.css"/>-->
+    <link rel="stylesheet" href="../css/main-css.css"/>
+    <script src="../js/jquery-1.11.2.min.js"></script>
+    <!--<script src="js/jquery.mobile-1.4.5.js"></script>-->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/angular.js"></script>
+</head>
+<body  ng-controller="ngControl as info">
+    <div class="container">
+        <div class="nav-box">
+            <div class="nav-title">
+                <span>填写信息</span>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box1">
+            <h4 class="insurance-box-title">
+                投保人信息
+            </h4>
+            <div class="insurance-box-from">
+                <div>
+                    <span>姓名*</span>
+                    <input type="text" placeholder="请输入您的姓名" ng-model="userName"/>
+                </div>
+                <div>
+                    <span>身份证号*</span>
+                    <input type="text" placeholder="请输入身份证号" ng-model="idNum"/>
+                </div>
+                <div>
+                    <span>手机号码*</span>
+                    <input type="text" placeholder="请输入手机号码" ng-model="telNum"/>
+                </div>
+                <div>
+                    <span>电子邮箱</span>
+                    <input type="text" placeholder="请输入电子邮箱" ng-model="email"/>
+                </div>
+                <div>
+                    <span>合同号*</span>
+                    <input type="text" placeholder="请输入合同号"/>
+                </div>
+                <div>
+                    <span>贷款金额*</span>
+                    <input type="text" placeholder="请输入贷款金额"/>
+                </div>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box2">
+            <h4 class="insurance-box-title">
+                被保人信息
+            </h4>
+            <div class="insurance-box-list">
+                <div>
+                    <span>与投保人关系：</span>
+                    <b>本人</b>
+                </div>
+                <div>
+                    <span>姓名:</span>
+                    <b ng-bind="userName">--</b>
+                </div>
+                <div>
+                    <span>身份证号：</span>
+                    <b ng-bind="idNum"></b>
+                </div>
+                <div>
+                    <span>手机号码：</span>
+                    <b ng-bind="telNum">--</b>
+                </div>
+                <div>
+                    <span>电子邮箱：</span>
+                    <b ng-bind="email">--</b>
+                </div>
+            </div>
+        </div>
+        <div class="insurance-box insurance-box3">
+            <h4 class="insurance-box-title">
+                受益人信息
+            </h4>
+            <div>
+                <p>受益人：<i>南京智视界科技有限公司</i></p>
+            </div>
+            <div>
+                <p>保费：<b>￥23423</b>元</p>
+            </div>
+            <div>
+                <input name="Fruit" type="checkbox" value="" />
+                <i>我已阅读 <a href="#">《投保须知》</a>和 <a href="#">《投保声明》</a></i>
+            </div>
+
+            <div>
+                <button>
+                    立即投保
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        angular.module('ngApp',[]).controller('ngControl',[function ($http) {
+        }])
+    </script>
+</body>
+</html>

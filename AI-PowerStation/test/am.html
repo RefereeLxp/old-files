@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            height: 1000px;
+            margin: 1200px 0px;
+        }
+        ul{
+            width: 900px;
+            margin: 0 auto;
+            transition-duration: 1s;
+            /*transform: translate(0,200px);*/
+            transition-property:all;
+        }
+        ul li{
+            list-style: none;
+            width: 280px;
+            height: 280px;
+            background: #dedede;
+            margin: 10px;
+            float: left;
+            transition-duration: 1s;
+            transform: translate(0,300px);
+        }
+        li:hover{
+            transform: translate(0, -10px);
+            box-shadow: 0px 2px 2px 2px #bbbbbb;
+        }
+        li.type-2{
+            width: 580px;
+        }
+        .move{
+            transform: translate(0,0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li class="type-1"></li>
+            <li class="type-2"></li>
+            <li class="type-1"></li>
+            <li class="type-1"></li>
+            <li class="type-1"></li>
+            <li class="type-2"></li>
+            <li class="type-1"></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="js/jQuery-2.1.4.min.js"></script>
+<script>
+
+    $(document).on("mousewheel DOMMouseScroll", function (e) {
+        var h=$('.box ul').offset().top - $(window).scrollTop();
+        console.error($('.box ul').offset().top - $(window).scrollTop());
+//        var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
+//                (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));              // firefox
+//
+//
+//        if (delta > 0) {
+//            // 向上滚
+//            console.log("wheelup");
+//        } else if (delta < 0) {
+//            // 向下滚
+//            console.log("wheeldown");
+//        }
+        if(h<900){
+            console.log('开始');
+            setTimeout(function () {
+                $('.box ul li').addClass('move');
+            },10)
+        }else{
+            $('.box ul li').removeClass('move');
+        }
+    });
+</script>
+</html>

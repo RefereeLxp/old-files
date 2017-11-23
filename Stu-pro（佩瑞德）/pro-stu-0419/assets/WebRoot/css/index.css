@@ -1,0 +1,152 @@
+@charset "utf-8";
+body{
+    background: url("image/beijing.png") no-repeat;position: relative;
+}
+*{
+    margin:0;padding:0;border: 0;
+    font-family: "Microsoft Yahei";
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+.beijing{
+    width: 100%;
+    height: auto;
+}
+.clearfix{
+    clear: both;
+}
+.logo{
+    width:1000px;
+    height:110px;
+    margin: 160px auto 0;
+}
+.logo-tit{
+    padding-top:10px;
+    display: inline-block;
+    width: 340px;
+}
+.logo img{
+    float:left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.logo p{
+    float:left;
+    font-size:25px;
+    margin-left: 10px;
+    margin-top: 15px;
+    color:white;
+}
+.content{
+    width: 990px;
+    height: 320px;
+    border: 1px solid transparent;
+    margin: 100px auto 0;
+}
+.content .leftb{
+    float: left;
+    border: 1px solid transparent;
+    height: 320px;
+    width: 450px;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #e6f2fb 0%, #f2f9fd 8%, #feffff 15%,#feffff 85%,#f2f9fd 92%,#e6f2fb 100%);
+}
+.slider{
+    width: 375px;
+    margin: 40px auto 0;
+}
+.leftb-tit{
+    font-size: 16px;
+    color: #72b5e0;
+    line-height: 50px;
+    width: 70%;
+    margin: 20px auto;
+    text-align: left;
+}
+.content .rightb{
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    height: 320px;
+    width: 440px;
+    background: rgba(215,238,254,.6);
+}
+.userhead{
+    background: url("image/xian.png") no-repeat 0px 29px;
+    width: 387px;
+    height: 65px;
+    margin: 35px auto 0;
+}
+.userhead div{
+    width: 65px;
+    height: 64px;
+    margin: 0 auto;
+}
+.input-box{
+    margin: 22px auto;
+    position: relative;
+}
+.input-box input{
+    height: 35px;
+    width: 300px;
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 2px #adadad;
+    border-radius: 3px;
+    margin-left:60px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    color: #c6c7c8;
+    font-size: 14px;
+    outline:none;
+}
+.input-box  input:focus{
+    border: 1px solid #eee;
+}
+.input-box b{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("image/yonghuming.png") no-repeat;
+    position: absolute;
+    left: 67px;
+    top: 3px;
+}
+.rightb .input-box:nth-child(3) b{
+    background: url("image/mima.png") no-repeat;
+}
+.button{
+    width: 73%;
+    margin: 20px auto;
+    font-size: 14px;
+    line-height: 30px;
+}
+.button input{
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+}
+.button span{
+   padding-left: 10px;
+}
+.button b{
+    padding: 0 15px;
+}
+.button a{
+    text-decoration: underline;
+    color: #1980c5;
+}
+.button button{
+    color: #fff;
+    margin-left: 48px;
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    background: #42dcf2;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    outline:none;
+}

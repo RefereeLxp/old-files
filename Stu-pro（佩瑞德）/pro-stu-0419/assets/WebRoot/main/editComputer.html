@@ -1,0 +1,23 @@
+<html>
+<form action="/assets/device/updateComputer" method="post">
+    <div>
+		<label>编号</label>
+		<input type="text" name="computer.number" value="#(computer.number??)" />
+		<input type="hidden" name="computer.id" value="#(computer.id??)" />
+		<input type="hidden" name="userId" value="#(user.get(0).id)" />				
+	</div>
+	    <div>
+		<label>品牌</label>
+		<input type="text" name="computer.brand" value="#(computer.brand??)" />
+	</div>
+	    <div>
+		<label>类型</label>
+		<input type="text" name="computer.type" value="#(computer.type??)" />
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input value="提交" type="submit">
+	</div>
+</form>
+	
+</html>

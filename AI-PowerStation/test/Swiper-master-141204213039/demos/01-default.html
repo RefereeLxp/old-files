@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <link rel="stylesheet" href="../dist/idangerous.swiper.css">
+  <style>
+/* Demo Syles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  height:900px;
+}
+.device {
+  width: 100%;
+  height: 100%;
+  background: #d3dcd3;
+  border: 3px solid white;
+  position: relative;
+}
+.device .arrow-left {
+  background: url(img/arrows.png) no-repeat left top;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+  z-index: 2000;
+}
+.device .arrow-right {
+  background: url(img/arrows.png) no-repeat left bottom;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+  z-index: 2000;
+}
+/*.swiper-container {*/
+  /*height: 300px;*/
+  /*width: 640px;*/
+/*}*/
+.content-slide {
+  padding: 20px;
+  color: #fff;
+}
+.title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.pagination {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom:5px;
+  width: 100%;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #999;
+  box-shadow: 0px 1px 2px #555 inset;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+.swiper-container {
+  width: 100%;
+  height: 800px;
+}
+  </style>
+</head>
+<body>
+  <div class="device">
+    <a class="arrow-left" href="#"></a> 
+    <a class="arrow-right" href="#"></a>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h1>插件(Plug-in,又称addin、add-in、addon或add-on,又译外挂)是一种遵循一定规范的应用程序接口编写出来的程序。其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。很多软件都有插件，插件有无数种。例如在IE中，安装相关的插件后，WEB浏览器能够直接调用插件程序，用于处理特定类型的文件。插件的定位是开发实现原纯净系统平台、应用软件平台不具备的功能的程序，其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。
+          </h1>
+        </div>
+        <div class="swiper-slide">
+          <h1>插件(Plug-in,又称addin、add-in、addon或add-on,又译外挂)是一种遵循一定规范的应用程序接口编写出来的程序。其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。很多软件都有插件，插件有无数种。例如在IE中，安装相关的插件后，WEB浏览器能够直接调用插件程序，用于处理特定类型的文件。插件的定位是开发实现原纯净系统平台、应用软件平台不具备的功能的程序，其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。
+          </h1>
+        </div>
+        <div class="swiper-slide">
+          <div class="content-slide">
+            <h1>插件(Plug-in,又称addin、add-in、addon或add-on,又译外挂)是一种遵循一定规范的应用程序接口编写出来的程序。其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。很多软件都有插件，插件有无数种。例如在IE中，安装相关的插件后，WEB浏览器能够直接调用插件程序，用于处理特定类型的文件。插件的定位是开发实现原纯净系统平台、应用软件平台不具备的功能的程序，其只能运行在程序规定的系统平台下（可能同时支持多个平台），而不能脱离指定的平台单独运行。因为插件需要调用原纯净系统提供的函数库或者数据。
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination"></div>
+  </div>
+  <script src="js/jquery-1.10.1.min.js"></script>
+  <script src="../dist/idangerous.swiper.min.js"></script>
+  <script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+    loop:true,
+    grabCursor: true,
+    paginationClickable: true
+  })
+  $('.arrow-left').on('click', function(e){
+    e.preventDefault();
+    mySwiper.swipePrev();
+  })
+  $('.arrow-right').on('click', function(e){
+    e.preventDefault();
+    mySwiper.swipeNext();
+  })
+  </script>
+</body>
+</html>

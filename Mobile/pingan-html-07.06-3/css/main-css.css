@@ -1,0 +1,130 @@
+body {
+  width: 100%;
+  height: 100%;
+  /*background: url("../image/body-bg.jpg") repeat;*/
+  background: #fff;
+}
+p {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.nav-box {
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+.nav-title {
+  height: 45px;
+  width: 100%;
+  background: #fe3728;
+  color: #fff;
+  line-height: 45px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.insurance-box {
+  width: 100%;
+  padding: 20px 10px;
+}
+.insurance-box .insurance-box-title {
+  font-size: 16px;
+  color: #fe3728;
+  margin: 0;
+  border-left: 3px solid #fe3728;
+  padding: 0 8px;
+}
+.insurance-box .insurance-box-from div,
+.insurance-box .insurance-box-list div {
+  margin: 15px auto;
+  width: 90%;
+  padding: 0 20px;
+  height: 40px;
+  border: 1px solid #dadada;
+  line-height: 40px;
+}
+.insurance-box .insurance-box-from div span,
+.insurance-box .insurance-box-list div span {
+  font-size: 15px;
+  display: inline-block;
+  width: 100px;
+  color: #494949;
+}
+.insurance-box .insurance-box-from div input,
+.insurance-box .insurance-box-list div input {
+  line-height: 25px;
+  border: 1px solid transparent;
+  outline: none;
+}
+.insurance-box .insurance-box-list span {
+  width: 120px!important;
+}
+.insurance-box .insurance-box-list b {
+  font-weight: normal;
+}
+.insurance-box3 div {
+  display: inline-block;
+  width: 90%;
+  margin: 15px auto 0;
+  padding: 0 20px;
+  line-height: 20px;
+}
+.insurance-box3 div p {
+  font-size: 15px;
+  color: #494949;
+}
+.insurance-box3 div p b {
+  font-weight: normal;
+  color: #696969;
+  padding-left: 5px;
+}
+.insurance-box3 div input {
+  width: 16px;
+  height: 16px;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+.insurance-box3 div i {
+  font-style: normal;
+}
+.insurance-box3 div b {
+  font-weight: normal;
+  color: #fe3728 !important;
+  padding: 0 3px;
+}
+.insurance-box3 div .my-btn {
+  display: inline-block;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 20px 10%;
+  background: #fe3728;
+  color: #fff;
+  font-size: 16px;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #fe3728;
+  border-radius: 5px;
+}
+.insurance-readOnly div {
+  display: inline-block;
+  width: 90%;
+  margin: 15px auto 0;
+  padding: 0 20px;
+  line-height: 20px;
+}
+.insurance-readOnly div span {
+  font-size: 15px;
+  display: inline-block;
+  width: 120px;
+  color: #494949;
+}
+.insurance-readOnly div i {
+  font-style: normal;
+}
+.insurance-readOnly div b {
+  font-weight: normal;
+}

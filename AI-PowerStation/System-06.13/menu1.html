@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+</head>
+<style>
+
+</style>
+<body>
+<!--导航栏-->
+<div class="nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="log-box">
+                    <img src="image/log.png" alt=""/>
+                    <span>南京控客信息技术有限公司</span>
+                </div>
+            </div>
+            <div class="col-xs-8 nav-rg">
+                <div class="exponent-box">
+                    <span><i></i><b id="temple">25℃</b></span>
+                    <span><i></i><b id="humi">25%</b></span>
+                    <span><i></i><b id="illum">25%</b></span>
+                </div>
+                <div class="date-box">
+                    <span id="time">2017年4月11日</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="demo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar">自定义
+                        <ul class="menu">
+                            <li>
+                                <a href="guanli.html">配置情景</a>
+                                <div class="menu-tip">
+                                    <span style="line-height: 20px">可配置已经定义的情景</span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="config.html">编辑情景</a>
+                                <div class="menu-tip">
+                                    <span>可对情景模式进行增、删、改操作</span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="config2.html">编辑IFTTT</a>
+                                <div class="menu-tip">
+                                    <span>可对IFTTT模式进行增、删、改操作</span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="IP.html">编辑IP</a>
+                                <div class="menu-tip">
+                                    <span>可编辑摄像头、门禁IP</span>
+                                </div>
+
+                            </li>
+                            <li>
+                                <a href="bangding.html">发现新设备</a>
+                                <div class="menu-tip">
+                                    <span>可搜索新设备，并对其进行绑定</span>
+                                </div>
+                            </li>
+                            <!--<li><a href="#" class="fa fa-rss"></a></li>-->
+                            <!--<li><a href="#" class="fa fa-instagram"></a></li>-->
+                            <!--<li><a href="#" class="fa fa-skype"></a></li>-->
+                            <!--<li><a href="#" class="fa fa-github"></a></li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12 back">
+                    <button class="system-btn" id="back-btn">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/sdk/SH_SDK_v1.1.2.js"></script>
+<script type="text/javascript" src="js/gateway.js"></script>
+<script type="text/javascript" src="js/displayInformation.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/operate.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/IFTTT.js"></script>
+<script type="text/javascript" src="js/dianzhan.js"></script>
+<script>
+    setTimeout(function () {
+        $('.navbar').parent().addClass('menu-on');
+    },200);
+    $('.navbar').click(function () {
+        if($('.navbar').parent().hasClass('menu-on')){
+            $(this).parent().removeClass('menu-on');
+        }else{
+            $('.navbar').parent().addClass('menu-on');
+        }
+    })
+    $('.navbar li').click(function (event) {
+//        $('.navbar').parent().addClass('menu-on');
+        event.stopPropagation();
+    })
+    function showLeftTime()
+    {
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth();
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+        if(hours<10){
+            hours='0'+hours;
+        }
+        if(minutes<10){
+            minutes='0'+minutes;
+        }
+        if(seconds<10){
+            seconds='0'+seconds;
+        }
+        $('#time').html(""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"");
+//一秒刷新一次显示时间
+        var timeID=setTimeout(showLeftTime,1000);
+    }
+    showLeftTime()
+</script>
+</body>
+</html>
